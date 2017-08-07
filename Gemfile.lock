@@ -198,7 +198,6 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll-theme-cayman
 
 BUNDLED WITH
    1.13.7
