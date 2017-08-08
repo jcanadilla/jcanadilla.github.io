@@ -10,19 +10,21 @@ layout: default
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <ul class="info">
                     <li><span class="first-block">Nombre:</span><span class="second-block">Javier Cañadilla Casco</span></li>
                     <li><span class="first-block">Email:</span><span class="second-block">jcanadillacasco@outlook.com</span></li>
                     <li><span class="first-block">Vivo en:</span><span class="second-block">Navalcarnero, Madrid. España</span></li>
                 </ul>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <h2>¡Hola mundo!</h2>
-                <p class="text-justify">Bienvenido a mi página web personal. En ella encontrarás mi currículum vitae e información sobre mí.
-                    También he creado un blog en el que iré publicando noticias, tecnologías y pruebas que vaya haciendo con el tiempo.</p>
-                <p class="text-justify">Soy Ingeniero de Software y tengo un Máster Universitario en Informática Gráfica, Juegos y Realidad Virtual, ambos títulos por la Universidad Rey Juan Carlos de Madrid.
-                    Me encanta programar y construir herramientas que faciliten la vida de las personas. Me gusta mucho <i>trastear</i> con nuevas tecnologías para estar continuamente aprendiendo y ampliando horizontes.
+                <p class="text-justify">Bienvenido a mi página web personal. En ella encontrarás mi currículum vitae e información sobre mí. También
+                    he creado un blog en el que iré publicando noticias, tecnologías y pruebas que vaya haciendo con el tiempo.</p>
+                <p class="text-justify">Soy Ingeniero de Software y tengo un Máster Universitario en Informática Gráfica, Juegos y Realidad Virtual,
+                    ambos títulos por la Universidad Rey Juan Carlos de Madrid. Me encanta programar y construir herramientas
+                    que faciliten la vida de las personas. Me gusta mucho <i>trastear</i> con nuevas tecnologías para estar
+                    continuamente aprendiendo y ampliando horizontes.
                 </p>
                 <p class="text-justify">Te animo a que me sigas en mis redes sociales y en Github. :)</p>
                 <p>
@@ -37,7 +39,7 @@ layout: default
     </div>
 </div>
 
-<div id="fh5co-resume" class="fh5co-bg-color">
+<div id="fh5co-resume" class="animate-box fh5co-bg-color">
     <div class="container">
         <div class="row animate-box">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
@@ -60,7 +62,8 @@ layout: default
                                 <span class="company">LabCave Games - 01/2017 - Actualidad</span>
                             </div>
                             <div class="timeline-body">
-                                <p>Automatización de tareas con Ruby, integración con Jenkins, desarrollo de una aplicación web/base de datos, publicación de juegos en HTML5...</p>
+                                <p>Automatización de tareas con Ruby, integración con Jenkins, desarrollo de una aplicación
+                                    web/base de datos, publicación de juegos en HTML5...</p>
                             </div>
                         </div>
                     </li>
@@ -72,7 +75,8 @@ layout: default
                                 <span class="company">LabCave Games - 08/2016 - 01/2017</span>
                             </div>
                             <div class="timeline-body">
-                                <p>Desarrollador de videojuegos en Unity 3D, proceso de publicación de juegos en iOS y Android, gestión de redes de publicidad... </p>
+                                <p>Desarrollador de videojuegos en Unity 3D, proceso de publicación de juegos en iOS y Android,
+                                    gestión de redes de publicidad... </p>
                             </div>
                         </div>
                     </li>
@@ -103,7 +107,8 @@ layout: default
                                 <span class="company">Universidad Rey Juan Carlos - 2015 - 2017</span>
                             </div>
                             <div class="timeline-body">
-                                <p>Especialización en el desarrollo de videojuegos con Unity 3D, computación de altas prestaciones con CUDA, Shaders en GLSL...</p>
+                                <p>Especialización en el desarrollo de videojuegos con Unity 3D, computación de altas prestaciones
+                                    con CUDA, Shaders en GLSL...</p>
                             </div>
                         </div>
                     </li>
@@ -115,7 +120,8 @@ layout: default
                                 <span class="company">Universidad Rey Juan Carlos - 2011 - 2015</span>
                             </div>
                             <div class="timeline-body">
-                                <p>Programación de algoritmos, programación funcional y concurrente, bases de datos, metodologías ágiles...</p>
+                                <p>Programación de algoritmos, programación funcional y concurrente, bases de datos, metodologías
+                                    ágiles...</p>
                             </div>
                         </div>
                     </li>
@@ -141,6 +147,69 @@ layout: default
                         </div>
                     </li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fh5co-work" class="fh5co-bg-dark">
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                <h2>Proyectos</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for project in site.projects %}
+            <div class="col-md-3 text-center col-padding animate-box">
+                <a href="{{project.url}}" class="work" style="background-image: url({{'assets/images/projects/' | append: project.image}});">
+                    <div class="desc">
+                        <h3>{{project.name}}</h3>
+                        <span>{{project.technologies | array_to_sentence_string: 'y'}}</span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id="fh5co-blog">
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                <h2>Posts</h2>
+                <p>En esta sección incluyo desarrollos de tecnologías nuevas que voy probando, tutoriales, curiosidades... Adelante, como si estuvieras en tu casa :)</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for post in site.posts %}
+            <div class="col-md-4">
+                <div class="fh5co-blog animate-box">
+                    <a href="{{post.url}}" class="blog-bg" style="background-image: url({{ 'assets/images/posts/' | append: post.image }});"></a>
+                    <div class="blog-text">
+                        <span class="posted_on">{{ post.date | date: "%H:%M %d-%m-%Y" }}</span>
+                        <h3><a href="{{post.url}}">{{ post.title }}</a></h3>
+                        <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+                        <ul class="stuff">
+                            <li><a href="{{post.url}}">Leer más<i class="icon-arrow-right22"></i></a></li>
+                        </ul>
+                    </div> 
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id="fh5co-started" class="fh5co-bg-dark">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                <h2>¡Contáctame!</h2>
+                <p>Por si lo necesitas o lo estás buscando...</p>
+                <p><a href="mailto:jcanadillacasco@outlook.com?subject=¡Hola%20Javier!" class="btn btn-default btn-lg">Email</a></p>
             </div>
         </div>
     </div>

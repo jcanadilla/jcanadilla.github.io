@@ -396,14 +396,14 @@ h1, h2, h3, h4, h5, h6, figure {
 			padding-top: 0;
 		}
 		.first-block{
-			width: 30%;
+			width: 20%;
 			display: inline-block;
 			float: left;
 			color: $brand-black;
 			font-weight: bold;
 		}
 		.second-block{
-			width: 70%;
+			width: 80%;
 			display: inline-block;
 			color: rgba($brand-black,.5);
 		}
@@ -1087,6 +1087,9 @@ input[type="text"] {
 	}	
 }
 
+#post-page {
+	margin-top: $navbar-height + 50px;
+}
 
 // Buttons
 .btn {

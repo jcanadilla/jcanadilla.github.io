@@ -47,4 +47,6 @@ sass:
 #   - vendor/ruby/
 
 collections:
-  - projects
+  projects:
+    output: true
+    permalink: /:collection/:name
