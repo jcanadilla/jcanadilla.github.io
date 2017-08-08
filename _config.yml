@@ -23,7 +23,7 @@ url: "http://jcanadilla.github.io" # the base hostname & protocol for your site,
 twitter_username: JaviCasco5
 github_username:  jcanadilla
 linkedin_username: javiercanadillacasco
-repository: "jcanadilla/jcanadilla.github.io"
+repository: jcanadilla/jcanadilla.github.io
 
 # Build settings
 markdown: kramdown
@@ -45,3 +45,6 @@ sass:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+collections:
+  - projects
