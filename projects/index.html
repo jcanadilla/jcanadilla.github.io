@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="container">
+    <div id="post-page" class="row animate-box">
+        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+            <h2>Proyectos</h2>
+            <p class="text-center">Estos son todos los proyectos en los que he participado o que he creado.</p>
+        </div>
+    </div>
+    <div class="row">
+        {% for project in site.projects %}
+        <div class="col-md-3 text-center col-padding animate-box">
+            <a href="{{project.url}}" class="work" style="background-image: url({{ site.baseurl | append: '/assets/images/projects/' | append: project.thumbnail}});">
+                <div class="desc">
+                    <h3>{{project.title}}</h3>
+                    <span>{{project.technologies | array_to_sentence_string: 'y'}}</span>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>

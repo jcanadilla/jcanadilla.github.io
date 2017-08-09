@@ -30,8 +30,8 @@ layout: default
                 <p>
                     <ul class="fh5co-social-icons">
                         <li><a href="https://twitter.com/{{site.twitter_username}}" target="blank"><i class="icon-twitter2"></i></a></li>
-                        <li><a href="https://github.com/{{site.github_username}}" target="blank"><i class="icon-github2"></i></a></li>
                         <li><a href="https://www.linkedin.com/in/{{site.linkedin_username}}" target="blank"><i class="icon-linkedin2"></i></a></li>
+                        <li><a href="https://github.com/{{site.github_username}}" target="blank"><i class="icon-github2"></i></a></li>
                     </ul>
                 </p>
             </div>
@@ -162,9 +162,9 @@ layout: default
         <div class="row">
             {% for project in site.projects %}
             <div class="col-md-3 text-center col-padding animate-box">
-                <a href="{{project.url}}" class="work" style="background-image: url({{'assets/images/projects/' | append: project.image}});">
+                <a href="{{project.url}}" class="work" style="background-image: url({{'assets/images/projects/' | append: project.thumbnail}});">
                     <div class="desc">
-                        <h3>{{project.name}}</h3>
+                        <h3>{{project.title}}</h3>
                         <span>{{project.technologies | array_to_sentence_string: 'y'}}</span>
                     </div>
                 </a>
@@ -178,12 +178,12 @@ layout: default
     <div class="container">
         <div class="row animate-box">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                <h2>Posts</h2>
-                <p>En esta sección incluyo desarrollos de tecnologías nuevas que voy probando, tutoriales, curiosidades... Adelante, como si estuvieras en tu casa :)</p>
+                <h2><a href="{{site.baseurl}}/blog">Posts</a></h2>
+                <p class="text-center">En esta sección incluyo desarrollos de tecnologías nuevas que voy probando, tutoriales, curiosidades... Adelante, como si estuvieras en tu casa :)</p>
             </div>
         </div>
         <div class="row">
-            {% for post in site.posts %}
+            {% for post in site.posts limit:6 %}
             <div class="col-md-4">
                 <div class="fh5co-blog animate-box">
                     <a href="{{post.url}}" class="blog-bg" style="background-image: url({{ 'assets/images/posts/' | append: post.image }});"></a>
@@ -208,8 +208,8 @@ layout: default
         <div class="row animate-box">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                 <h2>¡Contáctame!</h2>
-                <p>Por si lo necesitas o lo estás buscando...</p>
-                <p><a href="mailto:jcanadillacasco@outlook.com?subject=¡Hola%20Javier!" class="btn btn-default btn-lg">Email</a></p>
+                <p class="text-center">Por si lo necesitas o lo estás buscando...</p>
+                <p class="text-center"><a href="mailto:jcanadillacasco@outlook.com?subject=¡Hola%20Javier!" class="btn btn-default btn-lg">Email</a></p>
             </div>
         </div>
     </div>

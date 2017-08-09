@@ -20,6 +20,9 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="{{'/assets/css/style.css?v=' | append: site.github.build_revision | relative_url}}">
+	
+	<!-- Code Style -->
+	<link rel="stylesheet" href="{{'/assets/css/syntax.css?v=' | append: site.github.build_revision | relative_url}}">
 
 	<!-- Modernizr JS -->
 	<script src="{{'/assets/js/modernizr-2.6.2.min.js?v=' | append: site.github.build_revision | relative_url}}"></script>
@@ -35,7 +38,7 @@
 	{% if page.layout == "home"%}
 	  	{% include header.html %}
 	{% endif %}
-		{% include navbar.html %}
+	{% include navbar.html %}
     {{content}}
 
  </div>
@@ -43,8 +46,8 @@
 	<div id="fh5co-footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<p>&copy; {{site.time | date: "%Y"}} Javier Cañadilla Casco. Todos los derechos reservados. <br>Diseñado por <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a> y modificado por Javier Cañadilla Casco.</p>
+				<div class="col-md-8 col-md-offset-2">
+					<p class="text-center">&copy; {{site.time | date: "%Y"}} Javier Cañadilla Casco. Todos los derechos reservados. <br>Diseñado por <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a> y personalizado por Javier Cañadilla Casco.</p>
 				</div>
 			</div>
 		</div>

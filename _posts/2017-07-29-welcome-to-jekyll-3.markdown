@@ -1,8 +1,9 @@
 ---
-layout: posts
-title:  "Welcome to Jekyll!"
-date:   2017-07-29 09:12:03 +0200
+layout: post
+title:  "Welcome to Jekyll! 3"
+date:   2017-07-29 09:12:00 +0200
 categories: jekyll update
+tags: tutorial coding easy
 image: blog-1.jpg
 excerpt_separator: <!--more-->
 ---

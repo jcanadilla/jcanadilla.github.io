@@ -1,5 +1,5 @@
----
-layout: default
+--- 
+layout: default 
 ---
 <!-- Page Content -->
 <div class="container">
@@ -19,7 +19,12 @@ layout: default
                 por Javier Cañadilla
             </p>
 
-            <img src="{{ site.url | append: '/assets/images/projects/' | append: page.image}}" class="img-responsive">
+            <!-- Date/Time -->
+            <p class="text-center"><span class="glyphicon glyphicon-time"></span> Publicado el día {{page.date | date: "%d-%m-%Y a las %H:%M"}}</p>
+
+            <hr> 
+
+            <img src="{{ site.url | append: '/assets/images/posts/' | append: page.main-image}}" class="img-responsive">
 
             <hr>
 

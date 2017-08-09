@@ -14,15 +14,19 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{site.baseurl}}{% link index.md %}" class="">Inicio</a></li>
                     {% if page.layout == "home" %}
-                    <li><a href="#fh5co-about">Sobre mí</a></li>
-                    <li><a href="#fh5co-resume">Trayectoria</a></li>
-                    <li><a href="#">Descargar CV</a></li>
+                        <li><a href="#fh5co-about">Sobre mí</a></li>
+                        <li><a href="#fh5co-resume">Trayectoria</a></li>
+                        <!-- <li><a href="#">Descargar CV</a></li> -->
                     {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{site.baseurl}}{% link projects.md %}">Proyectos</a></li>
-                    <li><a href="#">Posts</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="{{site.baseurl}}/projects">Proyectos</a></li>
+                    <li><a href="{{site.baseurl}}/blog">Posts</a></li>
+                    {% if page.layout == "home" %}
+                        <li><a href="#fh5co-started">Contacto</a></li>
+                    {% else %}
+                        <li><a href="mailto:jcanadillacasco@outlook.com?subject=¡Hola%20Javier!">Contacto</a></li>
+                    {% endif %}
                     <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
