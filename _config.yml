@@ -63,3 +63,9 @@ defaults:
       type: projects
     values:
       thumbnail: noimage.png
+
+defaults:
+  - scope:
+      path: "assets/images"
+    values:
+      image: true

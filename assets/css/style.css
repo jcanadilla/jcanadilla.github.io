@@ -1105,4 +1105,8 @@ input[type="text"] {
     .navbar-custom .btn-link[disabled]:hover, .navbar-custom .btn-link[disabled]:focus, fieldset[disabled] .navbar-custom .btn-link:hover, fieldset[disabled] .navbar-custom .btn-link:focus {
       color: #ccc; }
 
+.img-120x120 {
+  max-width: 120px;
+  display: inline-block; }
+
 /*# sourceMappingURL=style.css.map */
