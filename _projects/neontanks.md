@@ -1,14 +1,14 @@
 ---
 layout: project
 title: Neon Tanks
-technologies: [Unity3D, Photon Unity Networking, C#]
+technologies: [Unity3D, Photon Unity Networking, C#, Jenkins, Mocha, Webdriver.io]
 thumbnail: neontanks_thumb.png
 image: neontanks.png
 ---
 
 NeonTanks es el proyecto más grande que he desarrollado en mi especialización en los gráficos por ordenador y el desarrollo de los videojuegos. Se trata de un juego multijugador en tiempo real en el que los jugadores tienen que robar, con su tanque, la bandera enemiga para llevarla hasta su base.
   
-Es el proyecto que presenté como Proyecto Fin de Máster, del **Máster Universitario en Informática Gráfica, Realidad Virtual y Juegos** de la **Universidad Rey Juan Carlos** de Madrid.
+Es el proyecto que presenté como Proyecto Fin de Máster, del **Máster Universitario en Informática Gráfica, Realidad Virtual y Juegos** de la **Universidad Rey Juan Carlos** de Madrid. El tribunal consideró que realicé un gran trabajo y que le dediqué mucho esfuerzo durante todo el desarrollo y, por ello, me otorgó un **10**.
 <!--more-->
 
 ## Ambientación
@@ -68,11 +68,18 @@ La página web del juego está en este enlace:
 [NeonTanks]  
 Desde ella los usuarios se registran para poder jugar y si inician sesión pueden ver la información completa de su usuario, cambiar su avatar, comprar mejoras para el tanque y ver el histórico de batallas que han realizado. También tiene un sistema de tickets que permite enviar sugerencias, pedir ayuda o avisar de un error fácilmente.
 
-## Jenkins
+## Tecnologías utilizadas
+### Unity 3D
+El juego está desarrollado en **Unity 3D** y se ha utilizado **C#** como lenguaje de scripting. Además, se ha utilizado **Photon Unity Networking ([PUN])** como librería multijugador. 
+
+### Symfony 2.8
+Para la aplicación web se ha utilizado **[Symfony] 2.8** como framework de programación. También, se ha desarrollado la API Rest que comunica el juego con la aplicación web y que almacena toda la información del usuario para que pueda cambiar de dispositivo y mantenga su progreso.
+
+### Jenkins
 Para el despliegue de la aplicación web, se ha creado un _job_ de **Jenkins** con el que automatizar el proceso. Este _job_ lee el repositorio de **Github**, descargar los últimos cambios y los despliega en el servidor web (Apache) en cuestion de **40 segundos**.
 Gracias a esta automatización, se ahorra más de 1 hora en el despliegue de una versión y sobre todo, se evitan posibles caídas del servicio web.
 
-## Mocha y Webdriver.io
+### NodeJS: Mocha y Webdriver.io
 Por otro lado, y para mi tranquilidad, se ha desarrollado una batería de **tests funcionales** con **Mocha** y **Webdriver.io** que permite comprobar automáticamente que toda la aplicación web funciona a la perfección.
 
 ## Descarga
@@ -83,3 +90,5 @@ El juego está disponible para descargar a través de la tienda de Windows 10. E
 </a>
 
 [NeonTanks]: http://neontanks.mundoescena.es
+[PUN]: https://www.photonengine.com/en-US/PUN
+[Symfony]: https://symfony.com/
