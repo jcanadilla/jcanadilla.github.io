@@ -2,7 +2,7 @@
 layout: post
 title:  "Estas son las librerías más útiles de JavaScript / Typescript"
 date:   2022-04-03 10:20:15 +0200
-categories: Programación JavaScript
+categories: Programacion JavaScript
 tags: JavaScript Typescript BigData IoT
 image: lodash-bluebird.png
 main-image: lodash-bluebird.png
