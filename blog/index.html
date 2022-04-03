@@ -8,7 +8,7 @@ layout: default
 
         <!-- Blog Post Content Column -->
         <div class="col-lg-8 col-lg-offset-2">
-            <h1 class="text-center">Lista de Posts</h1>
+            <h1 class="text-center">Mis posts</h1>
             <hr>
             {% for post in paginator.posts %}
 
@@ -22,7 +22,7 @@ layout: default
                     por Javier Cañadilla
                 </p>
                 <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Publicado el día {{post.date | date: "%d-%m-%Y a las %H:%M"}}</p>
+                <p><span class="glyphicon glyphicon-time"></span> Publicado el día {{post.date | date: "%d-%m-%Y"}}</p>
                 
                 <a href="{{post.url}}"><img src="{{ site.url | append: '/assets/images/posts/' | append: post.main-image}}" class="img-responsive"></a>
 
