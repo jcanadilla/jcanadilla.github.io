@@ -14,7 +14,7 @@ layout: default
                 <ul class="info">
                     <li><span class="first-block">Nombre:</span><span class="second-block">Javier Cañadilla Casco</span></li>
                     <li><span class="first-block">Email:</span><span class="second-block">jcanadillacasco@outlook.com</span></li>
-                    <li><span class="first-block">Vivo en:</span><span class="second-block">Navalcarnero, Madrid. España</span></li>
+                    <li><span class="first-block">Vivo en:</span><span class="second-block">Madrid. España</span></li>
                 </ul>
             </div>
             <div class="col-md-7">
@@ -54,12 +54,25 @@ layout: default
                             <h3>Experiencia laboral</h3>
                         </div>
                     </li>
+					<li class="animate-box timeline-inverted">
+						<div class="timeline-badge"><i class="icon-suitcase"></i></div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h3 class="timeline-title">Desarrollador Backend + DevOps</h3>
+								<span class="company">Gibobs allbanks - 02/2021 - Actualidad</span>
+							</div>
+							<div class="timeline-body">
+								<p>Líder del desarrollo de backend. Creación de API Rest con microservicios y Hapi.js. Creación de
+									infraestructura sobre Amazon Web Services (AWS).</p>
+							</div>
+						</div>
+					</li>
                     <li class="animate-box timeline-unverted">
                         <div class="timeline-badge"><i class="icon-suitcase"></i></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h3 class="timeline-title">Analista programador - Node.js</h3>
-                                <span class="company">VASS Consultoría de sistemas - 04/2019 - Actualidad</span>
+                                <span class="company">VASS Consultoría de sistemas - 04/2019 - 02/2021</span>
                             </div>
                             <div class="timeline-body">
                                 <p>Desarrollo API Rest en Node.js. Integración de dispositivos IoT. Protocolos de comunicación. Creación de infraestructura sobre Amazon Web Services (AWS). Automatización de tareas con Jenkins.</p>
@@ -214,7 +227,7 @@ layout: default
                     <div class="blog-text">
                         <span class="posted_on">{{ post.date | date: "%H:%M %d-%m-%Y" }}</span>
                         <h3><a href="{{post.url}}">{{ post.title }}</a></h3>
-                        <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+                        <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' | truncate: 300 }}</p>
                         <ul class="stuff">
                             <li><a href="{{post.url}}">Leer más<i class="icon-arrow-right22"></i></a></li>
                         </ul>

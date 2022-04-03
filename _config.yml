@@ -17,12 +17,12 @@ title: Javier Cañadilla Casco
 email: jcanadillacasco@outlook.com
 description: > # this means to ignore newlines until "baseurl:"
   Ingeniero de Software con Máster en Informática Gráfica, Realidad Virtual y Juegos. Apasionado por la programación
-  y enamorado de la tecnología. Actualmente, trabajo como desarrollador de tecnología en LabCave Apps.
+  y enamorado de la tecnología.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://jcanadilla.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://jcanadilla.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: JaviCasco5
 github_username:  jcanadilla
-linkedin_username: javiercanadillacasco
+linkedin_username: jcanadillacasco
 repository: jcanadilla/jcanadilla.github.io
 
 # Build settings
@@ -31,8 +31,9 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-gems:
+plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 sass:
   sass_dir: _sass
