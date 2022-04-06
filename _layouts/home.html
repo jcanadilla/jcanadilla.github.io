@@ -55,7 +55,7 @@ layout: default
                         </div>
                     </li>
 					{% for position in site.positions %}
-						{% assign evenNumber = forloop.index | modulo: 2 %}
+						{% assign evenNumber = forloop.index0 | modulo: 2 %}
 						<li class="animate-box {% if evenNumber == 0 %} timeline-inverted {% else %} timeline-unverted {% endif%}">
 							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
 							<div class="timeline-panel">
