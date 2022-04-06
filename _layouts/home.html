@@ -1,5 +1,5 @@
 --- 
-layout: default 
+layout: default
 ---
 <!-- Home Subpage -->
 <div id="fh5co-about" class="animate-box">
@@ -54,7 +54,22 @@ layout: default
                             <h3>Experiencia laboral</h3>
                         </div>
                     </li>
-					<li class="animate-box timeline-inverted">
+					{% for position in site.positions %}
+						{% assign evenNumber = forloop.index | modulo: 2 %}
+						<li class="animate-box {% if evenNumber == 0 %} timeline-inverted {% else %} timeline-unverted {% endif%}">
+							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h3 class="timeline-title">{{ position.title }}</h3>
+									<span class="company">{{ position.company }} - {{position.initialDate}} - {{position.finalDate}}</span>
+								</div>
+								<div class="timeline-body">
+									{{ position.content }}
+								</div>
+							</div>
+						</li>
+					{% endfor %}
+					<!-- <li class="animate-box timeline-inverted">
 						<div class="timeline-badge"><i class="icon-suitcase"></i></div>
 						<div class="timeline-panel">
 							<div class="timeline-heading">
@@ -128,7 +143,7 @@ layout: default
                                 <p>Desarrollo de aplicaciones corporativas en PHP con Zend Framework 2, servicios REST y SOAP...</p>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
 
                     <br>
                     <li class="timeline-heading text-center animate-box">

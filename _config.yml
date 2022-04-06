@@ -16,8 +16,7 @@
 title: Javier Cañadilla Casco
 email: jcanadillacasco@outlook.com
 description: > # this means to ignore newlines until "baseurl:"
-  Ingeniero de Software con Máster en Informática Gráfica, Realidad Virtual y Juegos. Apasionado por la programación
-  y enamorado de la tecnología.
+  Ingeniero de Software apasionado por la programación y enamorado de la tecnología. Backend leader.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jcanadilla.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: JaviCasco5
@@ -58,6 +57,8 @@ collections:
   posts:
     output: true
     permalink: /blog/:categories/:slug
+  positions:
+    output: false
 
 paginate: 5
 paginate_path: "/blog/page:num/"
