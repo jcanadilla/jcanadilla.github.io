@@ -82,13 +82,6 @@ Gracias a esta automatización, se ahorra más de 1 hora en el despliegue de una
 ### NodeJS: Mocha y Webdriver.io
 Por otro lado, y para mi tranquilidad, se ha desarrollado una batería de **tests funcionales** con **Mocha** y **Webdriver.io** que permite comprobar automáticamente que toda la aplicación web funciona a la perfección.
 
-## Descarga
-El juego está disponible para descargar a través de la tienda de Windows 10. En el siguiente enlace:
-
-<a target="_blank" href="https://www.microsoft.com/store/apps/9nblggh4qdt9?ocid=badge">
-<img style="max-height: 50px !important; " src="https://assets.windowsphone.com/f2f77ec7-9ba9-4850-9ebe-77e366d08adc/English_Get_it_Win_10_InvariantCulture_Default.png" alt="Get it on Windows 10"/>
-</a>
-
 [NeonTanks]: http://neontanks.mundoescena.es
 [PUN]: https://www.photonengine.com/en-US/PUN
 [Symfony]: https://symfony.com/

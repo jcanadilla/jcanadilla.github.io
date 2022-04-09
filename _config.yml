@@ -34,11 +34,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-sass:
-  implementation: sass-embedded
-  sass_dir: _sass
-  style: compressed
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -75,3 +70,7 @@ defaults:
       path: "assets/images"
     values:
       image: true
+
+# deployment
+host: 0.0.0.0
+port: 4000
