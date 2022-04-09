@@ -1,0 +1,35 @@
+- title: Desarrollador Backend + DevOps
+  company: Gibobs allbanks
+  initialDate: 02/2021
+  finalDate: Actualidad
+  description: Líder del desarrollo de backend. Creación de API Rest con microservicios y Hapi.js. Creación de infraestructura sobre Amazon Web Services (AWS).
+
+- title: Analista programador - Node.js
+  company: VASS
+  initialDate: 04/2019
+  finalDate: 02/2021
+  description: Desarrollo API Rest en Node.js. Integración de dispositivos IoT. Protocolos de comunicación. Creación de infraestructura sobre Amazon Web Services (AWS). Automatización de tareas con Jenkins.
+
+- title: Analista programador - Node.js
+  company: Boycor S.L
+  initialDate: 11/2017
+  finalDate: 03/2019
+  description: Desarrollo API Rest en Node.js. Integración de dispositivos IoT. Protocolos de comunicación. Creación de infraestructura sobre Amazon Web Services (AWS). Automatización de tareas con Jenkins.
+
+- title: Programador de Tecnología
+  company: LabCave Games
+  initialDate: 01/2017
+  finalDate: 11/2017
+  description: Automatización de tareas con Ruby, integración con Jenkins, desarrollo de una aplicación web/base de datos, publicación de juegos en HTML5...
+
+- title: Programador de Unity 3D
+  company: LabCave Games
+  initialDate: 08/2016
+  finalDate: 01/2017
+  description: Desarrollador de videojuegos en Unity 3D, proceso de publicación de juegos en iOS y Android, gestión de redes de publicidad...
+
+- title: Programador PHP
+  company: Universidad Rey Juan Carlos
+  initialDate: 09/2014
+  finalDate: 11/2015
+  description: Desarrollador de aplicaciones corporativas para la Universidad Rey Juan Carlos en PHP usando Zend Framework.

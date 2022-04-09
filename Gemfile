@@ -21,3 +21,5 @@ gem "webrick", "~> 1.7"
 gem "wdm", "~> 0.1.1"
 
 gem 'jekyll-sitemap'
+
+gem 'sass-embedded', '~> 1.0'

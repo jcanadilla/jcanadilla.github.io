@@ -54,7 +54,7 @@ layout: default
                             <h3>Experiencia laboral</h3>
                         </div>
                     </li>
-					{% for position in site.positions %}
+					{% for position in site.data.positions %}
 						{% assign evenNumber = forloop.index0 | modulo: 2 %}
 						<li class="animate-box {% if evenNumber == 0 %} timeline-inverted {% else %} timeline-unverted {% endif%}">
 							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
@@ -64,7 +64,7 @@ layout: default
 									<span class="company">{{ position.company }} - {{position.initialDate}} - {{position.finalDate}}</span>
 								</div>
 								<div class="timeline-body">
-									{{ position.content }}
+									{{ position.description }}
 								</div>
 							</div>
 						</li>

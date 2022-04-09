@@ -35,6 +35,7 @@ plugins:
   - jekyll-sitemap
 
 sass:
+  implementation: sass-embedded
   sass_dir: _sass
   style: compressed
 
