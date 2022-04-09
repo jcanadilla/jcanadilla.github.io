@@ -1,0 +1,18 @@
+- title: Máster Universitario en Informática Gráfica, Juegos y Realidad Virtual
+  school: Universidad Rey Juan Carlos
+  initialDate: 2015
+  finalDate: 2017
+  description: Especialización en el desarrollo de videojuegos con Unity 3D, computación de altas prestaciones con CUDA, Shaders en GLSL...
+
+- title: Grado en Ingeniería del Software
+  school: Universidad Rey Juan Carlos
+  initialDate: 2011
+  finalDate: 2015
+  description: Programación de algoritmos, programación funcional y concurrente, bases de datos, metodologías ágiles...
+
+- title: Secundaria y Bachillerato
+  school: I.E.S Profesor Ángel Ysern
+  description: Rama de bachillerato tecnológico.
+
+- title: Educación primaria
+  school: Colegio público Felipe IV

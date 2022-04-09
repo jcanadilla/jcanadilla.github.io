@@ -75,53 +75,23 @@ layout: default
                             <h3>Estudios</h3>
                         </div>
                     </li>
-                    <li class="timeline-inverted animate-box">
+					{% for study in site.data.studies %}
+					{% assign evenNumber = forloop.index0 | modulo: 2 %}
+                    <li class="{% if evenNumber == 0 %} timeline-inverted {% else %} timeline-unverted {% endif%} animate-box">
                         <div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h3 class="timeline-title">Máster Universitario en Informática Gráfica, Juegos y Realidad Virtual</h3>
-                                <span class="company">Universidad Rey Juan Carlos - 2015 - 2017</span>
+                                <h3 class="timeline-title">{{study.title}}</h3>
+                                <span class="company">{% if study.initialDate != nil and study.finalDate != nil %}{{study.school}} - {{study.initialDate}} - {{study.finalDate}}{% else %}{{study.school}}{% endif %}</span>
                             </div>
+							{% if study.description != nil %}
                             <div class="timeline-body">
-                                <p>Especialización en el desarrollo de videojuegos con Unity 3D, computación de altas prestaciones
-                                    con CUDA, Shaders en GLSL...</p>
+                                <p>{{study.description}}</p>
                             </div>
+							{% endif %}
                         </div>
                     </li>
-                    <li class="animate-box timeline-unverted">
-                        <div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h3 class="timeline-title">Grado en Ingeniería del Software</h3>
-                                <span class="company">Universidad Rey Juan Carlos - 2011 - 2015</span>
-                            </div>
-                            <div class="timeline-body">
-                                <p>Programación de algoritmos, programación funcional y concurrente, bases de datos, metodologías
-                                    ágiles...</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted animate-box">
-                        <div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h3 class="timeline-title">Secundaria y Bachillerato</h3>
-                                <span class="company">I.E.S Profesor Ángel Ysern</span>
-                            </div>
-                            <div class="timeline-body">
-                                <p>Rama de bachillerato tecnológico.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="animate-box timeline-unverted">
-                        <div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h3 class="timeline-title">Educación primaria</h3>
-                                <span class="company">Colegio público Felipe IV</span>
-                            </div>
-                        </div>
-                    </li>
+					{% endfor %}
                 </ul>
             </div>
         </div>
