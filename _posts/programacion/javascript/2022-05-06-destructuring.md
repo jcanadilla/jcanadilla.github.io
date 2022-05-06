@@ -15,7 +15,7 @@ Si estás aquí para conocer la forma más elegante de extraer datos de un objet
 Pensarás que es una técnica muy difícil de entender y muy compleja de utilizar en el día a día. Pensarás que casi nunca lo llegarás a utilizar en una aplicación. O que tendrás que instalar una librería muy pesada en tu proyecto. Nada más lejos de la realidad. Es muy sencillo, muy útil y rápido de utilizar. Tanto que no necesitas instalar nada en tu aplicación porque forma parte del lenguaje.
 
 ## Vale, te creo. ¿Cómo funciona?
-El destructuring es una técnica que permite extraer datos de un objeto o de un array de forma muy elegante. Además, evitas poner *magic numbers* en el código para extraer posiciones concretas de un array, hasta cierto límite.
+El **destructuring** es una técnica que permite extraer datos de un objeto o de un array de forma muy elegante. Además, evitas poner *magic numbers* en el código para extraer posiciones concretas de un array, hasta cierto límite.
 
 ### Destructuring con objetos
 Te pongo un ejemplo con un objeto:
@@ -36,7 +36,7 @@ console.log(password);
 
 ```
 
-Como puedes ver en el ejemplo anterior, el destructuring utiliza la sintaxis de objeto *{* *}* para extraer los datos en nuevas variables. Así la variable **name** tendrá el valor del nombre del usuario, **email** el valor del email del usuario y **password** el valor de la contraseña del usuario.
+Como puedes ver en el ejemplo anterior, el **destructuring** utiliza la sintaxis de objeto *{* *}* para extraer los datos en nuevas variables. Así la variable **name** tendrá el valor del nombre del usuario, **email** el valor del email del usuario y **password** el valor de la contraseña del usuario.
 
 También podemos acceder a objetos dentro de otro objeto:
 
@@ -57,7 +57,7 @@ console.log(city);
 En este caso, hay que tener más cuidado porque *address* puede ser **undefined** y eso provocaría un error al intentar acceder a una propiedad de un objeto que no está definido.
 
 ### Destructuring con arrays
-Vale, también te dije que podíamos usar destructuring para extraer datos de un array de forma elegante. Vamos con el ejemplo:
+Vale, también te dije que podíamos usar **destructuring** para extraer datos de un array de forma elegante. Vamos con el ejemplo:
 
 ```javascript
 
@@ -69,7 +69,7 @@ const [user] = users;
 
 ```
 
-Al poner el **[user]**, el destructuring extrae el primer usuario del array y lo guarda en la variable **user**.
+Al poner el **[user]**, el **destructuring** extrae el primer usuario del array y lo guarda en la variable **user**.
 
 Otro ejemplo para quedarnos con el segundo usuario:
 
@@ -86,9 +86,9 @@ const user = users[1];
 const [, user] = users;
 
 ```
-> ¡OJO! Hay que comprobar que el array no esté vacío y que contenga al menos los elementos que queremos extraer con el destructuring.
+> ¡OJO! Hay que comprobar que el array no esté vacío y que contenga al menos los elementos que queremos extraer con el **destructuring**.
 
-Al poner la coma en el **[, user]**, el destructuring extrae el segundo usuario del array y lo guarda en la variable **user**.
+Al poner la coma en el **[, user]**, el **destructuring** extrae el segundo usuario del array y lo guarda en la variable **user**.
 
 Y por otro lado, ¿que pasa si queremos quedarnos con el *resto* de usuarios o de propiedades de un objeto? Con el resto me refiero a que quiero quitar una propiedad de un objeto o un array y quedarme con las demás. Vamos con ello.
 
