@@ -134,7 +134,7 @@ layout: default
                 <div class="fh5co-blog animate-box">
                     <a href="{{post.url}}" class="blog-bg" style="background-image: url({{ 'assets/images/posts/' | append: post.image }});"></a>
                     <div class="blog-text">
-                        <span class="posted_on">{{ post.date | date: "%H:%M %d-%m-%Y" }}</span>
+                        <span class="posted_on">{{ post.date | date: "%d-%m-%Y" }}</span>
                         <h3><a href="{{post.url}}">{{ post.title }}</a></h3>
                         <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' | truncate: 300 }}</p>
                         <ul class="stuff">
