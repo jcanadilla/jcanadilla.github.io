@@ -2,6 +2,7 @@
 layout: post
 title:  "Estas son las librerías más útiles de JavaScript / Typescript"
 description: Las librerías más útiles de JavaScript / Typescript
+keywords: librerías, javascript, typescript, programación, backend, buenas practicas, back-end, node.js, nodejs
 date:   2022-04-03 10:20:15 +0200
 categories: Programacion JavaScript
 tags: JavaScript Typescript BigData IoT
@@ -20,7 +21,7 @@ Comunmente se importa como **_** y así es muy fácil de identificar en toda la 
 
 Aquí te dejo algunos ejemplos de uso de Lodash y te invito a que **escribas en los comentarios** cuál es la función de **lodash** que más útil te resulta:
 
-```javascript
+{% highlight javascript %}
 const _ = require('lodash');
 
 const zeroToTen = _.range(0, 10); // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
@@ -45,7 +46,7 @@ const name = _.get(player, 'name'); // John
 const street = _.get(player, 'address.street'); // Main Street
 const email = _.get(player, 'email', 'no-email-provided'); // no-email-provided
 
-```
+{% endhighlight %}
 
 # Bluebird.js
 Otra gran librería que te puede ayudar a hacer frente a muchos datos y que te permite hacer operaciones asíncronas. De esta forma no tienes que esperar a que se complete una operación para continuar con otra. Bluebird también permite que operaciones **síncronas** como las anteriores que hemos visto en **Lodash** sean asíncronas. Y en los ejemplos te explicaré como hacerlo.

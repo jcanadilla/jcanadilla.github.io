@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Forma elegante de extraer datos de un objeto o un array
-description: Aprende a extraer información de un objeto o de un array como un auténtico PRO. Utilizando destructuring podrás extraer los datos de un objeto o de un array de forma muy elegante.
+description: Buenas prácticas para extraer datos de un objeto o un array JavaScript o TypeScript.
+keywords: destructuring, buenas practicas, javascript, typescript, programacion, backend, node.js, nodejs, back-end
 date: 2022-05-06
 categories: programacion javascript
 tags: JavaScript Typescript Destructuring PRO
