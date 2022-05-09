@@ -19,7 +19,6 @@ description: > # this means to ignore newlines until "baseurl:"
   Ingeniero de Software apasionado por la programación y enamorado de la tecnología. Arquitecto de software.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jcanadilla.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: JaviCasco5
 github_username:  jcanadilla
 linkedin_username: jcanadillacasco
 repository: jcanadilla/jcanadilla.github.io
