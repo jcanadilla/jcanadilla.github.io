@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: default
 title: Política de privacidad - Shadow Maze
 description: Política de privacidad del juego Shadow Maze.
 date: 2024-05-02
