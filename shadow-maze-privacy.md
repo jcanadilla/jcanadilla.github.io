@@ -1,7 +1,7 @@
 ---
 layout: project
-title: Politica de privacidad - Shadow Maze
-description: Polítca de privacidad del juego Shadow Maze.
+title: Política de privacidad - Shadow Maze
+description: Política de privacidad del juego Shadow Maze.
 date: 2024-05-02
 ---
 
