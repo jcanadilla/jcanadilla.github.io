@@ -1,41 +1,54 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "es-ES" }}">
+<html lang="{{ site.lang | default: " es-ES" }}">
+
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<meta name="author" content="Javier Cañadilla">
-    <title>{{ page.title }}</title>
-    <meta name="description" content="{{ page.description | default: site.description | default: site.github.project_tagline }}"/>
-	<meta name="keywords" content="{{ page.keywords | default: site.keywords | default: site.github.project_keywords }}"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ page.title }}</title>
+
+	{% seo %}
+
+	<meta name="description"
+		content="{{ page.description | default: site.description | default: site.github.project_tagline }}" />
+	<meta name="keywords"
+		content="{{ page.keywords | default: site.keywords | default: site.github.project_keywords }}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#157878">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    
-    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+	<meta name="theme-color" content="#157878">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="{{'/assets/css/animate.css?v=' | append: site.github.build_revision | relative_url}}">
 
 	<!-- FontAwesome Icons-->
-	<link href="{{'/assets/css/font-awesome/css/fontawesome.min.css?v=' | append: site.github.build_revision | relative_url}}" rel="stylesheet">
-	<link href="{{'/assets/css/font-awesome/css/brands.min.css?v=' | append: site.github.build_revision | relative_url}}" rel="stylesheet">
-	<link href="{{'/assets/css/font-awesome/css/solid.min.css?v=' | append: site.github.build_revision | relative_url}}" rel="stylesheet">
+	<link
+		href="{{'/assets/css/font-awesome/css/fontawesome.min.css?v=' | append: site.github.build_revision | relative_url}}"
+		rel="stylesheet">
+	<link
+		href="{{'/assets/css/font-awesome/css/brands.min.css?v=' | append: site.github.build_revision | relative_url}}"
+		rel="stylesheet">
+	<link href="{{'/assets/css/font-awesome/css/solid.min.css?v=' | append: site.github.build_revision | relative_url}}"
+		rel="stylesheet">
 
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="{{'/assets/css/icomoon.css?v=' | append: site.github.build_revision | relative_url}}">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="{{'/assets/css/bootstrap.css?v=' | append: site.github.build_revision | relative_url}}">
+	<link rel="stylesheet"
+		href="{{'/assets/css/bootstrap.css?v=' | append: site.github.build_revision | relative_url}}">
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="{{'/assets/css/style.css?v=' | append: site.github.build_revision | relative_url}}">
-	
+
 	<!-- Code Style -->
-	<!-- <link rel="stylesheet" href="{{'/assets/css/syntax.css?v=' | append: site.github.build_revision | relative_url}}"> -->
-	<link rel="stylesheet" href="{{'/assets/css/monokai.css?v=' | append: site.github.build_revision | relative_url}}">
+	<link rel="stylesheet" href="{{'/assets/css/syntax.css?v=' | append: site.github.build_revision | relative_url}}">
+	<!-- <link rel="stylesheet" href="{{'/assets/css/monokai.css?v=' | append: site.github.build_revision | relative_url}}"> -->
 
 	<!-- Modernizr JS -->
-	<script src="{{'/assets/js/modernizr-2.6.2.min.js?v=' | append: site.github.build_revision | relative_url}}"></script>
+	<script
+		src="{{'/assets/js/modernizr-2.6.2.min.js?v=' | append: site.github.build_revision | relative_url}}"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -51,16 +64,17 @@
 		gtag('config', 'G-2GZS74BB1Y');
 	</script>
 </head>
-<body>
-    <div class="fh5co-loader"></div> 
-    <div id="page">
-	{% if page.layout == "home"%}
-	  	{% include header.html %}
-	{% endif %}
-	{% include navbar.html %}
-    {{content}}
 
- </div>
+<body>
+	<div class="fh5co-loader"></div>
+	<div id="page">
+		{% if page.layout == "home"%}
+		{% include header.html %}
+		{% endif %}
+		{% include navbar.html %}
+		{{content}}
+
+	</div>
 
 	<div id="fh5co-footer">
 		<div class="container">
@@ -91,22 +105,26 @@
 	<!-- Easy PieChart -->
 	<script src="{{'/assets/js/jquery.easypiechart.min.js'}}"></script>
 	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
 	<script src="{{'/assets/js/google_map.js'}}"></script>
-	
+
 	<!-- Main -->
 	<script src="{{'/assets/js/main.js'}}"></script>
 
-{% if site.google_analytics %}
-<script type="text/javascript">
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	{% if site.google_analytics %}
+	<script type="text/javascript">
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', '{{ site.google_analytics }}', 'auto');
-    ga('send', 'pageview');
-</script>
-{% endif %}
+		ga('create', '{{ site.google_analytics }}', 'auto');
+		ga('send', 'pageview');
+	</script>
+	{% endif %}
 </body>
+
 </html>

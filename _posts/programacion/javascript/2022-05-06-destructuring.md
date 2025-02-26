@@ -12,10 +12,10 @@ excerpt_separator: <!--more-->
 ---
 Si estás aquí para conocer la forma más elegante de extraer datos de un objeto o de un array muy atento porque te voy a presentar el **Destructuring**.
 
-## ¿Destructuring?
+### ¿Destructuring?
 Pensarás que es una técnica muy difícil de entender y muy compleja de utilizar en el día a día. Pensarás que casi nunca lo llegarás a utilizar en una aplicación. O que tendrás que instalar una librería muy pesada en tu proyecto. Nada más lejos de la realidad. Es muy sencillo, muy útil y rápido de utilizar. Tanto que no necesitas instalar nada en tu aplicación porque forma parte del lenguaje.
 
-## Vale, te creo. ¿Cómo funciona?
+### Vale, te creo. ¿Cómo funciona?
 El **destructuring** es una técnica que permite extraer datos de un objeto o de un array de forma muy elegante. Además, evitas poner *magic numbers* en el código para extraer posiciones concretas de un array, hasta cierto límite.
 
 ### Destructuring con objetos
