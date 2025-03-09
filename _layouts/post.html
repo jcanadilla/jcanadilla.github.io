@@ -1,54 +1,54 @@
---- 
-layout: default 
+---
+layout: default
 ---
 <!-- Page Content -->
 <div class="container">
 
-    <div id="post-page" class="row">
+	<div id="post-page" class="row">
 
-        <!-- Blog Post Content Column -->
-        <div class="col-lg-8 col-lg-offset-2">
+		<!-- Blog Post Content Column -->
+		<div class="col-lg-8 col-lg-offset-2">
 
-            <!-- Blog Post -->
+			<!-- Blog Post -->
 
-            <!-- Title -->
-            <h1 class="text-center">{{page.title}}</h1>
+			<!-- Title -->
+			<h1 class="text-center">{{page.title}}</h1>
 
-            <!-- Author -->
-            <p class="lead text-center">
-                por Javier Cañadilla
-            </p>
+			<!-- Author -->
+			<p class="lead text-center">
+				por Javier Cañadilla
+			</p>
 
-            <!-- Date/Time -->
-            <p class="text-center"><span class="glyphicon glyphicon-time"></span> Publicado el día {{page.date | date: "%d-%m-%Y"}}</p>
+			<!-- Date/Time -->
+			<p class="text-center"><span class="glyphicon glyphicon-time"></span> Publicado el día {{page.date | date:
+				"%d-%m-%Y"}}</p>
 
-            <hr> 
+			<hr>
 
-            <img src="{{ site.url | append: '/assets/images/posts/' | append: page.main-image}}" class="img-responsive">
+			<img src="{{ site.url | append: '/assets/images/posts/' | append: page.main-image}}" class="img-responsive">
 
-            <hr>
+			<hr>
 
-            <!-- Post content -->
-            {{page.content}}
+			<!-- Post content -->
+			{{page.content}}
 
-            <!-- Blog Comments -->
+			<!-- Blog Comments -->
 
-            {% if page.previous != nil %}
-                <span class="pull-left"><a href="{{page.previous.url}}">&laquo; Anterior</a></span>
-            {% endif %}
+			{% if page.previous != nil %}
+			<span class="pull-left"><a href="{{page.previous.url}}">&laquo; Anterior</a></span>
+			{% endif %}
 
-            {% if page.next != nil %}
-                <span class="pull-right"><a href="{{page.next.url}}">Siguiente &raquo;</i></a></span>
-            {% endif %}
+			{% if page.next != nil %}
+			<span class="pull-right"><a href="{{page.next.url}}">Siguiente &raquo;</i></a></span>
+			{% endif %}
 
-            <div class="clearfix"></div>
+			<div class="clearfix"></div>
 
-            <hr>
-
-            {% include disqus.html %}
-
-        </div>
+			<hr>
 
 
-    </div>
+		</div>
+
+
+	</div>
 </div>

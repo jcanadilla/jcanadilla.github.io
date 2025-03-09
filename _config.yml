@@ -34,6 +34,11 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+
+sass:
+    sass_dir: _sass
+    sourcemap: always
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -66,12 +71,3 @@ defaults:
     values:
       thumbnail: noimage.png
 
-defaults:
-  - scope:
-      path: "assets/images"
-    values:
-      image: true
-
-# deployment
-host: 0.0.0.0
-port: 4000

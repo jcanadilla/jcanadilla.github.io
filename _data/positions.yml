@@ -2,7 +2,7 @@
   company: Gibobs allbanks
   initialDate: 02/2021
   finalDate: Actualidad
-  description: Líder del desarrollo de backend. Creación de API Rest con microservicios y Hapi.js. Creación de infraestructura sobre Amazon Web Services (AWS).
+  description: Líder del desarrollo de backend. Creación de API Rest con microservicios, Hapi.js y Nest.js. Gestión de infraestructura sobre Amazon Web Services (AWS). Automatización de tareas con Jenkins.
 
 - title: Analista programador - Node.js
   company: VASS
