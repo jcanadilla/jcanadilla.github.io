@@ -1,0 +1,166 @@
+// =============================================================
+//  Páginas legales (política de privacidad)
+//
+//  Un texto legal se lee mal de corrido: aquí se parte en bloques
+//  numerados, con un resumen de tres hechos arriba para quien solo
+//  quiere la respuesta rápida.
+// =============================================================
+
+// El mismo patrón de puntos del hero, pero sobre la cabecera interior.
+.page-head__dots {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	opacity: var(--dot-opacity);
+	pointer-events: none;
+}
+
+// ---------------------------------------------- resumen en tres hechos
+
+.legal-facts {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+	margin: 0 0 56px;
+	padding: 0;
+	list-style: none;
+}
+
+.legal-fact {
+	background: var(--glass);
+	border: 1px solid var(--accent-border);
+	border-radius: var(--radius);
+	padding: 24px 22px;
+	box-shadow: var(--card-shadow);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	transition: border-color .2s ease, transform .2s ease;
+}
+.legal-fact:hover {
+	border-color: var(--accent-border-strong);
+	transform: translateY(-2px);
+}
+
+.legal-fact__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 10px;
+	background: var(--accent-soft-strong);
+	color: var(--accent-on);
+	margin-bottom: 16px;
+}
+
+.legal-fact__title {
+	font-size: .9375rem;
+	font-weight: 650;
+	line-height: 1.35;
+	margin-bottom: 6px;
+	color: var(--text);
+}
+.legal-fact__text {
+	font-size: .85rem;
+	line-height: 1.62;
+	color: var(--muted);
+}
+
+// ---------------------------------------------- bloques numerados
+
+.legal__block + .legal__block {
+	margin-top: 40px;
+	padding-top: 40px;
+	border-top: 1px solid var(--line-soft);
+}
+
+.legal__num {
+	display: block;
+	font-family: var(--font-mono);
+	font-size: .72rem;
+	font-weight: 600;
+	letter-spacing: .16em;
+	color: var(--accent-on);
+	margin-bottom: 10px;
+}
+
+// El h2 ya viene separado por el número: sin el margen de .prose
+.legal .legal__block h2 {
+	margin-top: 0;
+	margin-bottom: .5em;
+	font-size: 1.5rem;
+}
+
+.legal-list {
+	margin-top: 1.2em;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+.legal .legal-list li {
+	display: flex;
+	align-items: baseline;
+	gap: 14px;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 12px 0;
+	border-bottom: 1px solid var(--line-soft);
+	font-size: .9375rem;
+	line-height: 1.6;
+}
+.legal .legal-list li:first-child { border-top: 1px solid var(--line-soft); }
+
+.legal-list__key {
+	flex: 0 0 auto;
+	min-width: 168px;
+	font-family: var(--font-mono);
+	font-size: .78rem;
+	color: var(--text);
+}
+
+// ---------------------------------------------- contacto
+
+.legal-contact {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 26px;
+	flex-wrap: wrap;
+	margin-top: 56px;
+	padding: 32px 30px;
+	border: 1px solid var(--accent-border);
+	border-radius: var(--radius);
+	background: var(--accent-soft);
+}
+.legal-contact .eyebrow { margin-bottom: 10px; }
+.legal-contact h2 { font-size: 1.5rem; margin-bottom: 8px; }
+.legal-contact p {
+	font-size: .9375rem;
+	line-height: 1.68;
+	color: var(--muted);
+	max-width: 420px;
+}
+.legal-contact .btn { flex-shrink: 0; }
+
+// ---------------------------------------------- pantallas pequeñas
+
+@media (max-width: 820px) {
+	.legal-facts { grid-template-columns: 1fr; gap: 12px; margin-bottom: 44px; }
+	.legal-fact { padding: 20px 18px; }
+
+	.legal-contact {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 26px 22px;
+	}
+	.legal-contact p { max-width: none; }
+
+	.legal__block + .legal__block { margin-top: 32px; padding-top: 32px; }
+	.legal .legal__block h2 { font-size: 1.3125rem; }
+
+	.legal-list__key { min-width: 0; flex-basis: 100%; }
+	.legal .legal-list li { gap: 4px; }
+}
