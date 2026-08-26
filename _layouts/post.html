@@ -1,54 +1,53 @@
 ---
 layout: default
 ---
-<!-- Page Content -->
-<div class="container">
 
-	<div id="post-page" class="row">
-
-		<!-- Blog Post Content Column -->
-		<div class="col-lg-8 col-lg-offset-2">
-
-			<!-- Blog Post -->
-
-			<!-- Title -->
-			<h1 class="text-center">{{page.title}}</h1>
-
-			<!-- Author -->
-			<p class="lead text-center">
-				por Javier Cañadilla
-			</p>
-
-			<!-- Date/Time -->
-			<p class="text-center"><span class="glyphicon glyphicon-time"></span> Publicado el día {{page.date | date:
-				"%d-%m-%Y"}}</p>
-
-			<hr>
-
-			<img src="{{ site.url | append: '/assets/images/posts/' | append: page.main-image}}" class="img-responsive">
-
-			<hr>
-
-			<!-- Post content -->
-			{{page.content}}
-
-			<!-- Blog Comments -->
-
-			{% if page.previous != nil %}
-			<span class="pull-left"><a href="{{page.previous.url}}">&laquo; Anterior</a></span>
-			{% endif %}
-
-			{% if page.next != nil %}
-			<span class="pull-right"><a href="{{page.next.url}}">Siguiente &raquo;</i></a></span>
-			{% endif %}
-
-			<div class="clearfix"></div>
-
-			<hr>
-
-
+<div class="page-head page-head--center">
+	<div class="container page-head__inner">
+		<span class="eyebrow">// Blog</span>
+		<h1>{{ page.title }}</h1>
+		{% if page.description %}<p class="page-head__lead">{{ page.description }}</p>{% endif %}
+		<div class="page-head__meta">
+			<span>{{ page.date | date: "%d.%m.%Y" }}</span>
+			<span class="sep">/</span>
+			<span>Javier Cañadilla</span>
 		</div>
-
-
 	</div>
 </div>
+
+<article class="article">
+	<div class="container article__inner">
+
+		{% assign portada = page.image | default: page.main-image %}
+		{% if portada %}
+		<img class="article__cover" src="{{ '/assets/images/posts/' | append: portada | relative_url }}"
+			alt="{{ page.title }}" loading="lazy">
+		{% endif %}
+
+		<div class="prose">
+			{{ content }}
+		</div>
+
+		<nav class="article__nav">
+			{% if page.previous %}
+			<a href="{{ page.previous.url | relative_url }}">
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M19 12H5" /><path d="m12 19-7-7 7-7" />
+				</svg>
+				Anterior
+			</a>
+			{% endif %}
+			{% if page.next %}
+			<a href="{{ page.next.url | relative_url }}">
+				Siguiente
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+				</svg>
+			</a>
+			{% endif %}
+		</nav>
+
+	</div>
+</article>

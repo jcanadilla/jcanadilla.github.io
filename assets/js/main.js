@@ -1,161 +1,134 @@
-;(function () {
-	
+/* =============================================================
+ *  javiercanadilla.com — sin dependencias
+ *  Modo de color, menú móvil, revelado al hacer scroll y volver arriba.
+ * ============================================================= */
+(function () {
 	'use strict';
 
-	var isMobile = {
-		Android: function() {
-			return navigator.userAgent.match(/Android/i);
-		},
-			BlackBerry: function() {
-			return navigator.userAgent.match(/BlackBerry/i);
-		},
-			iOS: function() {
-			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-		},
-			Opera: function() {
-			return navigator.userAgent.match(/Opera Mini/i);
-		},
-			Windows: function() {
-			return navigator.userAgent.match(/IEMobile/i);
-		},
-			any: function() {
-			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+	var raiz = document.documentElement;
+	var CLAVE = 'modo-color';
+
+	// ---------------------------------------------- modo de color
+	//
+	// Tres estados: sin clase en <html> manda el sistema (lo resuelve el CSS
+	// con prefers-color-scheme); .light o .dark son la elección del visitante,
+	// que se recuerda en localStorage.
+
+	var consulta = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
+	function leerGuardado() {
+		try {
+			var v = localStorage.getItem(CLAVE);
+			return (v === 'dark' || v === 'light') ? v : null;
+		} catch (e) {
+			return null;
 		}
-	};
+	}
 
-	
-	var fullHeight = function() {
+	function modoEfectivo() {
+		if (raiz.classList.contains('dark')) { return 'dark'; }
+		if (raiz.classList.contains('light')) { return 'light'; }
+		return (consulta && consulta.matches) ? 'dark' : 'light';
+	}
 
-		if ( !isMobile.any() ) {
-			$('.js-fullheight').css('height', $(window).height());
-			$(window).resize(function(){
-				$('.js-fullheight').css('height', $(window).height());
-			});
-		}
-	};
+	var botonesModo = Array.prototype.slice.call(document.querySelectorAll('.js-mode'));
 
-	// Parallax
-	var parallax = function() {
-		$(window).stellar();
-	};
-
-	var contentWayPoint = function() {
-		var i = 0;
-		$('.animate-box').waypoint( function( direction ) {
-
-			if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
-				
-				i++;
-
-				$(this.element).addClass('item-animate');
-				setTimeout(function(){
-
-					$('body .animate-box.item-animate').each(function(k){
-						var el = $(this);
-						setTimeout( function () {
-							var effect = el.data('animate-effect');
-							if ( effect === 'fadeIn') {
-								el.addClass('fadeIn animated-fast');
-							} else if ( effect === 'fadeInLeft') {
-								el.addClass('fadeInLeft animated-fast');
-							} else if ( effect === 'fadeInRight') {
-								el.addClass('fadeInRight animated-fast');
-							} else {
-								el.addClass('fadeInUp animated-fast');
-							}
-
-							el.removeClass('item-animate');
-						},  k * 100, 'easeInOutExpo' );
-					});
-					
-				}, 50);
-				
-			}
-
-		} , { offset: '85%' } );
-	};
-
-
-
-	var goToTop = function() {
-
-		$('.js-gotop').on('click', function(event){
-			
-			event.preventDefault();
-
-			$('html, body').animate({
-				scrollTop: $('html').offset().top
-			}, 500, 'easeInOutExpo');
-			
-			return false;
+	function pintarBotones() {
+		var actual = modoEfectivo();
+		botonesModo.forEach(function (boton) {
+			boton.setAttribute('aria-pressed', String(boton.dataset.modo === actual));
 		});
+	}
 
-		$(window).scroll(function(){
-
-			var $win = $(window);
-			if ($win.scrollTop() > 200) {
-				$('.js-top').addClass('active');
-			} else {
-				$('.js-top').removeClass('active');
-			}
-
+	botonesModo.forEach(function (boton) {
+		boton.addEventListener('click', function () {
+			var elegido = boton.dataset.modo;
+			raiz.classList.remove('light', 'dark');
+			raiz.classList.add(elegido);
+			try { localStorage.setItem(CLAVE, elegido); } catch (e) { /* sin almacenamiento */ }
+			pintarBotones();
 		});
-	
-	};
-
-	var pieChart = function() {
-		$('.chart').easyPieChart({
-			scaleColor: false,
-			lineWidth: 4,
-			lineCap: 'butt',
-			barColor: '#FF9000',
-			trackColor:	"#f5f5f5",
-			size: 160,
-			animate: 1000
-		});
-	};
-
-	var skillsWayPoint = function() {
-		if ($('#fh5co-skills').length > 0 ) {
-			$('#fh5co-skills').waypoint( function( direction ) {
-										
-				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-					setTimeout( pieChart , 400);					
-					$(this.element).addClass('animated');
-				}
-			} , { offset: '90%' } );
-		}
-
-	};
-
-
-	// Loading page
-	var loaderPage = function() {
-		$(".fh5co-loader").fadeOut("slow");
-	};
-
-	var stickyMenu = function(){
-		var div = $(".sticky");
-		$(window).scroll(function() {    
-			var scroll = $(window).scrollTop();
-			if (scroll >= $("#fh5co-header").height()) {
-				div.addClass("navbar-fixed-top");
-			} else {
-				div.removeClass("navbar-fixed-top");
-			}
-		});
-	};
-	
-	$(function(){
-		contentWayPoint();
-		goToTop();
-		loaderPage();
-		fullHeight();
-		parallax();
-		// pieChart();
-		skillsWayPoint();
-		stickyMenu();
 	});
 
+	// Mientras no haya elección explícita, seguir al sistema en caliente
+	if (consulta) {
+		var alCambiarSistema = function () { if (!leerGuardado()) { pintarBotones(); } };
+		if (consulta.addEventListener) { consulta.addEventListener('change', alCambiarSistema); }
+		else if (consulta.addListener) { consulta.addListener(alCambiarSistema); }
+	}
 
-}());
+	pintarBotones();
+
+	// ---------------------------------------------- menú móvil
+
+	var burger = document.querySelector('.js-nav-burger');
+	var menu = document.querySelector('.js-nav-menu');
+
+	if (burger && menu) {
+		var cerrarMenu = function () {
+			menu.classList.remove('is-open');
+			burger.setAttribute('aria-expanded', 'false');
+		};
+
+		burger.addEventListener('click', function () {
+			var abierto = menu.classList.toggle('is-open');
+			burger.setAttribute('aria-expanded', String(abierto));
+		});
+
+		menu.addEventListener('click', function (e) {
+			if (e.target.closest('a')) { cerrarMenu(); }
+		});
+
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+				cerrarMenu();
+				burger.focus();
+			}
+		});
+	}
+
+	// ---------------------------------------------- revelado al hacer scroll
+
+	var reveladas = document.querySelectorAll('.reveal');
+	var animacionReducida = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	if (!reveladas.length) {
+		// nada que hacer
+	} else if (animacionReducida || !('IntersectionObserver' in window)) {
+		Array.prototype.forEach.call(reveladas, function (el) { el.classList.add('is-visible'); });
+	} else {
+		var observador = new IntersectionObserver(function (entradas) {
+			entradas.forEach(function (entrada) {
+				if (entrada.isIntersecting) {
+					entrada.target.classList.add('is-visible');
+					observador.unobserve(entrada.target);
+				}
+			});
+		}, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+
+		Array.prototype.forEach.call(reveladas, function (el) { observador.observe(el); });
+	}
+
+	// ---------------------------------------------- volver arriba
+
+	var botonArriba = document.querySelector('.js-to-top');
+
+	if (botonArriba) {
+		var ultimo = false;
+		var alScroll = function () {
+			var visible = window.pageYOffset > 400;
+			if (visible !== ultimo) {
+				botonArriba.classList.toggle('is-visible', visible);
+				ultimo = visible;
+			}
+		};
+
+		window.addEventListener('scroll', alScroll, { passive: true });
+		alScroll();
+
+		botonArriba.addEventListener('click', function () {
+			window.scrollTo({ top: 0, behavior: animacionReducida ? 'auto' : 'smooth' });
+		});
+	}
+
+})();

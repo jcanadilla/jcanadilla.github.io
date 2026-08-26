@@ -1,25 +1,21 @@
---- 
+---
 layout: default
+title: Página no encontrada
+sitemap: false
 ---
 
-<style type="text/css" media="screen">
-    .container {
-        margin: 10px auto;
-        max-width: 600px;
-        text-align: center;
-    }
-    
-    h1 {
-        margin: 30px 0;
-        font-size: 4em;
-        line-height: 1;
-        letter-spacing: -1px;
-    }
-</style>
-
-<div class="container">
-    <h1>404</h1>
-
-    <p><strong>Page not found :(</strong></p>
-    <p>The requested page could not be found.</p>
+<div class="container notfound">
+	<div class="notfound__code mono">404</div>
+	<h1>Esta página no existe.</h1>
+	<p>El enlace está roto o la página se ha movido de sitio.</p>
+	<div class="hero__actions" style="justify-content: center; margin-bottom: 0;">
+		<a class="btn btn--primary" href="{{ '/' | relative_url }}">
+			Volver al inicio
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+				stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+			</svg>
+		</a>
+		<a class="btn btn--ghost" href="{{ '/blog' | relative_url }}">Ir al blog</a>
+	</div>
 </div>

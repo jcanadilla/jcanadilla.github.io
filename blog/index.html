@@ -1,75 +1,70 @@
---- 
-layout: default 
-title: Un día en el Back
 ---
-<!-- Page Content -->
-<div class="container">
+layout: default
+title: Blog
+description: Notas sobre backend, infraestructura y tecnologías que voy probando.
+---
 
-    <div id="post-page" class="row">
+<div class="page-head">
+	<div class="container page-head__inner">
+		<span class="eyebrow">// Blog</span>
+		<h1>Notas sobre lo que voy probando.</h1>
+		<p class="page-head__lead">
+			Tecnologías nuevas, tutoriales y curiosidades. Adelante, como si estuvieras en tu casa.
+		</p>
+	</div>
+</div>
 
-        <!-- Blog Post Content Column -->
-        <div class="col-lg-8 col-lg-offset-2">
-            <h1 class="text-center">Mis posts</h1>
-            <hr>
-            {% for post in paginator.posts %}
+<div class="section">
+	<div class="container article__inner">
 
-                <!-- Blog Post -->
+		<div class="post-list">
+			{% for post in paginator.posts %}
+			<article class="post-row">
+				<div class="post-row__date">{{ post.date | date: "%d.%m.%Y" }}</div>
+				<div>
+					<h2 class="post-row__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+					<p class="post-row__excerpt">
+						{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 220 }}
+					</p>
+					<a class="link-arrow" href="{{ post.url | relative_url }}">
+						Leer más
+						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+							stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+						</svg>
+					</a>
+				</div>
+			</article>
+			{% else %}
+			<p class="empty-note">Aún no he publicado ningún post. Pásate más adelante, que seguro que los publicaré.</p>
+			{% endfor %}
+		</div>
 
-                <!-- Title -->
-                <h2><a href="{{post.url}}">{{post.title}}</a></h2>
+		{% if paginator.total_pages > 1 %}
+		<nav class="pager" aria-label="Paginación">
+			{% if paginator.previous_page %}
+			<a href="{{ paginator.previous_page_path | relative_url }}">&laquo;</a>
+			{% else %}
+			<span>&laquo;</span>
+			{% endif %}
 
-                <!-- Author -->
-                <p class="lead">
-                    por Javier Cañadilla
-                </p>
-                <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Publicado el día {{post.date | date: "%d-%m-%Y"}}</p>
-                
-                <a href="{{post.url}}"><img src="{{ site.url | append: '/assets/images/posts/' | append: post.main-image}}" class="img-responsive"></a>
+			{% for page in (1..paginator.total_pages) %}
+			{% if page == paginator.page %}
+			<em aria-current="page">{{ page }}</em>
+			{% elsif page == 1 %}
+			<a href="{{ '/blog' | relative_url }}">{{ page }}</a>
+			{% else %}
+			<a href="{{ site.paginate_path | replace: ':num', page | relative_url }}">{{ page }}</a>
+			{% endif %}
+			{% endfor %}
 
-                <br>
+			{% if paginator.next_page %}
+			<a href="{{ paginator.next_page_path | relative_url }}">&raquo;</a>
+			{% else %}
+			<span>&raquo;</span>
+			{% endif %}
+		</nav>
+		{% endif %}
 
-                {{ post.content | truncate: 700 }}
-
-                <br>
-                <span class="pull-right">
-                    <a href="{{post.url}}">Leer más <i class="icon-arrow-right22"></i></a>
-                </span>
-
-                <div class="clearfix"></div>
-                <hr>
-            {% else %}
-                <p class="text-center">Aun no he publicado ningún post. Pásate más adelante que seguro que los publicaré.</p>
-            {% endfor %}
-
-            <div class="text-center">
-
-            {% if paginator.total_pages > 1 %}
-                <div class="pagination">
-                {% if paginator.previous_page %}
-                    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Anterior</a>
-                {% else %}
-                    <span>&laquo; Anterior</span>
-                {% endif %}
-
-                {% for page in (1..paginator.total_pages) %}
-                    {% if page == paginator.page %}
-                    <em>{{ page }}</em>
-                    {% elsif page == 1 %}
-                    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-                    {% else %}
-                    <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-                    {% endif %}
-                {% endfor %} 
-
-                {% if paginator.next_page %}
-                    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Siguiente &raquo;</a>
-                {% else %}
-                    <span>Siguiente &raquo;</span>
-                {% endif %}
-                </div>
-            {% endif %}
-            </div>
-        </div>
-    </div>
+	</div>
 </div>
