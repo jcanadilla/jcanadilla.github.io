@@ -1,0 +1,124 @@
+// =============================================================
+//  Tokens de color — un solo juego, dos modos
+//
+//  Tres estados:
+//    :root                      -> claro (por defecto)
+//    @media prefers-color-scheme -> oscuro si el sistema lo pide
+//                                   y el visitante no ha elegido
+//    :root.dark / :root.light   -> elección explícita del visitante
+//
+//  El acento como RELLENO no cambia entre modos. Como TEXTO sí:
+//  el índigo puro se queda en 4,47:1 sobre blanco y no llega al
+//  mínimo de 4,5:1, así que se oscurece en claro y se aclara en
+//  oscuro. Todos los pares de texto pasan AA en los dos modos.
+// =============================================================
+
+@mixin tokens-claro {
+	--bg:                #ffffff;
+	--bg-alt:            #f5f6fa;
+	--surface:           #ffffff;
+	--surface-fade:      rgba(255, 255, 255, 0);
+	--strip-bg:          #f5f6fa;
+	--nav-bg:            rgba(255, 255, 255, .85);
+	--glass:             #ffffff;
+	--dot-fill:          #ffffff;
+
+	--text:              #0f172a;
+	--muted:             #475569;
+	--subtle:            #5d6b7e;
+
+	--line:              #e5e8ee;
+	--line-soft:         #eef1f5;
+
+	--card-shadow:       0 1px 2px rgba(15, 23, 42, .05);
+	--term-shadow:       0 24px 60px rgba(15, 23, 42, .18);
+
+	--dot-opacity:       .34;
+	--hero-glow:         radial-gradient(circle, rgba(var(--accent-rgb), .13) 0%, rgba(255, 255, 255, 0) 68%);
+
+	--btn-bg:            #4d50bc;
+	--btn-text:          #ffffff;
+	--accent-on:         #4d50bc;
+
+	--accent-border:        rgba(var(--accent-rgb), .22);
+	--accent-border-strong: rgba(var(--accent-rgb), .42);
+	--accent-soft:          rgba(var(--accent-rgb), .06);
+	--accent-soft-strong:   rgba(var(--accent-rgb), .12);
+	--accent-glow:          rgba(var(--accent-rgb), .22);
+
+	--ok:                #15803d;
+	--ok-bg:             rgba(21, 128, 61, .08);
+	--ok-border:         rgba(21, 128, 61, .28);
+	--ok-glow:           rgba(21, 128, 61, .45);
+
+	color-scheme: light;
+}
+
+@mixin tokens-oscuro {
+	--bg:                #0d0d14;
+	--bg-alt:            #111827;
+	--surface:           #1a1a2e;
+	--surface-fade:      rgba(26, 26, 46, 0);
+	--strip-bg:          #1a1a2e;
+	--nav-bg:            rgba(13, 13, 20, .82);
+	--glass:             rgba(255, 255, 255, .04);
+	--dot-fill:          #1e1e2e;
+
+	--text:              #f1f5f9;
+	--muted:             #94a3b8;
+	--subtle:            #77869c;
+
+	--line:              rgba(255, 255, 255, .07);
+	--line-soft:         rgba(255, 255, 255, .06);
+
+	--card-shadow:       none;
+	--term-shadow:       0 28px 70px rgba(0, 0, 0, .55);
+
+	--dot-opacity:       .16;
+	--hero-glow:         radial-gradient(circle, rgba(var(--accent-rgb), .34) 0%, rgba(13, 13, 20, 0) 68%);
+
+	--btn-bg:            #7f82f4;
+	--btn-text:          #0d0d14;
+	--accent-on:         #b4b6f8;
+
+	--accent-border:        rgba(var(--accent-rgb), .18);
+	--accent-border-strong: rgba(var(--accent-rgb), .42);
+	--accent-soft:          rgba(var(--accent-rgb), .08);
+	--accent-soft-strong:   rgba(var(--accent-rgb), .18);
+	--accent-glow:          rgba(var(--accent-rgb), .34);
+
+	--ok:                #22c55e;
+	--ok-bg:             rgba(34, 197, 94, .1);
+	--ok-border:         rgba(34, 197, 94, .25);
+	--ok-glow:           #22c55e;
+
+	color-scheme: dark;
+}
+
+:root {
+	// Constantes: el acento de relleno es el mismo en ambos modos
+	--accent:      #6366f1;
+	--accent-rgb:  99, 102, 241;
+	--accent-deep: #41439f;
+
+	// Tipografía
+	--font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	--font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+	// Medidas
+	--container: 1200px;
+	--gutter:    40px;
+	--radius:    14px;
+	--radius-sm: 8px;
+
+	@include tokens-claro;
+}
+
+// Sin elección explícita, manda el sistema (también sin JavaScript)
+@media (prefers-color-scheme: dark) {
+	:root:not(.light) { @include tokens-oscuro; }
+}
+
+// Elección explícita del visitante, guardada en localStorage
+:root.dark  { @include tokens-oscuro; }
+:root.light { @include tokens-claro; }

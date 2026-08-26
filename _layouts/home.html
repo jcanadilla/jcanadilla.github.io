@@ -1,163 +1,250 @@
---- 
+---
 layout: default
 ---
-<!-- Home Subpage -->
-<div id="fh5co-about" class="animate-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                <h2>Sobre mí</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-5">
-                <ul class="info">
-                    <li><span class="first-block">Nombre:</span><span class="second-block">Javier Cañadilla Casco</span></li>
-                    <li><span class="first-block">Email:</span><span class="second-block">jcanadillacasco&#064;outlook&#x2e;com</span></li>
-                    <li><span class="first-block">Vivo en:</span><span class="second-block">Madrid. España</span></li>
-                </ul>
-            </div>
-            <div class="col-md-7">
-                <h2>¡Hola mundo!</h2>
-                <p class="text-justify">Bienvenido a mi página web personal. En ella encontrarás mi currículum vitae e información sobre mí. También
-                    he creado un blog en el que iré publicando noticias, tecnologías y pruebas que vaya haciendo con el tiempo.</p>
-                <p class="text-justify">Soy Ingeniero de Software y tengo un Máster Universitario en Informática Gráfica, Juegos y Realidad Virtual,
-                    ambos títulos por la Universidad Rey Juan Carlos de Madrid. Me encanta programar y construir herramientas
-                    que faciliten la vida de las personas. Me gusta mucho <i>trastear</i> con nuevas tecnologías para estar
-                    continuamente aprendiendo y ampliando horizontes.
-                </p>
-                <p class="text-justify">Te animo a que me sigas en mis redes sociales y en Github. :)</p>
-                <p>
-                    <ul class="fh5co-social-icons">
-                        <li><a href="https://www.linkedin.com/in/{{site.linkedin_username}}" target="blank" rel="nofollow noreferrer noopener"><i class="icon-linkedin2"></i></a></li>
-                        <li><a href="https://github.com/{{site.github_username}}" target="blank" rel="nofollow noreferrer noopener"><i class="icon-github2"></i></a></li>
-                    </ul>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div id="fh5co-resume" class="animate-box fh5co-bg-color">
-    <div class="container">
-        <div class="row animate-box">
-            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                <h2>Trayectoria</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-md-offset-0">
-                <ul class="timeline">
-                    <li class="timeline-heading text-center animate-box">
-                        <div>
-                            <h3>Experiencia laboral</h3>
-                        </div>
-                    </li>
+<!-- ============================ Sobre mí ============================ -->
+<section class="section section--alt" id="sobre-mi">
+	<div class="container about reveal">
+
+		<div>
+			<span class="eyebrow">// Sobre mí</span>
+			<h2>Me gusta trastear, romper cosas y volver a montarlas mejor.</h2>
+
+			<div class="about__text" style="margin-top: 24px;">
+				<p>
+					Soy Ingeniero de Software y tengo un Máster Universitario en Informática Gráfica,
+					Juegos y Realidad Virtual, ambos por la Universidad Rey Juan Carlos de Madrid.
+				</p>
+				<p>
+					Me encanta programar y construir herramientas que faciliten la vida de las personas.
+					Paso el día entre APIs, contenedores y pipelines &mdash; y la noche probando lo
+					siguiente que quiero aprender.
+				</p>
+			</div>
+
+			<div class="about__social">
+				<a class="social-btn" href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank"
+					rel="noreferrer noopener">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z" />
+					</svg>
+					LinkedIn
+				</a>
+				<a class="social-btn" href="https://github.com/{{ site.github_username }}" target="_blank"
+					rel="noreferrer noopener">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.5 0-.24-.01-.9-.01-1.76-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .28.18.6.69.5A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z" />
+					</svg>
+					GitHub
+				</a>
+			</div>
+		</div>
+
+		<div>
+			<div class="profile-card">
+				<span class="profile-card__title">perfil.yml</span>
+				<dl style="margin: 0;">
+					<div class="profile-card__row">
+						<dt>nombre</dt>
+						<dd>Javier Cañadilla Casco</dd>
+					</div>
+					<div class="profile-card__row">
+						<dt>rol</dt>
+						<dd>Backend Lead &amp; DevOps</dd>
+					</div>
+					<div class="profile-card__row">
+						<dt>empresa</dt>
+						<dd>Gibobs allbanks</dd>
+					</div>
+					<div class="profile-card__row">
+						<dt>ubicación</dt>
+						<dd>Madrid, España</dd>
+					</div>
+					<div class="profile-card__row">
+						<dt>email</dt>
+						<dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+					</div>
+				</dl>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+<!-- ========================== Trayectoria =========================== -->
+<section class="section section--line" id="trayectoria">
+	<div class="container">
+
+		<div class="section__head reveal">
+			<span class="eyebrow">// Trayectoria</span>
+			<h2>De Unity 3D a arquitecturas cloud.</h2>
+		</div>
+
+		<div class="cv">
+
+			<div class="reveal">
+				<div class="cv__label">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<rect x="2" y="7" width="20" height="14" rx="2" />
+						<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+					</svg>
+					Experiencia
+				</div>
+
+				<ol class="rail">
 					{% for position in site.data.positions %}
-						{% assign evenNumber = forloop.index0 | modulo: 2 %}
-						<li class="animate-box {% if evenNumber == 0 %} timeline-inverted {% else %} timeline-unverted {% endif%}">
-							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">{{ position.title }}</h3>
-									<span class="company">{{ position.company }} - {{position.initialDate}} - {{position.finalDate}}</span>
-								</div>
-								<div class="timeline-body">
-									{{ position.description }}
-								</div>
-							</div>
-						</li>
+					{% assign es_actual = false %}
+					{% if position.finalDate == "Actualidad" %}{% assign es_actual = true %}{% endif %}
+					<li class="rail__item{% if es_actual %} rail__item--current{% endif %}">
+						<span class="rail__dot{% if forloop.first %} rail__dot--current{% elsif forloop.last %} rail__dot--faded{% endif %}"
+							aria-hidden="true"></span>
+						<div class="rail__meta">
+							<span class="rail__date">{{ position.initialDate }} &mdash; {{ position.finalDate }}</span>
+							{% if es_actual %}<span class="badge">Actual</span>{% endif %}
+						</div>
+						<h3 class="rail__title">{{ position.title }}</h3>
+						<div class="rail__org">{{ position.company }}</div>
+						<p class="rail__desc">{{ position.description }}</p>
+					</li>
 					{% endfor %}
-                    <br>
-                    <li class="timeline-heading text-center animate-box">
-                        <div>
-                            <h3>Estudios</h3>
-                        </div>
-                    </li>
+				</ol>
+			</div>
+
+			<div class="reveal">
+				<div class="cv__label">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M22 10 12 5 2 10l10 5 10-5Z" />
+						<path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
+					</svg>
+					Estudios
+				</div>
+
+				<div class="studies">
 					{% for study in site.data.studies %}
-					{% assign evenNumber = forloop.index0 | modulo: 2 %}
-                    <li class="{% if evenNumber == 0 %} timeline-inverted {% else %} timeline-unverted {% endif%} animate-box">
-                        <div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h3 class="timeline-title">{{study.title}}</h3>
-                                <span class="company">{% if study.initialDate != nil and study.finalDate != nil %}{{study.school}} - {{study.initialDate}} - {{study.finalDate}}{% else %}{{study.school}}{% endif %}</span>
-                            </div>
-							{% if study.description != nil %}
-                            <div class="timeline-body">
-                                <p>{{study.description}}</p>
-                            </div>
-							{% endif %}
-                        </div>
-                    </li>
+					<article class="study-card">
+						{% if study.initialDate and study.finalDate %}
+						<div class="study-card__date">{{ study.initialDate }} &mdash; {{ study.finalDate }}</div>
+						{% endif %}
+						<h3>{{ study.title }}</h3>
+						<div class="study-card__org">{{ study.school }}</div>
+						{% if study.description %}<p>{{ study.description }}</p>{% endif %}
+					</article>
 					{% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+				</div>
+			</div>
 
-<div id="fh5co-work" class="fh5co-bg-dark">
-    <div class="container">
-        <div class="row animate-box">
-            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                <h2>Proyectos</h2>
-            </div>
-        </div>
-        <div class="row">
-            {% for project in site.projects %}
-            <div class="col-md-3 text-center col-padding animate-box">
-                <a href="{{project.url}}" class="work" style="background-image: url({{'assets/images/projects/' | append: project.thumbnail}});">
-                    <div class="desc">
-                        <h3>{{project.title}}</h3>
-                        <span>{{project.technologies | array_to_sentence_string: 'y'}}</span>
-                    </div>
-                </a>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
+		</div>
+	</div>
+</section>
 
-<div id="fh5co-blog">
-    <div class="container">
-        <div class="row animate-box">
-            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                <h2><a href="{{site.baseurl}}/blog">Posts</a></h2>
-                <p class="text-center">En esta sección incluyo desarrollos de tecnologías nuevas que voy probando, tutoriales, curiosidades... Adelante, como si estuvieras en tu casa :)</p>
-            </div>
-        </div>
-        <div class="row">
-            {% for post in site.posts limit:6 %}
-            <div class="col-md-4">
-                <div class="fh5co-blog animate-box">
-                    <a href="{{post.url}}" class="blog-bg" style="background-image: url({{ 'assets/images/posts/' | append: post.image }});"></a>
-                    <div class="blog-text">
-                        <span class="posted_on">{{ post.date | date: "%d-%m-%Y" }}</span>
-                        <h3><a href="{{post.url}}">{{ post.title }}</a></h3>
-                        <p>{{ post.excerpt | remove: '<p>' | remove: '</p>' | truncate: 300 }}</p>
-                        <ul class="stuff">
-                            <li><a href="{{post.url}}">Leer más<i class="icon-arrow-right22"></i></a></li>
-                        </ul>
-                    </div> 
-                </div>
-            </div>
-            {% else %}
-                <p class="text-center">Aun no he publicado ningún post. Pásate más adelante que seguro que los publicaré.</p>
-            {% endfor %}
-        </div>
-    </div>
-</div>
+<!-- =========================== Proyectos ============================ -->
+<section class="section section--alt" id="proyectos">
+	<div class="container">
 
-<div id="fh5co-started" class="fh5co-bg-dark">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row animate-box">
-            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                <h2>¡Contáctame!</h2>
-                <p class="text-center">Por si lo necesitas o lo estás buscando...</p>
-                <p class="text-center"><a href="mailto:jcanadillacasco@outlook.com?subject=¡Hola%20Javier!" class="btn btn-default btn-lg">Email</a></p>
-            </div>
-        </div>
-    </div>
-</div>
+		<div class="section__head section__head--split reveal">
+			<div>
+				<span class="eyebrow">// Proyectos</span>
+				<h2>Cosas que he construido.</h2>
+			</div>
+			<a class="link-arrow" href="{{ '/projects' | relative_url }}">
+				Ver todos
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+				</svg>
+			</a>
+		</div>
+
+		<div class="cards reveal">
+			{% for project in site.projects limit: 4 %}
+			<a class="card" href="{{ project.url | relative_url }}">
+				<div class="card__head">
+					<span class="card__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M7 17 17 7" /><path d="M8 7h9v9" />
+					</svg>
+				</div>
+				<h3 class="card__title">{{ project.title }}</h3>
+				<p class="card__desc">{{ project.content | strip_html | strip_newlines | truncate: 165 }}</p>
+				<div class="chips">
+					{% for tech in project.technologies %}<span class="chip">{{ tech }}</span>{% endfor %}
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<!-- ============================= Posts ============================== -->
+<section class="section" id="posts">
+	<div class="container">
+
+		<div class="section__head reveal">
+			<span class="eyebrow">// Blog</span>
+			<h2>Notas sobre lo que voy probando.</h2>
+			<p>Tecnologías nuevas, tutoriales y curiosidades. Adelante, como si estuvieras en tu casa.</p>
+		</div>
+
+		<div class="cards cards--3 reveal">
+			{% for post in site.posts limit: 5 %}
+			{% assign par = forloop.index0 | modulo: 2 %}
+			<a class="post-card" href="{{ post.url | relative_url }}">
+				<div class="post-card__thumb" aria-hidden="true">{% if par == 0 %}{ }{% else %}&lt;/&gt;{% endif %}</div>
+				<div class="post-card__body">
+					<span class="post-card__date">{{ post.date | date: "%d &middot; %m &middot; %Y" }}</span>
+					<h3 class="post-card__title">{{ post.title }}</h3>
+					<p class="post-card__excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 120 }}</p>
+					<span class="post-card__more">
+						Leer más
+						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+							stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+						</svg>
+					</span>
+				</div>
+			</a>
+			{% else %}
+			<p class="empty-note">Aún no he publicado ningún post. Pásate más adelante, que seguro que los publicaré.</p>
+			{% endfor %}
+
+			{% if site.posts.size > 0 %}
+			<a class="post-card post-card--all" href="{{ '/blog' | relative_url }}">
+				<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+					<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
+				</svg>
+				Ver todos los posts
+			</a>
+			{% endif %}
+		</div>
+	</div>
+</section>
+
+<!-- ============================ Contacto ============================ -->
+<section class="cta" id="contacto">
+	<svg class="cta__dots" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+		<defs>
+			<pattern id="jc-dots-cta" x="0" y="0" width="26" height="26" patternUnits="userSpaceOnUse">
+				<circle cx="1.5" cy="1.5" r="1.5" fill="#ffffff" />
+			</pattern>
+		</defs>
+		<rect width="100%" height="100%" fill="url(#jc-dots-cta)" />
+	</svg>
+
+	<div class="container cta__inner">
+		<span class="eyebrow">// Contacto</span>
+		<h2>¿Hablamos de tu backend?</h2>
+		<p>Por si lo necesitas o lo estás buscando. Escríbeme y te contesto.</p>
+		<a class="cta__btn" href="mailto:{{ site.email }}?subject=%C2%A1Hola%20Javier!">
+			<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+				stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<rect x="2" y="4" width="20" height="16" rx="2" /><path d="m2 7 10 6 10-6" />
+			</svg>
+			{{ site.email }}
+		</a>
+	</div>
+</section>

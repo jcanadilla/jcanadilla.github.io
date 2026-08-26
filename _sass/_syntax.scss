@@ -1,0 +1,88 @@
+// =============================================================
+//  Resaltado de código (Rouge) — un tema por modo
+// =============================================================
+
+@mixin code-claro {
+	--code-bg:      #f8f9fc;
+	--code-border:  var(--line);
+	--code-text:    #0f172a;
+	--code-comment: #5d6b7e;
+	--code-keyword: #7c3aed;
+	--code-string:  #0f766e;
+	--code-number:  #b45309;
+	--code-func:    #0369a1;
+	--code-punct:   #475569;
+}
+
+@mixin code-oscuro {
+	--code-bg:      #0d0d14;
+	--code-border:  var(--accent-border);
+	--code-text:    #f1f5f9;
+	--code-comment: #838c9b;
+	--code-keyword: #a78bfa;
+	--code-string:  #34d399;
+	--code-number:  #fb923c;
+	--code-func:    #fbbf24;
+	--code-punct:   #94a3b8;
+}
+
+:root { @include code-claro; }
+@media (prefers-color-scheme: dark) { :root:not(.light) { @include code-oscuro; } }
+:root.dark  { @include code-oscuro; }
+:root.light { @include code-claro; }
+
+// código en línea
+.prose code {
+	font-family: var(--font-mono);
+	font-size: .875em;
+	color: var(--accent-on);
+	background: var(--accent-soft);
+	border: 1px solid var(--accent-border);
+	border-radius: 5px;
+	padding: .15em .4em;
+}
+
+// bloques
+.prose pre,
+.highlight pre,
+div.highlighter-rouge {
+	background: var(--code-bg);
+	border: 1px solid var(--code-border);
+	border-radius: var(--radius-sm);
+	overflow-x: auto;
+}
+
+.prose pre {
+	padding: 20px 22px;
+	font-family: var(--font-mono);
+	font-size: .8125rem;
+	line-height: 1.8;
+	color: var(--code-text);
+}
+
+.prose pre code {
+	color: inherit;
+	background: none;
+	border: 0;
+	padding: 0;
+	font-size: inherit;
+}
+
+.highlight { background: none; }
+.highlight .lineno { color: var(--code-comment); opacity: .6; padding-right: 14px; user-select: none; }
+
+.highlight {
+	.c, .c1, .cm, .cs, .cd  { color: var(--code-comment); font-style: italic; }
+	.k, .kd, .kn, .kp, .kr, .kc, .kt { color: var(--code-keyword); }
+	.o, .ow                 { color: var(--code-punct); }
+	.p, .pi                 { color: var(--code-punct); }
+	.s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx, .sr { color: var(--code-string); }
+	.m, .mi, .mf, .mh, .mo, .il, .no { color: var(--code-number); }
+	.nb, .bp                { color: var(--code-number); }
+	.nf, .nd, .nc, .nn      { color: var(--code-func); }
+	.na, .nt                { color: var(--code-keyword); }
+	.nv, .vc, .vg, .vi, .n  { color: var(--code-text); }
+	.gd                     { color: #b91c1c; }
+	.gi                     { color: #15803d; }
+	.err                    { color: #b91c1c; }
+}

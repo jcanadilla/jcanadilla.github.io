@@ -1,25 +1,39 @@
 ---
 layout: default
-title: Mis proyectos
+title: Proyectos
+description: Proyectos en los que he participado o que he creado.
 ---
 
-<div class="container">
-    <div id="post-page" class="row animate-box">
-        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-            <h2>Proyectos</h2>
-            <p class="text-center">Estos son todos los proyectos en los que he participado o que he creado.</p>
-        </div>
-    </div>
-    <div class="row">
-        {% for project in site.projects %}
-        <div class="col-md-3 text-center col-padding animate-box">
-            <a href="{{project.url}}" class="work" style="background-image: url({{ site.baseurl | append: '/assets/images/projects/' | append: project.thumbnail}});">
-                <div class="desc">
-                    <h3>{{project.title}}</h3>
-                    <span>{{project.technologies | array_to_sentence_string: 'y'}}</span>
-                </div>
-            </a>
-        </div>
-        {% endfor %}
-    </div>
+<div class="page-head">
+	<div class="container page-head__inner">
+		<span class="eyebrow">// Proyectos</span>
+		<h1>Cosas que he construido.</h1>
+		<p class="page-head__lead">
+			Todos los proyectos en los que he participado o que he creado, del backend en producción
+			a los que salieron de la universidad.
+		</p>
+	</div>
+</div>
+
+<div class="section">
+	<div class="container">
+		<div class="cards">
+			{% for project in site.projects %}
+			<a class="card" href="{{ project.url | relative_url }}">
+				<div class="card__head">
+					<span class="card__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M7 17 17 7" /><path d="M8 7h9v9" />
+					</svg>
+				</div>
+				<h3 class="card__title">{{ project.title }}</h3>
+				<p class="card__desc">{{ project.content | strip_html | strip_newlines | truncate: 165 }}</p>
+				<div class="chips">
+					{% for tech in project.technologies %}<span class="chip">{{ tech }}</span>{% endfor %}
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
 </div>
