@@ -46,19 +46,19 @@ Además, cada 10 segundos a cada jugador se le activa un **Power Up** que le pro
 
 Los **Power Up** que mejoran las características del tanque son temporales y tienen una duración limitada de 10 segundos. Una vez terminado este tiempo se vuelven a restaurar las características originales del tanque.
 
-<p class="text-center">
-  <img class="img-120x120" src="{{site.url}}/assets/images/projects/neontanks/damage.png"/>
-  <img class="img-120x120" src="{{site.url}}/assets/images/projects/neontanks/speed.png"/>
-  <img class="img-120x120" src="{{site.url}}/assets/images/projects/neontanks/reload.png"/>
+<p class="icon-row">
+  <img src="{{site.url}}/assets/images/projects/neontanks/damage.png"/>
+  <img src="{{site.url}}/assets/images/projects/neontanks/speed.png"/>
+  <img src="{{site.url}}/assets/images/projects/neontanks/reload.png"/>
 </p>
 
 Y los **Power Ups** que mejoran la vida y el blindaje, obviamente, no es por tiempo limitado sino que tendrán ese valor hasta que el tanque sufra daños.
 
-<p class="text-center">
-  <img class="img-120x120" src="{{site.url}}/assets/images/projects/neontanks/shield.png"/>
-  <img class="img-120x120" src="{{site.url}}/assets/images/projects/neontanks/shield_blue.png"/>
-  <img class="img-120x120" src="{{site.url}}/assets/images/projects/neontanks/hp.png"/>
-  <img class="img-120x120" src="{{site.url}}/assets/images/projects/neontanks/hp_blue.png"/>
+<p class="icon-row">
+  <img src="{{site.url}}/assets/images/projects/neontanks/shield.png"/>
+  <img src="{{site.url}}/assets/images/projects/neontanks/shield_blue.png"/>
+  <img src="{{site.url}}/assets/images/projects/neontanks/hp.png"/>
+  <img src="{{site.url}}/assets/images/projects/neontanks/hp_blue.png"/>
 </p>
 
 ## Ecosistema
