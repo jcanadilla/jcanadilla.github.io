@@ -44,12 +44,16 @@
 
 // bloques
 .prose pre,
-.highlight pre,
-div.highlighter-rouge {
+.highlight pre {
 	background: var(--code-bg);
 	border: 1px solid var(--code-border);
 	border-radius: var(--radius-sm);
 	overflow-x: auto;
+}
+
+div.highlighter-rouge {
+	background: none;
+	border: 0;
 }
 
 .prose pre {
