@@ -8,10 +8,8 @@
 
 		<nav class="nav-menu js-nav-menu" id="nav-menu" aria-label="Principal">
 			<a class="nav-link" href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Inicio</a>
-			{% if page.layout == "home" %}
-			<a class="nav-link" href="#sobre-mi">Sobre mí</a>
-			<a class="nav-link" href="#trayectoria">Trayectoria</a>
-			{% endif %}
+			<a class="nav-link" href="{% if page.layout == 'home' %}#sobre-mi{% else %}{{ '/' | relative_url }}#sobre-mi{% endif %}">Sobre mí</a>
+			<a class="nav-link" href="{% if page.layout == 'home' %}#trayectoria{% else %}{{ '/' | relative_url }}#trayectoria{% endif %}">Trayectoria</a>
 			<a class="nav-link" href="{{ '/projects' | relative_url }}"{% if page.url contains '/projects' %} aria-current="page"{% endif %}>Proyectos</a>
 			<a class="nav-link" href="{{ '/blog' | relative_url }}"{% if page.url contains '/blog' %} aria-current="page"{% endif %}>Posts</a>
 		</nav>
