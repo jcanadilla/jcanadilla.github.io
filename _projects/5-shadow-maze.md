@@ -6,9 +6,9 @@ thumbnail: shadow-maze/shadow-maze.png
 image: shadow-maze/shadow-maze.png
 ---
 
-**Shadow Maze** es un juego de móvil hecho en Unity 6 en el que recorres un laberinto a oscuras con una linterna que se está apagando. La luz es un recurso finito: baja sola, segundo a segundo, las velas la recargan y quedarte a cero reinicia el nivel. Son 68 niveles repartidos en seis mundos, y cada mundo estrena una regla: puertas que hay que cargar, placas que mantienen la meta cerrada, suelo que se rompe al pisarlo y, a partir del cuarto, algo que te caza en la oscuridad.
+**Shadow Maze** es un juego de móvil hecho en Unity 6. Recorres un laberinto a oscuras con una linterna que se está apagando. La luz es un recurso que se acaba: baja sola, segundo a segundo. Las velas la recargan, y si llegas a cero el nivel vuelve a empezar. Son 68 niveles en seis mundos, y cada mundo trae una regla nueva: puertas que hay que cargar, placas que mantienen la meta cerrada, suelo que se rompe al pisarlo y, desde el cuarto, algo que te persigue en la oscuridad.
 
-No hay un solo sprite dibujado en el proyecto: todo lo que se ve son luces, siluetas y post-proceso generados por código. Pero lo que de verdad me interesa contar aquí es que **el contenido tampoco está hecho a mano**. Los 68 laberintos los genera un algoritmo, los puntúa otro, y solo se publican los que caen en la banda de dificultad que toca. Curar niveles dejó de ser trabajo de diseño y pasó a ser trabajo de backend.
+En el proyecto no hay ni un dibujo importado. Todo lo que ves son luces, siluetas y post-proceso generados por código. Pero lo que quiero contar aquí es otra cosa: **los niveles tampoco están hechos a mano**. Un algoritmo genera los laberintos, otro los puntúa, y solo se publican los que caen en la dificultad que toca. Elegir niveles dejó de ser trabajo de diseño y pasó a ser trabajo de backend.
 
 <ul class="cifras">
 	<li><span class="cifra__valor">68</span><span class="cifra__etiqueta">niveles en 6 mundos</span></li>
@@ -19,9 +19,9 @@ No hay un solo sprite dibujado en el proyecto: todo lo que se ve son luces, silu
 
 ## El laberinto: backtracking, y por qué un laberinto perfecto es aburrido
 
-La rejilla empieza maciza y se excava. Las celdas viven en coordenadas impares, los muros en las pares, y el excavador es el *recursive backtracking* de toda la vida: desde la celda actual mira las cuatro vecinas a dos de distancia, se queda con las que siguen siendo pared, elige una al azar, tira el muro intermedio y avanza. Cuando no queda ninguna, retrocede.
+La rejilla empieza siendo todo pared y se va excavando. Las celdas van en coordenadas impares y los muros en las pares. El excavador es el *recursive backtracking* de siempre: desde la celda en la que estás miras las cuatro vecinas que hay a dos de distancia, te quedas con las que siguen siendo pared, eliges una al azar, tiras el muro de en medio y avanzas. Cuando no queda ninguna, retrocedes.
 
-Con una salvedad: **la pila es explícita**. La versión recursiva se comía la pila de llamadas en cuanto el laberinto crecía, así que el recorrido va sobre un `Stack<Vector2Int>` y el algoritmo es exactamente el mismo con el bucle a la vista.
+Con un detalle: **la pila es explícita**. La versión recursiva se quedaba sin pila de llamadas en cuanto el laberinto crecía un poco, así que el recorrido va sobre un `Stack<Vector2Int>`. Es el mismo algoritmo, pero con el bucle a la vista.
 
 ```csharp
 while (pila.Count > 0)
@@ -41,15 +41,17 @@ while (pila.Count > 0)
 }
 ```
 
-Eso produce un **laberinto perfecto**: exactamente un camino entre dos celdas cualesquiera, ni un solo bucle. Y un laberinto perfecto tiene un problema serio como juego, y es que se resuelve pegando la mano a la pared derecha y andando. No hay ni una decisión que tomar: es un pasillo muy largo disfrazado de laberinto.
+Eso da un **laberinto perfecto**: entre dos celdas cualesquiera hay exactamente un camino, sin bucles. Y ahí está el problema. Un laberinto perfecto se resuelve pegando la mano a la pared derecha y andando. No hay nada que decidir: es un pasillo muy largo disfrazado de laberinto.
 
-La respuesta es el **trenzado** (*braiding*): después de excavar se localizan los fondos de saco —celdas con una única salida— y a una fracción de ellos se les tira otra pared. Cada pared derribada es un bucle nuevo, y cada bucle es una ruta alternativa que hay que *elegir*. La fracción es un parámetro: 0 deja el laberinto perfecto, 1 lo convierte en una malla.
+La solución es el **trenzado** (*braiding*). Con el laberinto ya excavado se buscan los fondos de saco, que son las celdas con una sola salida, y a unos cuantos se les tira otra pared. Cada pared que cae abre un bucle, y cada bucle es un camino alternativo que hay que elegir. Cuántos fondos se abren es un parámetro: con 0 el laberinto se queda perfecto y con 1 se convierte en una malla.
 
-Y con el laberinto ya trenzado se coloca la meta, que no se elige a ojo: **un BFS desde la salida da el campo de distancias completo y la meta va en la celda alcanzable más lejana**, demostrablemente.
+Después se coloca la meta, y tampoco se pone a ojo: **un BFS desde la salida mide la distancia hasta todas las celdas, y la meta va en la más lejana de todas**.
 
-Por si el nombre suena a más de lo que es: un **BFS** (*breadth-first search*, o recorrido en anchura) es de los algoritmos más simples que hay. Metes la celda de salida en una cola y vas sacando celdas de una en una; a cada vecina de suelo que no hayas visitado todavía le apuntas la distancia de la celda actual más uno, y la metes al final de la cola. El laberinto se va inundando en anillos desde el origen, y como todos los pasos valen lo mismo, **la primera vez que llegas a una celda es necesariamente por el camino más corto**. Una sola pasada, lineal en el número de celdas, te deja la distancia del origen a todas a la vez: la mayor es la meta, y el propio campo sirve luego para reconstruir cualquier ruta bajando por él.
+Por si el nombre suena a más de lo que es, un **BFS** (*breadth-first search*, o recorrido en anchura) es de los algoritmos más sencillos que existen. Metes la celda de salida en una cola. Vas sacando celdas de una en una y, a cada vecina de suelo que no hayas visitado, le apuntas la distancia de la celda actual más uno y la metes al final de la cola. El laberinto se va inundando en anillos desde el origen.
 
-Los empates se rompen siempre por orden de barrido, así que una misma semilla produce siempre el mismo laberinto — requisito nada negociable cuando el reparto de velas y de puertas se apoya en la ruta.
+Como todos los pasos valen lo mismo, **la primera vez que llegas a una celda es por el camino más corto**. Con una sola pasada tienes la distancia a todas las celdas. La mayor es la meta, y ese mismo campo de distancias sirve luego para reconstruir cualquier ruta: basta con ir bajando de número en número.
+
+Los empates se resuelven siempre en el mismo orden de barrido. Eso hace que una misma semilla dé siempre el mismo laberinto, y es importante: el reparto de velas y de puertas se apoya en la ruta, y tiene que salir igual cada vez.
 
 <div class="figura">
 	<div class="figura__lienzo">
@@ -64,23 +66,31 @@ Los empates se rompen siempre por orden de barrido, así que una misma semilla p
 	<p class="figura__pie">El mismo laberinto recién excavado y después del trenzado. En violeta, las seis paredes derribadas en fondos de saco; en ámbar la salida, y en verde la meta que el BFS coloca en la celda más lejana.</p>
 </div>
 
-## La luz no es una barra: es el peso de las aristas
+## La luz no es una barra de vida: es lo que cuesta moverse
 
-Aquí es donde el juego deja de ser un laberinto y se convierte en un problema de caminos mínimos.
+Aquí es donde el juego deja de ser un laberinto y pasa a ser un problema de caminos mínimos.
 
-El jugador arranca con un depósito de luz, y aquí hay un matiz que lo condiciona todo: **la luz no baja con los pasos, baja con el reloj**. Estar quieto gasta igual. Pararte a mirar el laberinto cuesta lo mismo que recorrerlo.
+El jugador arranca con un depósito de luz, y hay un detalle que lo condiciona todo: **la luz no baja con los pasos, baja con el reloj**. Estar quieto gasta igual. Pararte a mirar el laberinto cuesta lo mismo que recorrerlo.
 
-Lo que hace el modelo es fijar el consumo por segundo de forma que **andar sin parar con el Faro** —el foco grande, con el que ves— cueste exactamente una unidad de coste por celda. El **Rescoldo** consume un quinto de eso, pero apenas alumbra dos celdas a tu alrededor. Esa equivalencia entre segundos y celdas es la bisagra del sistema entero: es lo que permite analizar un recurso que se consume en tiempo como si fuera el peso de una arista, y de paso deja meter en la misma cuenta cosas que no son pasos, como esperar plantado encima de una placa.
+El consumo por segundo está puesto de forma que **andar sin parar con el Faro cueste exactamente una unidad por celda**. El Faro es el foco grande, el que te deja ver de verdad. El **Rescoldo** gasta un quinto de eso, pero solo alumbra un par de celdas a tu alrededor.
 
-Las velas devuelven luz al pisarlas. Y las reglas de los mundos entran en el mismo modelo, sin inventar nada nuevo, simplemente como **peajes**:
+Esa equivalencia entre segundos y celdas es la que sostiene todo lo demás. Gracias a ella se puede analizar un recurso que se gasta con el tiempo como si fuera el coste de moverse de una celda a otra. Y de paso deja meter en la misma cuenta cosas que no son pasos, como quedarte parado encima de una placa.
 
-- **Puerta de luz.** Cruzarla cuesta su valor **una** vez: es lo que gastas cargándola en Faro, y después se queda abierta.
-- **Suelo frágil.** Cuesta su peaje **cada** vez que lo pisas: la baldosa solo aguanta mientras está iluminada.
-- **Placa de luz.** Cuesta su valor una vez, como la puerta, pero además **la meta nace cerrada** y no se abre hasta que están todas encendidas.
+Las velas devuelven luz al pisarlas. Y las reglas de los mundos entran en el mismo modelo, sin inventar nada: son **peajes**.
 
-Como todos los peajes son no negativos, el coste de una arista sigue siendo no negativo y monótono: Dijkstra sigue valiendo. Lo que sí cambia es qué es un nodo. Una puerta abierta, una vela ya recogida o una placa encendida son **estado que te llevas contigo**, así que la misma celda con la puerta abierta y con la puerta cerrada son dos nodos distintos. El grafo real es `(celda, máscara de bits)`.
+- **Puerta de luz.** Cruzarla cuesta su valor **una** vez. Es lo que gastas cargándola con el Faro, y luego se queda abierta.
+- **Suelo frágil.** Cuesta su peaje **cada** vez que lo pisas, porque la baldosa solo aguanta mientras está iluminada.
+- **Placa de luz.** Cuesta su valor una vez, igual que la puerta, pero además **la meta empieza cerrada** y no se abre hasta que están todas encendidas.
 
-De ahí sale el único límite duro del sistema: **doce bits**, repartidos entre velas, puertas y placas. Con doce bits y un laberinto de 41×41 ya son 6,8 millones de estados; y pasadas doce, además, el jugador deja de contarlas. La restricción técnica y la de diseño coinciden, que es la mejor clase de límite.
+Ningún peaje es negativo, así que moverse siempre cuesta algo y Dijkstra sigue sirviendo. Lo que sí cambia es qué contamos como nodo.
+
+Una puerta abierta, una vela ya cogida o una placa encendida son cosas que te llevas contigo el resto del nivel. Estar en una celda con la puerta abierta no es lo mismo que estar en esa misma celda con la puerta cerrada, y el algoritmo tiene que tratarlas como dos nodos distintos. Un nodo no es una celda: es **una celda más la lista de lo que llevas encendido**.
+
+Esa lista se guarda como un juego de interruptores: uno por cada vela, cada puerta y cada placa del nivel, encendido o apagado. En el código se llama *máscara de bits*, que es el nombre que verás en la figura de aquí abajo.
+
+Y ahí está el coste. Con 12 interruptores hay 2¹² = 4.096 combinaciones posibles, y cada combinación es una copia entera del laberinto. En uno de 41×41 celdas salen casi 6,8 millones de nodos que recorrer.
+
+Por eso el límite es de **12 en total** entre velas, puertas y placas. Lo bueno es que el límite de diseño está en el mismo sitio: pasadas doce cosas que recordar, el jugador deja de llevar la cuenta. Cuando el techo técnico y el de diseño coinciden, la decisión se toma sola.
 
 <div class="figura">
 	<div class="figura__lienzo">
@@ -146,15 +156,15 @@ De ahí sale el único límite duro del sistema: **doce bits**, repartidos entre
 
 ## Dijkstra hacia delante: el recorrido más barato que llega vivo
 
-La primera búsqueda calcula `gasto[estado]`: la luz mínima consumida —pasos, peajes y cargas de puerta, sin descontar velas— para plantarse en esa celda con esa máscara ya encendida. Una arista se rechaza si dar el paso te dejaría por debajo de cero; llegar a cero justo cuenta como llegar, lo que no puedes es dar otro paso.
+La primera búsqueda calcula `gasto[estado]`: la luz mínima que hay que consumir para plantarse en una celda con unas cosas ya encendidas. Cuenta los pasos, los peajes y las cargas de puerta, sin descontar las velas. Si dar un paso te dejaría por debajo de cero, ese paso no existe. Llegar a cero justo sí vale: has llegado, lo que no puedes es dar otro paso.
 
-Quedarse solo con el gasto mínimo de cada estado parece una poda arriesgada y no lo es, y el argumento cabe en una línea: la luz que llevas encima en un estado es `luzInicial - gasto + valor(máscara)`, así que **menos gasto es siempre más luz, y con más luz nunca puedes hacer menos cosas**. La dominancia es total, y por eso un solo número por estado basta.
+Guardar solo el gasto mínimo de cada estado parece que deja opciones fuera, y no las deja. La luz que llevas encima es `luzInicial - gasto + lo que hayas recogido`, así que **gastar menos es siempre llevar más luz, y llevando más luz nunca puedes hacer menos cosas**. La comparación siempre sale a favor del camino más barato, y por eso basta con un número por estado.
 
-De aquí salen dos métricas: `luzMinima`, la luz neta que gasta el mejor recorrido que llega vivo —que puede ser negativa si las velas pagan el viaje—, y sobre todo `holgura = luzInicial − luzMinima`, la luz que te sobra al llegar si juegas perfecto. La holgura es el mando principal de la dificultad.
+De aquí salen dos números. `luzMinima` es la luz neta que gasta el mejor recorrido que llega vivo, y puede ser negativa si las velas acaban pagando el viaje. Y `holgura = luzInicial − luzMinima` es la luz que te sobra al llegar si juegas perfecto. La holgura es el mando principal de la dificultad.
 
 ## Dijkstra hacia atrás: el presupuesto mínimo del nivel
 
-La segunda búsqueda es la que me parece bonita. Responde a otra pregunta: **¿con cuánta luz se puede terminar este nivel?** No cuánta gastas, sino cuánta necesitas tener en el bolsillo. Y es una propiedad del laberinto, no de la partida: no mira el presupuesto inicial en absoluto.
+La segunda búsqueda es la que más me gusta. Responde a otra pregunta: **¿con cuánta luz se puede terminar este nivel?** No cuánta gastas, sino cuánta necesitas llevar encima. Es una propiedad del laberinto, no de la partida: no mira el depósito inicial para nada.
 
 Se resuelve desde la meta hacia atrás con esta recurrencia:
 
@@ -163,22 +173,24 @@ Se resuelve desde la meta hacia atrás con esta recurrencia:
 int candidato = Mathf.Max(coste, coste + prioridad - ganancia);
 ```
 
-El `max` es el detalle que lo sostiene todo. Sin él, una vela que devuelve 25 unidades sería una arista negativa y Dijkstra dejaría de valer. Con él la función es monótona y nunca negativa —porque hace falta al menos poder pagar la arista para darla, por muy generosa que sea la vela que hay al otro lado— y la cola de prioridad vuelve a ser legítima.
+`arista` es lo que cuesta dar ese paso, con los peajes incluidos, y `vela(n)` lo que te devuelve la casilla a la que llegas.
 
-Ese número, `luzNecesaria`, es lo que convierte el presupuesto de cada nivel en algo medido en vez de puesto a ojo: **al laberinto recién generado se le pregunta con cuánta luz se puede terminar y se le da esa luz multiplicada por un factor**. Factor 1 es un nivel al filo; factor 3 es un paseo. Sorteando el factor entre 1,2 y 3, una misma tirada llega a las cuatro bandas de dificultad; con un factor fijo saldrían todos iguales.
+El `max` es lo que hace que esto funcione. Sin él, una vela que devuelve 25 unidades convertiría ese paso en un coste negativo, y con costes negativos Dijkstra deja de valer. Con el `max`, el número nunca baja de lo que cuesta el propio paso: por muy generosa que sea la vela que hay al otro lado, primero tienes que poder pagar el paso para llegar a ella. Así la cuenta nunca decrece ni se vuelve negativa, y la cola de prioridad sigue siendo válida.
+
+Ese número, `luzNecesaria`, es lo que permite poner el depósito de cada nivel con criterio en vez de a ojo. **Al laberinto recién generado se le pregunta con cuánta luz se puede terminar, y se le da esa luz multiplicada por un factor.** Con factor 1 el nivel queda al filo; con factor 3 es un paseo. Como el factor se sortea entre 1,2 y 3, una misma tirada de laberintos llega a las cuatro bandas de dificultad. Con un factor fijo saldrían todos iguales.
 
 ## Las dos búsquedas juntas: contar decisiones de verdad
 
-Un laberinto se puede medir por cruces, pero contar celdas con tres salidas o más no dice gran cosa. Lo que quieres saber es cuántas veces el jugador **elige de verdad**, y para eso hacen falta las dos búsquedas a la vez:
+Un laberinto se puede medir contando cruces, pero contar celdas con tres salidas o más no dice gran cosa. Lo que quieres saber es cuántas veces el jugador **elige de verdad**. Y para eso hacen falta las dos búsquedas a la vez:
 
 - la de ida dice **con cuánta luz llegas** a ese cruce jugando bien, y por dónde has entrado;
 - la de vuelta dice, para cada rama, **cuánta luz haría falta** para terminar desde ahí.
 
-Una rama cuenta si la luz con la que llegarías a ella es mayor o igual que la que necesita. Si al final quedan dos o más ramas viables, eso es una decisión. Si solo queda una, no lo es: un cruce en el que todas las ramas menos una son callejones sin luz suficiente es un pasillo disfrazado, y contarlo como decisión infla la dificultad de un nivel que en realidad se juega solo.
+Una rama cuenta si la luz con la que llegarías a ella es igual o mayor que la que necesita. Si al final quedan dos ramas o más, eso es una decisión. Si solo queda una, no lo es. Un cruce donde todas las ramas menos una son callejones a los que no te llega la luz es un pasillo disfrazado, y contarlo como decisión infla la dificultad de un nivel que en realidad se juega solo.
 
 ## Puntuar, curar y publicar
 
-Con las métricas en la mano, la dificultad es una media ponderada de cuatro cosas, todas normalizadas contra una saturación calibrada sobre el corpus ya publicado:
+Con las métricas en la mano, la dificultad es una media ponderada de cuatro cosas. Cada una se normaliza contra un tope calibrado sobre los niveles ya publicados:
 
 | Métrica | Peso | Qué mide |
 |---|---|---|
@@ -187,16 +199,18 @@ Con las métricas en la mano, la dificultad es una media ponderada de cuatro cos
 | Camino | 0,20 | Lo largo que es el recorrido que *termina* el nivel |
 | Desvíos | 0,20 | Velas que quedan fuera de la ruta óptima |
 
-El resultado cae en una de cuatro bandas —*presentar*, *desarrollar*, *retorcer* y *dominar*— y la tubería completa es la que esperarías de cualquier proceso por lotes: se generan 500 laberintos, se puntúan, se tiran los que no se pueden terminar y se conservan los mejores de cada banda. Los umbrales de estrellas salen derivados del propio nivel, como una fracción de su holgura (60 % y 25 %), así que son justos por construcción y no hay ni un número puesto a mano.
+El resultado cae en una de cuatro bandas: *presentar*, *desarrollar*, *retorcer* y *dominar*. Y el proceso completo es el de cualquier tarea por lotes: se generan 500 laberintos, se puntúan, se tiran los que no se pueden terminar y se guardan los mejores de cada banda. Los umbrales de estrellas salen del propio nivel, como una fracción de su holgura (el 60 % y el 25 %), así que son justos por construcción y no hay ni un número puesto a mano.
 
-Un detalle que costó una regla entera: con placas, el recorrido que termina el nivel **no** es el BFS de la salida a la meta, porque la meta no se abre hasta que están todas encendidas. Hay que visitarlas todas, o sea un viajante de comercio de tres paradas como mucho, que se resuelve probando los seis órdenes a lo bruto. Sin eso, una placa a veinte celdas de la ruta no movía la dificultad ni un decimal y todo un mundo puntuaba como si su regla no existiera.
+Un detalle que costó una regla entera. Con placas, el recorrido que termina el nivel **no** es el BFS de la salida a la meta, porque la meta no se abre hasta que están todas encendidas. Hay que pasar por todas. Es un viajante de comercio de tres paradas como mucho, así que se resuelve probando los seis órdenes posibles a lo bruto. Sin esto, una placa a veinte celdas de la ruta no movía la dificultad ni un decimal, y todo un mundo puntuaba como si su regla no existiera.
 
 ## Y un BFS más: la Sombra
 
-Del cuarto mundo en adelante hay algo persiguiéndote, y también es un recorrido sobre la rejilla: la Sombra baja celda a celda por un campo de distancias BFS hacia el jugador, y nunca se mueve más rápido que él. Perseguir sin poder alcanzar es tensión; perseguir más rápido es una carrera perdida de antemano.
+Del cuarto mundo en adelante hay algo persiguiéndote, y también se mueve por la rejilla. La Sombra baja celda a celda por un campo de distancias BFS hacia el jugador, y nunca va más rápido que él. Perseguir sin poder alcanzar es tensión; perseguir más rápido es una carrera perdida antes de empezar.
 
-Lo que la hace interesante no es su navegación sino su regla de detección: **su alcance es el radio de tu propia luz multiplicado por 2,6**. En Faro te ve desde veinte celdas, pero no puede tocarte porque la luz la repele; en Rescoldo se te acerca hasta cinco celdas sin enterarte, y ahí el contacto reinicia el nivel. Tu luz te protege de cerca y te delata de lejos, y esa sola línea convierte el interruptor Faro/Rescoldo en la decisión constante del juego en vez de en un botón que se pulsa una vez y se olvida.
+Lo interesante no es cómo se mueve, sino cómo te detecta: **su alcance es el radio de tu propia luz multiplicado por 2,6**. Con el Faro te ve desde veinte celdas, pero no puede tocarte, porque la luz la repele. Con el Rescoldo se te puede acercar hasta cinco celdas sin que te enteres, y ahí el contacto reinicia el nivel.
+
+Tu luz te protege de cerca y te delata de lejos. Esa sola regla convierte el interruptor Faro/Rescoldo en una decisión constante, en vez de en un botón que se pulsa una vez y se olvida.
 
 ## Lo que me llevo
 
-El generador de laberintos es un clásico y se escribe en una tarde. Lo que ha hecho interesante el proyecto es lo otro: que meter un recurso agotable convierte un puzle de recorrido en un problema de camino mínimo con estado, y que en cuanto existe un evaluador capaz de puntuar un nivel, la curva de dificultad se **mide** en lugar de intuirse. Cuando publicar contenido consiste en generar, puntuar y filtrar, la parte de diseño que queda es la que merece la pena: decidir qué regla estrena cada mundo.
+El generador de laberintos es un clásico y se escribe en una tarde. Lo que ha hecho interesante el proyecto es lo otro. Poner un recurso que se agota convierte un puzle de recorrido en un problema de camino mínimo con estado. Y en cuanto tienes un evaluador que sabe puntuar un nivel, la curva de dificultad se **mide** en lugar de intuirse. Cuando publicar contenido es generar, puntuar y filtrar, el trabajo de diseño que queda es el que merece la pena: decidir qué regla estrena cada mundo.
