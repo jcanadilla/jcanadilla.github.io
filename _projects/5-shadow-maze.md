@@ -45,7 +45,11 @@ Eso produce un **laberinto perfecto**: exactamente un camino entre dos celdas cu
 
 La respuesta es el **trenzado** (*braiding*): después de excavar se localizan los fondos de saco —celdas con una única salida— y a una fracción de ellos se les tira otra pared. Cada pared derribada es un bucle nuevo, y cada bucle es una ruta alternativa que hay que *elegir*. La fracción es un parámetro: 0 deja el laberinto perfecto, 1 lo convierte en una malla.
 
-Y con el laberinto ya trenzado se coloca la meta, que no se elige a ojo: **un BFS desde la salida da el campo de distancias completo y la meta va en la celda alcanzable más lejana**, demostrablemente. Los empates se rompen siempre por orden de barrido, así que una misma semilla produce siempre el mismo laberinto — requisito nada negociable cuando el reparto de velas y de puertas se apoya en la ruta.
+Y con el laberinto ya trenzado se coloca la meta, que no se elige a ojo: **un BFS desde la salida da el campo de distancias completo y la meta va en la celda alcanzable más lejana**, demostrablemente.
+
+Por si el nombre suena a más de lo que es: un **BFS** (*breadth-first search*, o recorrido en anchura) es de los algoritmos más simples que hay. Metes la celda de salida en una cola y vas sacando celdas de una en una; a cada vecina de suelo que no hayas visitado todavía le apuntas la distancia de la celda actual más uno, y la metes al final de la cola. El laberinto se va inundando en anillos desde el origen, y como todos los pasos valen lo mismo, **la primera vez que llegas a una celda es necesariamente por el camino más corto**. Una sola pasada, lineal en el número de celdas, te deja la distancia del origen a todas a la vez: la mayor es la meta, y el propio campo sirve luego para reconstruir cualquier ruta bajando por él.
+
+Los empates se rompen siempre por orden de barrido, así que una misma semilla produce siempre el mismo laberinto — requisito nada negociable cuando el reparto de velas y de puertas se apoya en la ruta.
 
 <div class="figura">
 	<div class="figura__lienzo">
@@ -57,14 +61,18 @@ Y con el laberinto ya trenzado se coloca la meta, que no se elige a ojo: **un BF
 			<text x="390.5" y="248" text-anchor="middle">trenzado &#183; 6 paredes menos &#183; meta a 100</text>
 		</svg>
 	</div>
-	<p class="figura__pie">El mismo laberinto recién excavado y después del trenzado. En color, las seis paredes derribadas en fondos de saco; en verde la salida, y en violeta la meta que el BFS coloca en la celda más lejana.</p>
+	<p class="figura__pie">El mismo laberinto recién excavado y después del trenzado. En violeta, las seis paredes derribadas en fondos de saco; en ámbar la salida, y en verde la meta que el BFS coloca en la celda más lejana.</p>
 </div>
 
 ## La luz no es una barra: es el peso de las aristas
 
 Aquí es donde el juego deja de ser un laberinto y se convierte en un problema de caminos mínimos.
 
-El jugador arranca con un presupuesto de luz y cada paso le cuesta. Andar con el **Faro** —el foco grande, con el que ves— consume el coste íntegro; el **Rescoldo** consume un quinto, pero apenas alumbra dos celdas. Las velas devuelven luz al pisarlas. Y las reglas de los mundos entran en el mismo modelo, sin inventar nada nuevo, simplemente como **peajes**:
+El jugador arranca con un depósito de luz, y aquí hay un matiz que lo condiciona todo: **la luz no baja con los pasos, baja con el reloj**. Estar quieto gasta igual. Pararte a mirar el laberinto cuesta lo mismo que recorrerlo.
+
+Lo que hace el modelo es fijar el consumo por segundo de forma que **andar sin parar con el Faro** —el foco grande, con el que ves— cueste exactamente una unidad de coste por celda. El **Rescoldo** consume un quinto de eso, pero apenas alumbra dos celdas a tu alrededor. Esa equivalencia entre segundos y celdas es la bisagra del sistema entero: es lo que permite analizar un recurso que se consume en tiempo como si fuera el peso de una arista, y de paso deja meter en la misma cuenta cosas que no son pasos, como esperar plantado encima de una placa.
+
+Las velas devuelven luz al pisarlas. Y las reglas de los mundos entran en el mismo modelo, sin inventar nada nuevo, simplemente como **peajes**:
 
 - **Puerta de luz.** Cruzarla cuesta su valor **una** vez: es lo que gastas cargándola en Faro, y después se queda abierta.
 - **Suelo frágil.** Cuesta su peaje **cada** vez que lo pisas: la baldosa solo aguanta mientras está iluminada.

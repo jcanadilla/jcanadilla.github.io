@@ -81,11 +81,24 @@
 }
 .figura .fig-titulo { fill: var(--text); font-weight: 600; }
 
+// El jugador es su luz, así que va en ámbar como en el juego; la meta, en el
+// verde que hace de "esto es lo que buscas". Los dos son colores propios de la
+// figura y no tokens del sitio: se aclaran en oscuro para no quedarse apagados.
+.figura {
+	--fig-luz:  #d97706;
+	--fig-meta: #16a34a;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not(.light) .figura { --fig-luz: #fbbf24; --fig-meta: #22c55e; }
+}
+:root.dark  .figura { --fig-luz: #fbbf24; --fig-meta: #22c55e; }
+:root.light .figura { --fig-luz: #d97706; --fig-meta: #16a34a; }
+
 .fig-muro   { fill: var(--text); opacity: .88; }
 .fig-brecha { fill: var(--accent); opacity: .55; }
-.fig-spawn  { fill: var(--ok); }
-.fig-meta   { fill: var(--accent); }
-.fig-halo   { fill: var(--accent); opacity: .28; }
+.fig-spawn  { fill: var(--fig-luz); }
+.fig-meta   { fill: var(--fig-meta); }
+.fig-halo   { fill: var(--fig-meta); opacity: .3; }
 
 .fig-plano  { fill: var(--accent); opacity: .06; }
 .fig-borde  { fill: none; stroke: var(--accent-border); stroke-width: 1; }
