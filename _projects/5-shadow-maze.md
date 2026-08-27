@@ -284,9 +284,11 @@ El resultado cae en una de cuatro bandas: *presentar*, *desarrollar*, *retorcer*
 
 Hasta los umbrales de estrellas salen del propio nivel, como una fracción de su holgura (el 60 % y el 25 %), así que son justos por construcción y no hay ni un solo número puesto a mano. Para mi tranquilidad, vaya.
 
-> ¡OJO con las placas! Este detalle me costó una regla entera. Con placas, el recorrido que termina el nivel **no** es el BFS de la salida a la meta, porque la meta no se abre hasta que están todas encendidas. Hay que pasar por todas.
+> ¡OJO con las placas! Este detalle casi me deja un mundo entero sin sentido. Con placas, el recorrido que termina el nivel **no** es el camino de la salida a la meta que calcula el BFS, porque la meta está cerrada hasta que las enciendes todas. El recorrido bueno es otro: salida → todas las placas → meta.
 
-Es un viajante de comercio de tres paradas como mucho, así que se resuelve probando los seis órdenes posibles a lo bruto. Sin esto, una placa a veinte celdas de la ruta no movía la dificultad ni un decimal y todo un mundo puntuaba como si su regla no existiera.
+Y durante un tiempo lo estuve midiendo mal. El evaluador puntuaba cada nivel con el camino directo a la meta, es decir, con un camino que el jugador no puede hacer. ¿El resultado? Que una placa escondida a veinte celdas de la ruta no subía la dificultad ni un decimal, y todo el mundo de las placas puntuaba como si su regla no existiera.
+
+Arreglarlo fue más sencillo de lo que parece. En un nivel hay tres placas como mucho, así que sólo existen seis órdenes posibles para recorrerlas (3 × 2 × 1 = 6). Se prueban los seis a lo bruto, se mide lo que cuesta cada uno y nos quedamos con el más barato. Es el problema del viajante de comercio de toda la vida, pero tan pequeño que no hace falta hilar fino: con seis intentos está resuelto.
 
 ## Y un BFS más: la Sombra
 
