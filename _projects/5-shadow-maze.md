@@ -16,6 +16,16 @@ En el proyecto no hay ni un dibujo importado. Todo lo que ves son luces, silueta
 	<li><span class="cifra__valor">500</span><span class="cifra__etiqueta">laberintos por tirada</span></li>
 	<li><span class="cifra__valor">0</span><span class="cifra__etiqueta">sprites importados</span></li>
 </ul>
+<div class="prueba">
+	<span class="eyebrow">// Prueba interna</span>
+	<h2>Puedes jugarlo antes de que salga</h2>
+	<p>Shadow Maze está en <strong>prueba interna en Google Play</strong>, así que se puede instalar ya. Son dos pasos: primero te apuntas como tester con tu cuenta de Google y, con eso hecho, la ficha de Play te deja descargarlo.</p>
+	<div class="prueba__acciones">
+		<a class="btn btn--primary" href="https://play.google.com/apps/testing/com.javiercanadilla.shadowmaze" target="_blank">Apuntarme como tester</a>
+		<a class="btn btn--ghost" href="https://play.google.com/store/apps/details?id=com.javiercanadilla.shadowmaze" target="_blank">Abrir la ficha en Google Play</a>
+	</div>
+	<p class="prueba__nota">Hace falta Android y usar la misma cuenta de Google en el enlace y en el móvil. Si la ficha dice que la app no está disponible, es que falta apuntarse o que Play todavía no ha refrescado; suele tardar unos minutos.</p>
+</div>
 
 ## El laberinto: backtracking, y por qué un laberinto perfecto es aburrido
 
@@ -214,3 +224,8 @@ Tu luz te protege de cerca y te delata de lejos. Esa sola regla convierte el int
 ## Lo que me llevo
 
 El generador de laberintos es un clásico y se escribe en una tarde. Lo que ha hecho interesante el proyecto es lo otro. Poner un recurso que se agota convierte un puzle de recorrido en un problema de camino mínimo con estado. Y en cuanto tienes un evaluador que sabe puntuar un nivel, la curva de dificultad se **mide** en lugar de intuirse. Cuando publicar contenido es generar, puntuar y filtrar, el trabajo de diseño que queda es el que merece la pena: decidir qué regla estrena cada mundo.
+
+Y si has llegado hasta aquí, lo suyo es que lo juegues: la [prueba interna en Google Play][prueba] sigue abierta, y la [ficha del juego][ficha] es la de siempre. Cualquier fallo que veas, cuéntamelo.
+
+[prueba]: https://play.google.com/apps/testing/com.javiercanadilla.shadowmaze
+[ficha]: https://play.google.com/store/apps/details?id=com.javiercanadilla.shadowmaze
