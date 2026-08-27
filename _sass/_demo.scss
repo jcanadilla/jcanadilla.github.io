@@ -1,0 +1,247 @@
+// =============================================================
+//  Demo interactiva dentro de un artículo
+//
+//  Misma idea que las figuras: el SVG no lleva colores propios,
+//  pinta por clase y el color sale de los tokens, así que el modo
+//  claro y el oscuro funcionan sin duplicar nada.
+// =============================================================
+
+// Sin JavaScript la demo es una caja muerta, así que no se enseña.
+.prose .demo { display: none; }
+.js .prose .demo {
+	display: block;
+	margin: 2.6em 0;
+	padding: 26px 24px 22px;
+	border: 1px solid var(--accent-border);
+	border-radius: var(--radius);
+	background: var(--bg-alt);
+}
+
+// ---------------------------------------------- cabecera
+
+.demo__cabecera { margin-bottom: 22px; }
+
+.prose .demo__titulo {
+	margin: 10px 0 8px;
+	font-size: 1.25rem;
+}
+
+.prose .demo__intro {
+	margin: 0;
+	font-size: .9375rem;
+	line-height: 1.65;
+}
+
+// ---------------------------------------------- escena
+
+// La pila a la izquierda y la rejilla a la derecha, y las dos con la
+// misma altura: la columna es el mismo camino que se ve en violeta.
+.demo__escena {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	gap: 16px;
+	align-items: stretch;
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.demo__pila {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	width: 44px;
+}
+
+.demo__rotulo {
+	font-family: var(--font-mono);
+	font-size: .64rem;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: var(--subtle);
+}
+
+// column-reverse pone la primera pieza abajo, así que la pila crece
+// hacia arriba y la cima queda siempre arriba del todo.
+.demo__columna {
+	flex: 1;
+	width: 100%;
+	min-height: 180px;
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: flex-start;
+	gap: var(--pieza-hueco, 2px);
+	padding: 4px;
+	border: 1px solid var(--line);
+	border-radius: var(--radius-sm);
+	background: var(--bg);
+	overflow: hidden;
+}
+
+.demo__pieza {
+	display: block;
+	flex: 0 0 auto;
+	width: 100%;
+	height: var(--pieza-alto, 6px);
+	border-radius: 1px;
+	background: var(--accent);
+}
+
+// La cima de la pila es la celda en la que está el excavador.
+.demo__pieza:last-child {
+	background: var(--fig-luz);
+	opacity: 1;
+}
+
+.demo__lienzo {
+	border: 1px solid var(--line);
+	border-radius: var(--radius-sm);
+	overflow: hidden;
+	line-height: 0;
+}
+
+.demo__lienzo svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+// ---------------------------------------------- rejilla
+
+// Los mismos papeles que en las figuras: ámbar donde está el jugador,
+// acento para lo que el algoritmo tiene "en la mano".
+.demo {
+	--fig-luz: #d97706;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not(.light) .demo { --fig-luz: #fbbf24; }
+}
+:root.dark  .demo { --fig-luz: #fbbf24; }
+:root.light .demo { --fig-luz: #d97706; }
+
+.dl-roca   { fill: var(--text); opacity: .88; }
+.dl-suelo  { fill: var(--bg-alt); }
+.dl-pila   { fill: var(--accent); }
+.dl-actual { fill: var(--fig-luz); }
+.dl-inicio { fill: var(--bg-alt); stroke: var(--fig-luz); stroke-width: .12; }
+
+// ---------------------------------------------- contadores
+
+.prose .demo__datos {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+	margin: 16px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.prose .demo__datos li {
+	margin: 0;
+	padding: 10px 12px;
+	border: 1px solid var(--line);
+	border-radius: var(--radius-sm);
+	background: var(--bg);
+	text-align: center;
+}
+
+.demo__valor {
+	display: block;
+	font-family: var(--font-mono);
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.1;
+	color: var(--accent-on);
+	font-variant-numeric: tabular-nums;
+}
+
+.demo__etiqueta {
+	display: block;
+	margin-top: 5px;
+	font-size: .7rem;
+	line-height: 1.35;
+	color: var(--subtle);
+}
+
+// ---------------------------------------------- traza y mandos
+
+.prose .demo__traza {
+	margin: 12px 0 0;
+	padding: 9px 12px;
+	border-radius: var(--radius-sm);
+	background: var(--bg);
+	border: 1px solid var(--line);
+	font-family: var(--font-mono);
+	font-size: .78rem;
+	line-height: 1.5;
+	color: var(--muted);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.demo__mandos {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin-top: 16px;
+}
+
+.prose .demo__mandos .btn { text-decoration: none; }
+.prose .demo__mandos .btn--primary { color: var(--btn-text); }
+.prose .demo__mandos .btn--ghost { color: var(--accent-on); }
+.prose .demo__mandos .btn[disabled] {
+	opacity: .45;
+	cursor: default;
+	transform: none;
+}
+.prose .demo__mandos .btn[disabled]:hover { transform: none; background: transparent; }
+
+.demo__velocidad {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	margin-left: auto;
+	font-family: var(--font-mono);
+	font-size: .7rem;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	color: var(--subtle);
+}
+
+.demo__velocidad input {
+	width: 108px;
+	accent-color: var(--accent);
+	cursor: pointer;
+}
+
+.prose .demo__pie {
+	margin: 14px 0 0;
+	font-family: var(--font-mono);
+	font-size: .72rem;
+	line-height: 1.6;
+	color: var(--subtle);
+}
+
+.prose .demo__pie code {
+	background: none;
+	border: 0;
+	padding: 0;
+	color: var(--accent-on);
+}
+
+// ---------------------------------------------- pantallas pequeñas
+
+@media (max-width: 620px) {
+	.js .prose .demo { padding: 20px 16px 18px; }
+	.demo__escena { gap: 12px; }
+	.demo__pila { width: 34px; }
+	.demo__columna { min-height: 140px; }
+	.prose .demo__datos { gap: 8px; }
+	.demo__datos li { padding: 9px 6px; }
+	.demo__etiqueta { font-size: .64rem; }
+	.demo__mandos .btn { flex: 1 1 calc(50% - 5px); justify-content: center; }
+	.demo__velocidad { flex: 1 1 100%; margin-left: 0; justify-content: space-between; }
+	.demo__velocidad input { width: 60%; }
+}
