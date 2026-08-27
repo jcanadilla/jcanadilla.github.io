@@ -217,9 +217,9 @@ Un detalle que costó una regla entera. Con placas, el recorrido que termina el 
 
 Del cuarto mundo en adelante hay algo persiguiéndote, y también se mueve por la rejilla. La Sombra baja celda a celda por un campo de distancias BFS hacia el jugador, y nunca va más rápido que él. Perseguir sin poder alcanzar es tensión; perseguir más rápido es una carrera perdida antes de empezar.
 
-Lo interesante no es cómo se mueve, sino cómo te detecta: **su alcance es el radio de tu propia luz multiplicado por 2,6**. Con el Faro te ve desde veinte celdas, pero no puede tocarte, porque la luz la repele. Con el Rescoldo se te puede acercar hasta cinco celdas sin que te enteres, y ahí el contacto reinicia el nivel.
+Lo interesante no es cómo se mueve, sino cómo te detecta: **su alcance depende del radio de tu propia luz**. Con el Faro te ve desde veinte celdas, y si te alcanza te quita luz, que es justo lo que te hace falta para llegar a la meta. Con el Rescoldo se te puede acercar hasta cinco celdas sin que te enteres, así que el mordisco llega sin aviso.
 
-Tu luz te protege de cerca y te delata de lejos. Esa sola regla convierte el interruptor Faro/Rescoldo en una decisión constante, en vez de en un botón que se pulsa una vez y se olvida.
+Tu luz te delata de lejos y te deja a ciegas de cerca, y el precio de que te alcance es siempre el mismo: menos luz para terminar. Esa sola regla convierte el interruptor Faro/Rescoldo en una decisión constante, en vez de en un botón que se pulsa una vez y se olvida.
 
 ## Lo que me llevo
 
