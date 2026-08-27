@@ -85,6 +85,11 @@
 	</button>
 
 	<script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+
+	<!-- Guiones sueltos que solo necesita una página, declarados en su front matter -->
+	{% for guion in page.scripts %}
+	<script src="{{ guion | relative_url }}" defer></script>
+	{% endfor %}
 </body>
 
 </html>

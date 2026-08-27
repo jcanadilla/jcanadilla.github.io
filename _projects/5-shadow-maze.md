@@ -4,6 +4,8 @@ title: Shadow Maze
 technologies: [Unity 6, C#, Algoritmia, BFS, Dijkstra, Android, iOS]
 thumbnail: shadow-maze/shadow-maze.png
 image: shadow-maze/shadow-maze.png
+scripts:
+  - /assets/js/demo-laberinto.js
 ---
 
 **Shadow Maze** es un juego de móvil hecho en Unity 6. Recorres un laberinto a oscuras con una linterna que se está apagando. La luz es un recurso que se acaba: baja sola, segundo a segundo. Las velas la recargan, y si llegas a cero el nivel vuelve a empezar. Son 68 niveles en seis mundos, y cada mundo trae una regla nueva: puertas que hay que cargar, placas que mantienen la meta cerrada, suelo que se rompe al pisarlo y, desde el cuarto, algo que te persigue en la oscuridad.
@@ -50,6 +52,45 @@ while (pila.Count > 0)
     pila.Push(siguiente);
 }
 ```
+
+<div class="demo js-demo-laberinto">
+	<div class="demo__cabecera">
+		<span class="eyebrow">// Demo</span>
+		<h3 class="demo__titulo">El excavador, en marcha</h3>
+		<p class="demo__intro">Es ese bucle, funcionando. En <strong>ámbar</strong>, la celda en la que está el excavador; en <strong>violeta</strong>, el camino que la pila guarda para poder volver, y a la izquierda esa misma pila de canto, una pieza por celda. Cuando la celda ámbar se queda sin vecinas de pared, la pila suelta una pieza y el excavador reaparece más atrás: eso es retroceder.</p>
+	</div>
+
+	<div class="demo__escena">
+		<div class="demo__pila">
+			<span class="demo__rotulo">pila</span>
+			<div class="demo__columna js-pila"></div>
+		</div>
+		<div class="demo__lienzo">
+			<svg class="js-lienzo" viewBox="0 0 31 31" xmlns="http://www.w3.org/2000/svg" role="img"
+				aria-label="Rejilla del laberinto excavándose paso a paso: la celda actual en ámbar y el camino guardado en la pila en violeta."></svg>
+		</div>
+	</div>
+
+	<ul class="demo__datos">
+		<li><span class="demo__valor js-profundidad">1</span><span class="demo__etiqueta">celdas en la pila</span></li>
+		<li><span class="demo__valor js-excavadas">1</span><span class="demo__etiqueta">celdas excavadas</span></li>
+		<li><span class="demo__valor js-retrocesos">0</span><span class="demo__etiqueta">retrocesos</span></li>
+	</ul>
+
+	<p class="demo__traza js-traza" aria-hidden="true">peek (1, 1)</p>
+	<p class="visually-hidden js-anuncio" role="status"></p>
+
+	<div class="demo__mandos">
+		<button type="button" class="btn btn--primary btn--small js-jugar" aria-pressed="false">Excavar</button>
+		<button type="button" class="btn btn--ghost btn--small js-paso">Un paso</button>
+		<button type="button" class="btn btn--ghost btn--small js-otra">Otra semilla</button>
+		<label class="demo__velocidad">velocidad
+			<input class="js-velocidad" type="range" min="1" max="5" step="1" value="3" aria-label="Velocidad de la demo">
+		</label>
+	</div>
+
+	<p class="demo__pie">Semilla <code class="js-semilla">0</code>. La misma semilla da siempre el mismo laberinto: al terminar, <em>Repetir</em> lo vuelve a excavar igual y <em>Otra semilla</em> saca uno nuevo.</p>
+</div>
 
 Eso da un **laberinto perfecto**: entre dos celdas cualesquiera hay exactamente un camino, sin bucles. Y ahí está el problema. Un laberinto perfecto se resuelve pegando la mano a la pared derecha y andando. No hay nada que decidir: es un pasillo muy largo disfrazado de laberinto.
 
