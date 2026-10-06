@@ -2,8 +2,8 @@
 layout: project
 title: Shadow Maze
 technologies: [Unity 6, C#, Algoritmia, BFS, Dijkstra, Android, iOS]
-thumbnail: shadow-maze/shadow-maze.png
-image: shadow-maze/shadow-maze.png
+thumbnail: shadow-maze/shadow-maze-feature-graphic-es-1024x500.png
+image: shadow-maze/shadow-maze-feature-graphic-es-1024x500.png
 scripts:
   - /assets/js/demo-laberinto.js
 ---
@@ -22,15 +22,19 @@ Es decir, que elegir niveles dejó de ser trabajo de diseño y pasó a ser traba
 	<li><span class="cifra__valor">500</span><span class="cifra__etiqueta">laberintos por tirada</span></li>
 	<li><span class="cifra__valor">0</span><span class="cifra__etiqueta">sprites importados</span></li>
 </ul>
-<div class="prueba">
-	<span class="eyebrow">// Prueba interna</span>
-	<h2>Puedes jugarlo antes de que salga</h2>
-	<p>Shadow Maze está en <strong>prueba interna en Google Play</strong>, así que se puede instalar ya. Son dos pasos: primero te apuntas como tester con tu cuenta de Google y, con eso hecho, la ficha de Play te deja descargarlo.</p>
-	<div class="prueba__acciones">
-		<a class="btn btn--primary" href="https://play.google.com/apps/testing/com.javiercanadilla.shadowmaze" target="_blank">Apuntarme como tester</a>
-		<a class="btn btn--ghost" href="https://play.google.com/store/apps/details?id=com.javiercanadilla.shadowmaze" target="_blank">Abrir la ficha en Google Play</a>
+<div class="game-download">
+	<span class="eyebrow">// Disponible en Android</span>
+	<h2>Shadow Maze ya está en Google Play</h2>
+	<p>Entra en el laberinto, administra tu luz y encuentra la salida antes de quedarte a oscuras. <strong>Ya puedes descargarlo y jugar.</strong></p>
+	<div class="game-download__actions">
+		<a class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.javiercanadilla.shadowmaze" target="_blank" rel="noopener noreferrer">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4" />
+			</svg>
+			Descargar en Google Play
+		</a>
 	</div>
-	<p class="prueba__nota">Hace falta Android y usar la misma cuenta de Google en el enlace y en el móvil. Si la ficha dice que la app no está disponible, es que falta apuntarse o que Play todavía no ha refrescado; suele tardar unos minutos.</p>
+	<p class="game-download__note">68 niveles · 6 mundos · Sin anuncios · Sin conexión</p>
 </div>
 
 ## Lo primero, el laberinto: backtracking con la pila a la vista
@@ -306,9 +310,8 @@ Poner un recurso que se agota convierte un puzle de recorrido en un problema de 
 
 Reconozco que no me esperaba acabar aplicando en un juego de móvil las mismas ideas que uso a diario en el backend, y ha sido una de las cosas que más he disfrutado en mucho tiempo.
 
-Y si has llegado hasta aquí, lo suyo es que lo juegues: la [prueba interna en Google Play][prueba] sigue abierta y la [ficha del juego][ficha] es la de siempre. Cuéntame qué te ha parecido, qué nivel se te ha atragantado y cualquier fallo que veas.
+Y si has llegado hasta aquí, lo suyo es que lo juegues: [descarga Shadow Maze en Google Play][ficha] y encuentra la salida antes de que se apague la luz. Cuéntame qué te ha parecido, qué nivel se te ha atragantado y cualquier fallo que veas.
 
 ¡Nos vemos programando!
 
-[prueba]: https://play.google.com/apps/testing/com.javiercanadilla.shadowmaze
 [ficha]: https://play.google.com/store/apps/details?id=com.javiercanadilla.shadowmaze

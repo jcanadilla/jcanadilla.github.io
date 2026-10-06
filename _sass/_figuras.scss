@@ -109,9 +109,9 @@
 .fig-flecha { stroke: var(--subtle); stroke-width: 1.4; fill: none; }
 .fig-puntaf { fill: var(--subtle); }
 
-// ---------------------------------------------- llamada a la prueba
+// ---------------------------------------------- descarga del juego
 
-.prose .prueba {
+.prose .game-download {
 	margin: 2.6em 0;
 	padding: 30px 28px;
 	border: 1px solid var(--accent-border);
@@ -119,20 +119,20 @@
 	background: var(--accent-soft);
 }
 
-.prose .prueba .eyebrow { margin-bottom: 12px; }
+.prose .game-download .eyebrow { margin-bottom: 12px; }
 
-.prose .prueba h2 {
+.prose .game-download h2 {
 	font-size: 1.5rem;
 	margin: 0 0 10px;
 }
 
-.prose .prueba p {
+.prose .game-download p {
 	margin: 0;
 	font-size: .9375rem;
 	line-height: 1.68;
 }
 
-.prueba__acciones {
+.game-download__actions {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 12px;
@@ -140,12 +140,13 @@
 }
 
 // Dentro de un artículo todos los enlaces van subrayados y en color de acento,
-// y eso se come el botón. Los tres selectores le devuelven su aspecto.
-.prose .prueba .btn { text-decoration: none; }
-.prose .prueba .btn--primary { color: var(--btn-text); }
-.prose .prueba .btn--ghost { color: var(--accent-on); }
+// y eso se come el botón. Estos selectores le devuelven su aspecto.
+.prose .game-download .btn { text-decoration: none; }
+.prose .game-download .btn--primary { color: var(--btn-text); }
+.game-download .btn svg { flex-shrink: 0; }
+.game-download .btn:focus-visible { outline: 2px solid var(--accent-on); outline-offset: 4px; }
 
-.prose .prueba__nota {
+.prose .game-download .game-download__note {
 	margin-top: 18px;
 	font-size: .82rem;
 	line-height: 1.6;
@@ -158,6 +159,6 @@
 	.prose .cifras { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	.figura__lienzo { padding: 18px 14px; }
 
-	.prose .prueba { padding: 24px 20px; }
-	.prueba__acciones .btn { flex: 1 1 100%; justify-content: center; }
+	.prose .game-download { padding: 24px 20px; }
+	.game-download__actions .btn { flex: 1 1 100%; justify-content: center; text-align: center; }
 }
