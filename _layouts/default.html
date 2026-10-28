@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'es-ES' }}">
+<html lang="{{ page.lang | default: site.lang | default: 'es-ES' }}">
 
 <head>
 	<meta charset="UTF-8">
@@ -8,6 +8,11 @@
 	<title>{{ page.title | default: site.title }}</title>
 
 	{% seo %}
+
+	<!-- Versiones de la página en otros idiomas, declaradas en su front matter -->
+	{% for alternativa in page.alternates %}
+	<link rel="alternate" hreflang="{{ alternativa.lang }}" href="{{ alternativa.url | absolute_url }}">
+	{% endfor %}
 
 	<meta name="description"
 		content="{{ page.description | default: site.description | default: site.github.project_tagline }}" />
