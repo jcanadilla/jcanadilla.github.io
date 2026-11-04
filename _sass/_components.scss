@@ -32,21 +32,25 @@
 }
 .brand:hover { color: var(--text); }
 
+// Símbolo JC del kit de marca. Hay dos versiones: con la J en azul
+// marino (fondo claro) y con la J en blanco (fondo oscuro); se
+// muestra la que corresponde al modo activo.
 .brand__mark {
-	width: 34px;
-	height: 34px;
-	border-radius: var(--radius-sm);
-	background: var(--btn-bg);
-	color: var(--btn-text);
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: block;
+	height: 36px;
+	width: auto;
 	flex-shrink: 0;
-	font-family: var(--font-mono);
-	font-size: .8rem;
-	font-weight: 700;
-	letter-spacing: -.03em;
 }
+.brand__mark--oscuro { display: none; }
+
+@mixin marca-oscura {
+	.brand__mark--claro  { display: none; }
+	.brand__mark--oscuro { display: block; }
+}
+@media (prefers-color-scheme: dark) {
+	:root:not(.light) { @include marca-oscura; }
+}
+:root.dark { @include marca-oscura; }
 
 .nav-menu {
 	display: flex;
@@ -165,7 +169,14 @@
 }
 
 .hero__title { margin-bottom: 22px; }
-.hero__title em { font-style: normal; color: var(--accent-on); }
+.hero__title em {
+	font-style: normal;
+	color: var(--accent-on);
+	background: var(--brand-text);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
 
 .hero__lead {
 	font-size: 1.0625rem;
@@ -207,18 +218,18 @@
 .term {
 	border-radius: var(--radius);
 	padding: 1px;
-	background: linear-gradient(160deg, var(--accent-border-strong) 0%, rgba(255, 255, 255, .03) 55%, var(--accent-border-strong) 100%);
+	background: linear-gradient(160deg, rgba(var(--cyan-rgb), .55) 0%, rgba(255, 255, 255, .03) 50%, rgba(var(--violet-rgb), .55) 100%);
 	box-shadow: var(--term-shadow);
 }
 
 .term__inner {
 	border-radius: 13px;
 	overflow: hidden;
-	background: #0d0d14;
+	background: var(--brand-navy);
 }
 
 .term__chrome {
-	background: #1a1a2e;
+	background: #141a3c;
 	padding: 13px 18px;
 	display: flex;
 	align-items: center;
@@ -235,14 +246,14 @@
 	margin-left: 14px;
 	font-family: var(--font-mono);
 	font-size: .72rem;
-	color: #8193a8;
+	color: #8890b5;
 }
 
 .term__lang {
 	margin-left: auto;
 	font-family: var(--font-mono);
 	font-size: .66rem;
-	color: #b4b6f8;
+	color: #7fa3ff;
 	background: rgba(255, 255, 255, .06);
 	border: 1px solid rgba(255, 255, 255, .1);
 	border-radius: 5px;
@@ -254,17 +265,17 @@
 	font-family: var(--font-mono);
 	font-size: .8125rem;
 	line-height: 1.95;
-	background: #0d0d14;
-	color: #f1f5f9;
+	background: var(--brand-navy);
+	color: var(--brand-white);
 	overflow-x: auto;
 }
 .term__body .i1 { padding-left: 1.6em; }
 .term__body .i2 { padding-left: 3.2em; }
 
-.tk-com { color: #838c9b; }
-.tk-key { color: #a78bfa; }
-.tk-str { color: #34d399; }
-.tk-prop { color: #94a3b8; }
+.tk-com { color: #8890b5; }
+.tk-key { color: #d08bff; }
+.tk-str { color: #00d4ff; }
+.tk-prop { color: #9aa3c7; }
 .tk-num { color: #fb923c; }
 .tk-type { color: #fbbf24; }
 .tk-ok  { color: #22c55e; }
@@ -288,7 +299,7 @@
 	gap: 9px;
 	font-family: var(--font-mono);
 	font-size: .7rem;
-	color: #b4b6f8;
+	color: #7fa3ff;
 }
 
 // ---------------------------------------------- franja de stack
@@ -647,7 +658,13 @@
 .cta {
 	position: relative;
 	overflow: hidden;
-	background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+	// Bloque de marca: azul marino con los brillos cian y violeta del logo.
+	// Igual en los dos modos.
+	background:
+		radial-gradient(ellipse at 0% 0%, rgba(var(--cyan-rgb), .28) 0%, rgba(11, 15, 42, 0) 55%),
+		radial-gradient(ellipse at 100% 100%, rgba(var(--violet-rgb), .34) 0%, rgba(11, 15, 42, 0) 55%),
+		var(--brand-navy);
+	border-top: 1px solid rgba(var(--accent-rgb), .25);
 	padding: 92px 0;
 	text-align: center;
 }
@@ -673,8 +690,8 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 10px;
-	background: #fff;
-	color: var(--accent-deep);
+	background: var(--brand-white);
+	color: var(--brand-navy);
 	font-size: .9375rem;
 	font-weight: 650;
 	padding: 15px 30px;
@@ -683,7 +700,7 @@
 	transition: transform .18s ease;
 	word-break: break-word;
 }
-.cta__btn:hover { color: var(--accent-deep); transform: translateY(-2px); }
+.cta__btn:hover { color: var(--brand-navy); transform: translateY(-2px); }
 
 // ---------------------------------------------- pie
 

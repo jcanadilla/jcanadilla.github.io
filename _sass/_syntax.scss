@@ -3,27 +3,27 @@
 // =============================================================
 
 @mixin code-claro {
-	--code-bg:      #f8f9fc;
+	--code-bg:      #f4f6ff;
 	--code-border:  var(--line);
-	--code-text:    #0f172a;
+	--code-text:    #0b0f2a;
 	--code-comment: #5d6b7e;
-	--code-keyword: #7c3aed;
+	--code-keyword: #7b3ff2;
 	--code-string:  #0f766e;
 	--code-number:  #b45309;
-	--code-func:    #0369a1;
+	--code-func:    #2f5fe8;
 	--code-punct:   #475569;
 }
 
 @mixin code-oscuro {
-	--code-bg:      #0d0d14;
+	--code-bg:      #0b0f2a;
 	--code-border:  var(--accent-border);
-	--code-text:    #f1f5f9;
-	--code-comment: #838c9b;
-	--code-keyword: #a78bfa;
-	--code-string:  #34d399;
+	--code-text:    #f8f9ff;
+	--code-comment: #8890b5;
+	--code-keyword: #d08bff;
+	--code-string:  #00d4ff;
 	--code-number:  #fb923c;
 	--code-func:    #fbbf24;
-	--code-punct:   #94a3b8;
+	--code-punct:   #9aa3c7;
 }
 
 :root { @include code-claro; }

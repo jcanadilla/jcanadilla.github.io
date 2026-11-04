@@ -208,7 +208,7 @@
 }
 .pager a { color: var(--accent-on); }
 .pager a:hover { background: var(--accent-soft); }
-.pager em { background: var(--btn-bg); border-color: var(--btn-bg); color: var(--btn-text); }
+.pager em { background: var(--btn-bg); border-color: var(--btn-solid); color: var(--btn-text); }
 .pager span { color: var(--subtle); opacity: .55; }
 
 // ---------------------------------------------- 404

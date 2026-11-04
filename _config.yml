@@ -22,6 +22,7 @@ url: "https://www.javiercanadilla.com" # the base hostname & protocol for your s
 github_username:  jcanadilla
 linkedin_username: jcanadillacasco
 repository: jcanadilla/jcanadilla.github.io
+logo: /assets/images/brand/icon-512.png  # jekyll-seo-tag: logo en los datos estructurados
 
 # Build settings
 markdown: kramdown
@@ -66,6 +67,13 @@ paginate: 5
 paginate_path: "/blog/page:num/"
 
 defaults:
+  # Imagen para redes sociales (Open Graph / Twitter) en las páginas sueltas.
+  # Solo "pages": posts y proyectos usan page.image como portada propia.
+  - scope:
+      path: ""
+      type: pages
+    values:
+      image: /assets/images/brand/og-portada.jpg
   - scope:
       type: projects
       path: "/projects"

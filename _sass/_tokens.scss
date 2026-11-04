@@ -7,44 +7,53 @@
 //                                   y el visitante no ha elegido
 //    :root.dark / :root.light   -> elección explícita del visitante
 //
+//  Paleta del kit de marca: azul marino #0B0F2A, cian #00D4FF,
+//  azul #4A7DFF, violeta #B84DFF y blanco suave #F8F9FF.
+//
 //  El acento como RELLENO no cambia entre modos. Como TEXTO sí:
-//  el índigo puro se queda en 4,47:1 sobre blanco y no llega al
-//  mínimo de 4,5:1, así que se oscurece en claro y se aclara en
-//  oscuro. Todos los pares de texto pasan AA en los dos modos.
+//  el azul de marca se queda en 3,5:1 sobre el blanco suave y no
+//  llega al mínimo de 4,5:1, así que se oscurece en claro (#2F5FE8)
+//  y se aclara en oscuro (#7FA3FF). Todos los pares de texto pasan
+//  AA en los dos modos.
 // =============================================================
 
 @mixin tokens-claro {
-	--bg:                #ffffff;
-	--bg-alt:            #f5f6fa;
+	--bg:                #f8f9ff;   // Blanco suave de marca
+	--bg-alt:            #eef1fc;
 	--surface:           #ffffff;
 	--surface-fade:      rgba(255, 255, 255, 0);
-	--strip-bg:          #f5f6fa;
-	--nav-bg:            rgba(255, 255, 255, .85);
+	--strip-bg:          #eef1fc;
+	--nav-bg:            rgba(248, 249, 255, .85);
 	--glass:             #ffffff;
 	--dot-fill:          #ffffff;
 
-	--text:              #0f172a;
-	--muted:             #475569;
-	--subtle:            #5d6b7e;
+	--text:              #0b0f2a;   // Fondo principal de marca como tinta
+	--muted:             #4e587c;
+	--subtle:            #5a6488;
 
-	--line:              #e5e8ee;
-	--line-soft:         #eef1f5;
+	--line:              #e3e6f3;
+	--line-soft:         #eceffa;
 
-	--card-shadow:       0 1px 2px rgba(15, 23, 42, .05);
-	--term-shadow:       0 24px 60px rgba(15, 23, 42, .18);
+	--card-shadow:       0 1px 2px rgba(11, 15, 42, .05);
+	--term-shadow:       0 24px 60px rgba(11, 15, 42, .2);
 
-	--dot-opacity:       .34;
-	--hero-glow:         radial-gradient(circle, rgba(var(--accent-rgb), .13) 0%, rgba(255, 255, 255, 0) 68%);
+	--dot-opacity:       .3;
+	--hero-glow:
+		radial-gradient(circle closest-side at 38% 40%, rgba(var(--cyan-rgb), .16) 0%, rgba(248, 249, 255, 0) 100%),
+		radial-gradient(circle closest-side at 62% 60%, rgba(var(--violet-rgb), .14) 0%, rgba(248, 249, 255, 0) 100%);
 
-	--btn-bg:            #4d50bc;
+	// Degradado de marca oscurecido para que el texto blanco pase AA
+	--btn-bg:            linear-gradient(120deg, #2b55d9 0%, #7b3ff2 100%);
+	--btn-solid:         #2b55d9;
 	--btn-text:          #ffffff;
-	--accent-on:         #4d50bc;
+	--accent-on:         #2f5fe8;
+	--brand-text:        linear-gradient(100deg, #2f5fe8 0%, #7b3ff2 100%);
 
 	--accent-border:        rgba(var(--accent-rgb), .22);
 	--accent-border-strong: rgba(var(--accent-rgb), .42);
 	--accent-soft:          rgba(var(--accent-rgb), .06);
 	--accent-soft-strong:   rgba(var(--accent-rgb), .12);
-	--accent-glow:          rgba(var(--accent-rgb), .22);
+	--accent-glow:          rgba(var(--accent-rgb), .26);
 
 	--ok:                #15803d;
 	--ok-bg:             rgba(21, 128, 61, .08);
@@ -55,37 +64,42 @@
 }
 
 @mixin tokens-oscuro {
-	--bg:                #0d0d14;
-	--bg-alt:            #111827;
-	--surface:           #1a1a2e;
-	--surface-fade:      rgba(26, 26, 46, 0);
-	--strip-bg:          #1a1a2e;
-	--nav-bg:            rgba(13, 13, 20, .82);
-	--glass:             rgba(255, 255, 255, .04);
-	--dot-fill:          #1e1e2e;
+	--bg:                #0b0f2a;   // Fondo principal de marca
+	--bg-alt:            #0f1433;
+	--surface:           #141a3c;
+	--surface-fade:      rgba(20, 26, 60, 0);
+	--strip-bg:          #10153a;
+	--nav-bg:            rgba(11, 15, 42, .82);
+	--glass:             rgba(248, 249, 255, .04);
+	--dot-fill:          #1b2150;
 
-	--text:              #f1f5f9;
-	--muted:             #94a3b8;
-	--subtle:            #77869c;
+	--text:              #f8f9ff;   // Blanco suave de marca
+	--muted:             #9aa3c7;
+	--subtle:            #8890b5;
 
-	--line:              rgba(255, 255, 255, .07);
-	--line-soft:         rgba(255, 255, 255, .06);
+	--line:              rgba(248, 249, 255, .08);
+	--line-soft:         rgba(248, 249, 255, .06);
 
 	--card-shadow:       none;
 	--term-shadow:       0 28px 70px rgba(0, 0, 0, .55);
 
 	--dot-opacity:       .16;
-	--hero-glow:         radial-gradient(circle, rgba(var(--accent-rgb), .34) 0%, rgba(13, 13, 20, 0) 68%);
+	--hero-glow:
+		radial-gradient(circle closest-side at 38% 40%, rgba(var(--cyan-rgb), .24) 0%, rgba(11, 15, 42, 0) 100%),
+		radial-gradient(circle closest-side at 62% 60%, rgba(var(--violet-rgb), .3) 0%, rgba(11, 15, 42, 0) 100%);
 
-	--btn-bg:            #7f82f4;
-	--btn-text:          #0d0d14;
-	--accent-on:         #b4b6f8;
+	// Degradado completo de marca; el azul marino encima pasa AA en todo el recorrido
+	--btn-bg:            linear-gradient(120deg, #00d4ff 0%, #4a7dff 50%, #b84dff 100%);
+	--btn-solid:         #4a7dff;
+	--btn-text:          #0b0f2a;
+	--accent-on:         #7fa3ff;
+	--brand-text:        linear-gradient(100deg, #00d4ff 0%, #4a7dff 50%, #b84dff 100%);
 
-	--accent-border:        rgba(var(--accent-rgb), .18);
-	--accent-border-strong: rgba(var(--accent-rgb), .42);
+	--accent-border:        rgba(var(--accent-rgb), .2);
+	--accent-border-strong: rgba(var(--accent-rgb), .45);
 	--accent-soft:          rgba(var(--accent-rgb), .08);
 	--accent-soft-strong:   rgba(var(--accent-rgb), .18);
-	--accent-glow:          rgba(var(--accent-rgb), .34);
+	--accent-glow:          rgba(var(--accent-rgb), .36);
 
 	--ok:                #22c55e;
 	--ok-bg:             rgba(34, 197, 94, .1);
@@ -96,10 +110,20 @@
 }
 
 :root {
-	// Constantes: el acento de relleno es el mismo en ambos modos
-	--accent:      #6366f1;
-	--accent-rgb:  99, 102, 241;
-	--accent-deep: #41439f;
+	// Paleta de marca (kit Javier Cañadilla)
+	--brand-navy:   #0b0f2a;
+	--brand-cyan:   #00d4ff;
+	--brand-blue:   #4a7dff;
+	--brand-violet: #b84dff;
+	--brand-white:  #f8f9ff;
+	--cyan-rgb:     0, 212, 255;
+	--violet-rgb:   184, 77, 255;
+	--brand-gradient: linear-gradient(120deg, #00d4ff 0%, #4a7dff 50%, #b84dff 100%);
+
+	// Constantes: el acento de relleno es el mismo en ambos modos (azul de marca)
+	--accent:      #4a7dff;
+	--accent-rgb:  74, 125, 255;
+	--accent-deep: #2b55d9;
 
 	// Tipografía
 	--font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
