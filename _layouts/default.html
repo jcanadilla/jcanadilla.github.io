@@ -53,6 +53,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+	{% comment %}Tipografías propias de una página (por ejemplo, la de un juego en su demo).{% endcomment %}
+	{% for fuente in page.fuentes %}
+	<link rel="stylesheet" href="{{ fuente }}">
+	{% endfor %}
 
 	<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
