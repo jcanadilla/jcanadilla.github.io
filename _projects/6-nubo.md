@@ -177,8 +177,8 @@ Tienes dos gotas, un lago con otras dos y dos huertos que piden cuatro en total.
 
 <details class="nubo-spoiler">
 	<summary>¿Por qué engancha tanto? <span>(contiene pistas)</span></summary>
-	<p>Porque el instinto te engaña dos veces. La primera, cuando el viento te deja justo al lado del huerto grande y te pones a llover: lo riegas con tus dos gotas, pero entonces tienes que ir al lago y volver, y te sobran pasos. Lo bueno es <strong>recargar primero</strong> para llegar al huerto con las cuatro gotas y soltar tres de golpe.</p>
-	<p>La segunda, cuando vuelves hacia el huerto pequeño y la corriente del oeste te pasa por encima sin dejarte llover. Ahí es cuando entiendes el nombre del reparto: el viento te deja en la esquina y el último paso <strong>lo das a pie</strong>, de vuelta hacia el huerto. Ese «¡ah, claro!» es justo lo que busca cada reparto de NUBO.</p>
+	<p>Porque el instinto te lleva justo al sitio equivocado. El huerto pequeño está a un paso de la salida y apetece empezar por él, pero <strong>la corriente del oeste es de ida</strong>: en cuanto entras en ella te deja en la esquina izquierda, y desde ahí ya no hay forma de volver al este. Si empiezas por el pequeño, el grande se queda seco para siempre. De los 99 estados a los que se puede llegar en este reparto, 55 ya no tienen salida, y todos están en ese rincón del oeste.</p>
+	<p>Así que el orden está obligado: primero el huerto grande, con el lago de por medio, y el pequeño al final. Y cuando por fin vas hacia él, la corriente te pasa por encima sin dejarte llover. Ahí es cuando entiendes el nombre del reparto: el viento te deja en la esquina y el último paso <strong>lo das a pie</strong>, de vuelta hacia el huerto. Ese «¡ah, claro!» es justo lo que busca cada reparto de NUBO.</p>
 </details>
 
 ## Un solucionador que juega antes que tú
