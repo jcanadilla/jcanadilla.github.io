@@ -259,7 +259,7 @@ Una vez tienes el grafo completo de estados, puedes preguntarle mucho más que �
 
 Con eso, el diseño de la campaña dejó de ser una lista de deseos y se convirtió en reglas comprobables. Las de pago tienen que superar un 20 % de estados sin salida desde su segundo reparto. Los picos 03, 06 y 09 de cada región tienen que crecer, cada bonus tiene que superar a su pico y la media de cada región tiene que superar a la de la anterior. Un script lo comprueba todo con el mismo motor, y si un mapa nuevo rompe la curva, la comprobación falla.
 
-Las estrellas salen del mismo número. Si tu solución iguala la ruta mínima, son tres, y como el BFS garantiza que no hay ninguna más corta, tres estrellas significan haber encontrado la mejor posible. Si te pasas como mucho en el mayor de dos valores, 2 o el 20 % de la ruta mínima, son dos. Si te pasas más, es una. Las pistas nunca quitan estrellas: están para aprender.
+Las estrellas salen del mismo número. Si tu solución iguala la ruta mínima, son tres, y como el BFS garantiza que no hay ninguna más corta, tres estrellas significan haber encontrado la mejor posible. Si te pasas como mucho en el mayor de dos valores, 2 o el 20 % de la ruta mínima, son dos. Si te pasas más, es una. Las pistas no quitan estrellas, porque están para aprender. Ver la solución completa sí: ese intento se queda en una estrella.
 
 ## Del boceto al juego
 

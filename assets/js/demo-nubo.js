@@ -286,6 +286,9 @@
 	var historial = [];
 	var ocupado = false;
 	var pistaUsada = false;
+	// Como en el juego: un intento en el que has visto la solución
+	// se queda en una estrella como mucho. Las pistas no quitan estrellas.
+	var solucionVista = false;
 	var reproduciendo = false;
 	var temporizador = null;
 
@@ -456,13 +459,15 @@
 		if (!ganado(estado)) { final.hidden = true; return; }
 		pararSolucion();
 		var n = historial.length;
-		var e = estrellas(n);
+		var e = solucionVista ? Math.min(1, estrellas(n)) : estrellas(n);
 		var html = '<p class="nd-final__titulo">¡Reparto completado!</p><p class="nd-final__estrellas" aria-label="' + e + ' de 3 estrellas">';
 		for (var i = 0; i < 3; i++) { html += '<span class="nd-estrella' + (i < e ? ' nd-estrella--on' : '') + '" aria-hidden="true">★</span>'; }
 		html += '</p><p class="nd-final__datos">' + n + ' acciones · ruta mínima ' + NIVEL.optimo + '</p>';
-		html += '<p class="nd-final__nota">' + (e === 3
-			? (pistaUsada ? 'Ruta perfecta.' : 'Ruta perfecta y sin pistas. Esto ya es oficio.')
-			: 'Se puede hacer en ' + NIVEL.optimo + '. ¿Lo intentas otra vez?') + '</p>';
+		var nota;
+		if (solucionVista) { nota = 'Has visto la solución, así que este intento se queda en una estrella. ¿Lo intentas por tu cuenta?'; }
+		else if (e === 3) { nota = pistaUsada ? 'Ruta perfecta.' : 'Ruta perfecta y sin pistas. Esto ya es oficio.'; }
+		else { nota = 'Se puede hacer en ' + NIVEL.optimo + '. ¿Lo intentas otra vez?'; }
+		html += '<p class="nd-final__nota">' + nota + '</p>';
 		html += '<button type="button" class="btn btn--primary btn--small js-otra-vez">Jugar otra vez</button>';
 		final.innerHTML = html;
 		final.hidden = false;
@@ -490,6 +495,7 @@
 		estado = inicial();
 		historial = [];
 		pistaUsada = false;
+		solucionVista = false;
 		var p = centro(estado.x, estado.y);
 		colocarNube(p[0], p[1]);
 		final.hidden = true;
@@ -539,6 +545,7 @@
 		var r = resolver(estado);
 		if (!r.ruta) { decir('Desde aquí ya no hay salida: deshaz algún paso.', 'aviso'); return; }
 		pistaUsada = true;
+		solucionVista = true;
 		reproduciendo = true;
 		pintar();
 		var ruta = r.ruta.slice();
