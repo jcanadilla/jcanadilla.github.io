@@ -1,5 +1,6 @@
 ---
 inicio: "2017-11"  # año-mes de inicio: ordena los proyectos (más reciente primero)
+tarjeta: tarjetas/spotdyna.jpg  # imagen 2:1 de las tarjetas del listado y la portada
 layout: project
 title: "Spotdyna"
 technologies: [Node.js, Microservicios, IoT, MQTT, Kubernetes, Helm, Terraform, AWS]

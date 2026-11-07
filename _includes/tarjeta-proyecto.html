@@ -1,0 +1,26 @@
+{% comment %}
+	Tarjeta de un proyecto, la misma en la portada y en el listado.
+	Parámetros: proyecto (el documento de la colección) y num (su posición).
+	La imagen sale del campo «tarjeta» del proyecto (2:1); sin él, la
+	tarjeta se queda como antes, solo con texto.
+{% endcomment %}
+{% assign proyecto = include.proyecto %}
+<a class="card{% if proyecto.tarjeta %} card--imagen{% endif %}" href="{{ proyecto.url | relative_url }}">
+	{% if proyecto.tarjeta %}
+	<div class="card__media">
+		<img src="{{ '/assets/images/projects/' | append: proyecto.tarjeta | relative_url }}" alt="" width="960" height="480" loading="lazy" decoding="async">
+	</div>
+	{% endif %}
+	<div class="card__head">
+		<span class="card__num">{{ include.num | prepend: '0' | slice: -2, 2 }}</span>
+		<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+			stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<path d="M7 17 17 7" /><path d="M8 7h9v9" />
+		</svg>
+	</div>
+	<h3 class="card__title">{{ proyecto.title }}</h3>
+	<p class="card__desc">{{ proyecto.content | strip_html | strip_newlines | truncate: 165 }}</p>
+	<div class="chips">
+		{% for tech in proyecto.technologies %}<span class="chip">{{ tech }}</span>{% endfor %}
+	</div>
+</a>

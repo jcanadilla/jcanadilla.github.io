@@ -21,20 +21,7 @@ description: Proyectos en los que he participado o que he creado.
 			{% comment %}Del más reciente al más antiguo, por el campo «inicio» de cada proyecto.{% endcomment %}
 			{% assign proyectos = site.projects | sort: 'inicio' | reverse %}
 			{% for project in proyectos %}
-			<a class="card" href="{{ project.url | relative_url }}">
-				<div class="card__head">
-					<span class="card__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<path d="M7 17 17 7" /><path d="M8 7h9v9" />
-					</svg>
-				</div>
-				<h3 class="card__title">{{ project.title }}</h3>
-				<p class="card__desc">{{ project.content | strip_html | strip_newlines | truncate: 165 }}</p>
-				<div class="chips">
-					{% for tech in project.technologies %}<span class="chip">{{ tech }}</span>{% endfor %}
-				</div>
-			</a>
+			{% include tarjeta-proyecto.html proyecto=project num=forloop.index %}
 			{% endfor %}
 		</div>
 	</div>

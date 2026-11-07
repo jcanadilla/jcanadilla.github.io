@@ -1,5 +1,6 @@
 ---
 inicio: "2026-07"  # año-mes de inicio: ordena los proyectos (más reciente primero)
+tarjeta: tarjetas/shadow-maze.jpg  # imagen 2:1 de las tarjetas del listado y la portada
 layout: project
 title: Shadow Maze
 technologies: [Unity 6, C#, Algoritmia, BFS, Dijkstra, Android, iOS]

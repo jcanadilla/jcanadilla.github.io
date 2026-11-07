@@ -82,7 +82,7 @@
 	.hero__actions .btn { justify-content: center; }
 
 	.term__body { font-size: .72rem; padding: 20px 18px 16px; }
-	.card { padding: 24px 22px; }
+	.card { --card-pad-y: 24px; --card-pad-x: 22px; }
 
 	.cta__btn { font-size: .8125rem; padding: 14px 20px; }
 	.to-top { right: 16px; bottom: 16px; }

@@ -1,5 +1,6 @@
 ---
 inicio: "2021-02"  # año-mes de inicio: ordena los proyectos (más reciente primero)
+tarjeta: tarjetas/gibobs-allbanks.jpg  # imagen 2:1 de las tarjetas del listado y la portada
 layout: project
 title: "Gibobs allbanks"
 technologies: [Node.js, Typescript, ECS, Terraform, AWS]

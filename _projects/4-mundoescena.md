@@ -1,5 +1,6 @@
 ---
 inicio: "2015-06"  # año-mes de inicio: ordena los proyectos (más reciente primero)
+tarjeta: tarjetas/mundoescena.jpg  # imagen 2:1 de las tarjetas del listado y la portada
 layout: project
 title: Mundo Escena
 technologies: [Symfony 2.8, MySQL, PHP]

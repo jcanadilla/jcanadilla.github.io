@@ -1,5 +1,6 @@
 ---
 inicio: "2016-06"  # año-mes de inicio: ordena los proyectos (más reciente primero)
+tarjeta: tarjetas/neontanks.jpg  # imagen 2:1 de las tarjetas del listado y la portada
 layout: project
 title: Neon Tanks
 technologies: [Unity3D, Photon Unity Networking, C#, Jenkins, Mocha, Webdriver.io]
