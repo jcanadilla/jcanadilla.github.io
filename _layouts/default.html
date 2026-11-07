@@ -62,14 +62,17 @@
 
 	{% feed_meta %}
 
-	<!-- Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GZS74BB1Y"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-		gtag('config', 'G-2GZS74BB1Y');
-	</script>
+	{% comment %}
+		Analítica con Umami en servidor propio: sin cookies ni nada guardado en el
+		navegador, así que no hace falta banner. Solo se carga si está configurada
+		en _config.yml, y solo cuenta las visitas al dominio real (data-domains),
+		no las de jekyll serve. Respeta «Do Not Track». Cualquier cambio en lo que
+		se mide va también en /privacidad-web/ y /web-privacy/.
+	{% endcomment %}
+	{% if site.umami.script and site.umami.website_id %}
+	<script defer src="{{ site.umami.script }}" data-website-id="{{ site.umami.website_id }}"
+		data-domains="{{ site.url | remove: 'https://' | remove: 'http://' }}" data-do-not-track="true"></script>
+	{% endif %}
 </head>
 
 <body>
@@ -88,6 +91,11 @@
 	<footer class="site-footer">
 		<div class="container site-footer__inner">
 			<span>&copy; {{ site.time | date: "%Y" }} Javier Cañadilla Casco &mdash; Madrid</span>
+			{% if page.lang == 'en' %}
+			<a class="site-footer__link" href="{{ '/web-privacy/' | relative_url }}">Privacy</a>
+			{% else %}
+			<a class="site-footer__link" href="{{ '/privacidad-web/' | relative_url }}">Privacidad</a>
+			{% endif %}
 			<span>Con &#10084; y &#9749;</span>
 		</div>
 	</footer>

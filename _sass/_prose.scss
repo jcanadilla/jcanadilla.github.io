@@ -160,6 +160,9 @@
 .article__nav a:last-child { margin-left: auto; }
 
 .comments { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
+.comments__gate { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.comments__note { margin: 0; color: var(--subtle); font-size: .875rem; max-width: 60ch; }
+.comments__note a { color: var(--accent-on); }
 
 // ---------------------------------------------- listado del blog
 

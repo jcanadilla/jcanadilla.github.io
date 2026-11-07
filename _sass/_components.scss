@@ -758,6 +758,8 @@
 	font-size: .75rem;
 	color: var(--subtle);
 }
+.site-footer__link { color: var(--subtle); text-decoration: underline; text-underline-offset: 3px; }
+.site-footer__link:hover { color: var(--accent-on); }
 
 // ---------------------------------------------- volver arriba
 

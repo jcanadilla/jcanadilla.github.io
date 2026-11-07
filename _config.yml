@@ -24,6 +24,12 @@ linkedin_username: jcanadillacasco
 repository: jcanadilla/jcanadilla.github.io
 logo: /assets/images/brand/icon-512.png  # jekyll-seo-tag: logo en los datos estructurados
 
+# Analítica con Umami en servidor propio. Mientras falte alguno de los dos
+# valores no se carga nada. Lo que mide se explica en /privacidad-web/.
+umami:
+  script: https://pulso.javiercanadilla.com/script.js
+  website_id: e8fee77c-27e4-4b0f-8830-720af3d25992
+
 # Build settings
 markdown: kramdown
 kramdown:
