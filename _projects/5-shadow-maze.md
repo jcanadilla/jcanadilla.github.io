@@ -1,4 +1,5 @@
 ---
+inicio: "2026-07"  # año-mes de inicio: ordena los proyectos (más reciente primero)
 layout: project
 title: Shadow Maze
 technologies: [Unity 6, C#, Algoritmia, BFS, Dijkstra, Android, iOS]

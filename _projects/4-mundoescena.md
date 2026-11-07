@@ -1,4 +1,5 @@
 ---
+inicio: "2015-06"  # año-mes de inicio: ordena los proyectos (más reciente primero)
 layout: project
 title: Mundo Escena
 technologies: [Symfony 2.8, MySQL, PHP]

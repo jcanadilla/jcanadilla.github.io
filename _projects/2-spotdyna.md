@@ -1,4 +1,5 @@
 ---
+inicio: "2017-11"  # año-mes de inicio: ordena los proyectos (más reciente primero)
 layout: project
 title: "Spotdyna"
 technologies: [Node.js, Microservicios, IoT, MQTT, Kubernetes, Helm, Terraform, AWS]

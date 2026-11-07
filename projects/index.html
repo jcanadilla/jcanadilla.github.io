@@ -18,7 +18,9 @@ description: Proyectos en los que he participado o que he creado.
 <div class="section">
 	<div class="container">
 		<div class="cards">
-			{% for project in site.projects %}
+			{% comment %}Del más reciente al más antiguo, por el campo «inicio» de cada proyecto.{% endcomment %}
+			{% assign proyectos = site.projects | sort: 'inicio' | reverse %}
+			{% for project in proyectos %}
 			<a class="card" href="{{ project.url | relative_url }}">
 				<div class="card__head">
 					<span class="card__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>

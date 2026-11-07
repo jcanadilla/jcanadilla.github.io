@@ -158,7 +158,8 @@ layout: default
 		</div>
 
 		<div class="cards reveal">
-			{% for project in site.projects limit: 4 %}
+			{% assign proyectos = site.projects | sort: 'inicio' | reverse %}
+			{% for project in proyectos limit: 4 %}
 			<a class="card" href="{{ project.url | relative_url }}">
 				<div class="card__head">
 					<span class="card__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>

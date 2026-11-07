@@ -26,9 +26,18 @@ layout: default
 			{{ content }}
 		</div>
 
+		{% comment %}Anterior y siguiente en el mismo orden que el listado de proyectos,
+		   del más reciente al más antiguo (campo «inicio»), no en el de los archivos.{% endcomment %}
+		{% assign proyectos = site.projects | sort: 'inicio' | reverse %}
+		{% assign anterior = nil %}{% assign siguiente = nil %}
+		{% for p in proyectos %}{% if p.url == page.url %}
+			{% unless forloop.first %}{% assign i = forloop.index0 | minus: 1 %}{% assign anterior = proyectos[i] %}{% endunless %}
+			{% unless forloop.last %}{% assign i = forloop.index0 | plus: 1 %}{% assign siguiente = proyectos[i] %}{% endunless %}
+		{% endif %}{% endfor %}
+
 		<nav class="article__nav">
-			{% if page.previous %}
-			<a href="{{ page.previous.url | relative_url }}">
+			{% if anterior %}
+			<a href="{{ anterior.url | relative_url }}">
 				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
 					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 					<path d="M19 12H5" /><path d="m12 19-7-7 7-7" />
@@ -36,8 +45,8 @@ layout: default
 				Anterior
 			</a>
 			{% endif %}
-			{% if page.next %}
-			<a href="{{ page.next.url | relative_url }}">
+			{% if siguiente %}
+			<a href="{{ siguiente.url | relative_url }}">
 				Siguiente
 				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
 					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

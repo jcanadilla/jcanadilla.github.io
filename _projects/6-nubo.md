@@ -1,4 +1,5 @@
 ---
+inicio: "2026-10"  # año-mes de inicio: ordena los proyectos (más reciente primero)
 layout: project
 title: NUBO
 description: NUBO es un puzzle de lógica relajante para Android hecho con Godot. Una nube reparte el clima por 72 tableros en 6 regiones, y un BFS comprueba que cada reparto tiene su ruta mínima. Incluye una demo jugable.

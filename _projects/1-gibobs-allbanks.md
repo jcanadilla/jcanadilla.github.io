@@ -1,4 +1,5 @@
 ---
+inicio: "2021-02"  # año-mes de inicio: ordena los proyectos (más reciente primero)
 layout: project
 title: "Gibobs allbanks"
 technologies: [Node.js, Typescript, ECS, Terraform, AWS]
