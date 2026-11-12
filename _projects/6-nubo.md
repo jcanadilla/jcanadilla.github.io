@@ -31,10 +31,17 @@ Esta vez he cambiado de motor: NUBO está hecho con **Godot 4.7** y GDScript, en
 
 <div class="game-download nubo-lanzamiento">
 	<img class="nubo-lanzamiento__mascota" src="{{ nubo }}nubo-mascota.webp" alt="" width="180" height="132" loading="lazy">
-	<span class="eyebrow">// Muy pronto en Google Play</span>
-	<h2>NUBO está a punto de llegar a Android</h2>
-	<p>Las dos primeras regiones, 24 repartos, se juegan gratis. El resto se desbloquea con una <strong>compra única</strong>: sin anuncios, sin suscripciones, sin vidas y sin monedas. Mientras llega, Nubo sube repartos nuevos a sus redes. ¡Síguelo para no perderte el lanzamiento!</p>
-	{% include nubo-redes.html %}
+	<span class="eyebrow">// Disponible en Android</span>
+	<h2>NUBO ya está en Google Play</h2>
+	<p>Las dos primeras regiones, 24 repartos, se juegan gratis. El resto se desbloquea con una <strong>compra única</strong>: sin anuncios, sin suscripciones, sin vidas y sin monedas. <strong>Ya puedes descargarlo y jugar.</strong></p>
+	<div class="game-download__actions">
+		<a class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.javiercanadilla.nubo" target="_blank" rel="noopener noreferrer">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4" />
+			</svg>
+			Descargar en Google Play
+		</a>
+	</div>
 	<p class="game-download__note">72 repartos · 6 regiones · Sin anuncios · Sin conexión · Español e inglés</p>
 </div>
 
@@ -357,9 +364,9 @@ Treinta segundos para verlo en movimiento:
 </div>
 
 <div class="game-download nubo-cierre">
-	<span class="eyebrow">// Sigue a Nubo</span>
-	<h2>Un reparto nuevo en tus redes</h2>
-	<p>Nubo publica en vídeo repartos reales del juego. Síguelo en tu red favorita y entérate el primero de cuándo llega a Google Play.</p>
+	<span class="eyebrow">// Juega y sigue a Nubo</span>
+	<h2>Reparte la lluvia en tu móvil</h2>
+	<p>Si has llegado hasta aquí, lo suyo es que lo juegues: <a href="https://play.google.com/store/apps/details?id=com.javiercanadilla.nubo" target="_blank" rel="noopener noreferrer">descarga NUBO en Google Play</a> y cuéntame qué reparto se te ha atragantado. Y si quieres más, Nubo publica en vídeo repartos reales del juego en sus redes.</p>
 	{% include nubo-redes.html %}
 	<p class="game-download__note">¿Dudas sobre tus datos o sobre la compra? Están explicadas en la <a href="{{ '/privacidad/' | relative_url }}">política de privacidad</a> y en las <a href="{{ '/terminos/' | relative_url }}">condiciones de servicio</a>.</p>
 </div>
