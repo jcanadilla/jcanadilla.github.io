@@ -183,7 +183,7 @@ hr {
 }
 
 .btn--primary {
-	background: var(--btn-bg);
+	background: var(--btn-bg) border-box; // que el degradado cubra el borde transparente sin repetirse
 	color: var(--btn-text);
 	box-shadow: 0 6px 28px var(--accent-glow);
 }

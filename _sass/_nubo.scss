@@ -525,7 +525,7 @@
 .prose .nubo-demo__acciones .nd-llover { grid-column: 1 / -1; padding: 12px 20px; }
 .prose .nubo-demo__acciones .btn[disabled] { opacity: .45; cursor: default; transform: none; box-shadow: none; }
 .prose .nubo-demo__acciones .btn[disabled]:hover { transform: none; background: transparent; }
-.prose .nubo-demo__acciones .btn--primary[disabled]:hover { background: var(--btn-bg); }
+.prose .nubo-demo__acciones .btn--primary[disabled]:hover { background: var(--btn-bg) border-box; }
 .prose .nubo-demo__acciones .btn:focus-visible { outline: 2px solid var(--accent-on); outline-offset: 3px; }
 
 .prose .nubo-demo .demo__pie {
