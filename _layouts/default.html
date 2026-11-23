@@ -7,7 +7,8 @@
 	<meta name="author" content="Javier Cañadilla">
 	<title>{{ page.title | default: site.title }}</title>
 
-	{% seo %}
+	{% comment %}title=false: el <title> ya va justo arriba; así no sale duplicado.{% endcomment %}
+	{% seo title=false %}
 
 	<!-- Versiones de la página en otros idiomas, declaradas en su front matter -->
 	{% for alternativa in page.alternates %}
@@ -96,6 +97,13 @@
 			{% else %}
 			<a class="site-footer__link" href="{{ '/privacidad-web/' | relative_url }}">Privacidad</a>
 			{% endif %}
+			<ul class="site-footer__redes" aria-label="{% if page.lang == 'en' %}Elsewhere{% else %}En otros sitios{% endif %}">
+				<li><a class="site-footer__red" href="{{ site.youtube_url }}" target="_blank" rel="noopener noreferrer">{% include icono.html nombre="youtube" tam=14 %}YouTube</a></li>
+				<li><a class="site-footer__red" href="{{ site.tiktok_url }}" target="_blank" rel="noopener noreferrer">{% include icono.html nombre="tiktok" tam=14 %}TikTok</a></li>
+				<li><a class="site-footer__red" href="{{ site.google_play_url }}" target="_blank" rel="noopener noreferrer">{% include icono.html nombre="google-play" tam=14 %}Google Play</a></li>
+				<li><a class="site-footer__red" href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer">{% include icono.html nombre="linkedin" tam=14 %}LinkedIn</a></li>
+				<li><a class="site-footer__red" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">{% include icono.html nombre="github" tam=14 %}GitHub</a></li>
+			</ul>
 			<span>Con &#10084; y &#9749;</span>
 		</div>
 	</footer>

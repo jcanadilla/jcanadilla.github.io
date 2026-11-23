@@ -9,6 +9,7 @@ tags: JavaScript Typescript Destructuring PRO
 image: dos-pantallas-teclado.jpg
 main-image: dos-pantallas-teclado.jpg
 excerpt_separator: <!--more-->
+archivo: notas-tecnicas  # post técnico de antes del devlog: sale aparte, como «Archivo: notas técnicas»
 ---
 Si estás aquí para conocer la forma más elegante de extraer datos de un objeto o de un array muy atento porque te voy a presentar el **Destructuring**.
 

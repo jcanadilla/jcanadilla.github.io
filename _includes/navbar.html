@@ -11,10 +11,10 @@
 
 		<nav class="nav-menu js-nav-menu" id="nav-menu" aria-label="Principal">
 			<a class="nav-link" href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Inicio</a>
+			<a class="nav-link" href="{{ '/projects' | relative_url }}"{% if page.url contains '/projects' %} aria-current="page"{% endif %}>Juegos</a>
+			<a class="nav-link" href="{{ '/blog' | relative_url }}"{% if page.url contains '/blog' %} aria-current="page"{% endif %}>Devlog</a>
+			{% comment %}Sobre mí incluye la trayectoria, que se enlaza desde esa sección.{% endcomment %}
 			<a class="nav-link" href="{% if page.layout == 'home' %}#sobre-mi{% else %}{{ '/' | relative_url }}#sobre-mi{% endif %}">Sobre mí</a>
-			<a class="nav-link" href="{% if page.layout == 'home' %}#trayectoria{% else %}{{ '/' | relative_url }}#trayectoria{% endif %}">Trayectoria</a>
-			<a class="nav-link" href="{{ '/projects' | relative_url }}"{% if page.url contains '/projects' %} aria-current="page"{% endif %}>Proyectos</a>
-			<a class="nav-link" href="{{ '/blog' | relative_url }}"{% if page.url contains '/blog' %} aria-current="page"{% endif %}>Posts</a>
 		</nav>
 
 		<div class="nav-tools">
@@ -35,12 +35,6 @@
 					<span class="visually-hidden">Modo oscuro</span>
 				</button>
 			</div>
-
-			{% if page.layout == "home" %}
-			<a class="nav-cta" href="#contacto">Contacto</a>
-			{% else %}
-			<a class="nav-cta" href="mailto:{{ site.email }}?subject=%C2%A1Hola%20Javier!">Contacto</a>
-			{% endif %}
 
 			<button type="button" class="nav-burger js-nav-burger" aria-expanded="false" aria-controls="nav-menu">
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
