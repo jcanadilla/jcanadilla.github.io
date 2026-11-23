@@ -9,6 +9,7 @@ tags: JavaScript Typescript BigData IoT
 image: lodash-bluebird.png
 main-image: lodash-bluebird.png
 excerpt_separator: <!--more-->
+archivo: notas-tecnicas  # post técnico de antes del devlog: sale aparte, como «Archivo: notas técnicas»
 ---
 Hoy en día, con el pleno desarrollo de la inteligencia artificial, el big-data, IoT y la utilización de tantos dispositivos móviles en el mundo, la cantidad de datos que se generan es inmensa. Y, es por esto que también las aplicaciones están creciendo en la cantidad de información que controlan en proyectos que tengan que ver con estos ámbitos y con muchos otros.
 

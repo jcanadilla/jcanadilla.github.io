@@ -1,5 +1,5 @@
 ---
 layout: home
-title: "Javier Cañadilla - Desarrollador Backend"
-keywords: Desarrollo backend, backend, javascript, typescript, kubernetes, aws, software, programacion, programación, arquitecto software
+title: "Javier Cañadilla · Backend de día, puzles de noche"
+keywords: Javier Cañadilla, puzles, juegos para móvil, juegos con IA, devlog, Godot, Android, backend
 ---

@@ -68,18 +68,6 @@
 .nav-link:hover,
 .nav-link[aria-current="page"] { color: var(--text); }
 
-.nav-cta {
-	font-size: .8125rem;
-	font-weight: 600;
-	color: var(--btn-text);
-	background: var(--btn-bg);
-	padding: 9px 20px;
-	border-radius: var(--radius-sm);
-	white-space: nowrap;
-	transition: transform .18s ease;
-}
-.nav-cta:hover { color: var(--btn-text); transform: translateY(-1px); }
-
 // conmutador de modo
 .mode-toggle {
 	display: flex;
@@ -193,24 +181,6 @@
 	margin-bottom: 22px;
 }
 
-.hero__status {
-	font-family: var(--font-mono);
-	font-size: .8125rem;
-	color: var(--subtle);
-	display: flex;
-	align-items: center;
-	gap: 9px;
-}
-
-.status-dot {
-	width: 7px;
-	height: 7px;
-	border-radius: 50%;
-	background: var(--ok);
-	box-shadow: 0 0 10px var(--ok-glow);
-	flex-shrink: 0;
-}
-
 // ---------------------------------------------- tarjeta terminal
 //  Se queda oscura en los dos modos: un editor de código lo es,
 //  y sobre fondo claro funciona como objeto que flota.
@@ -271,6 +241,10 @@
 }
 .term__body .i1 { padding-left: 1.6em; }
 .term__body .i2 { padding-left: 3.2em; }
+// Si una línea no cabe, lo que pasa a la siguiente se alinea con su valor
+// (las claves de javier.ts ocupan 9 caracteres con su alineación).
+.term__body .cuelga { padding-left: calc(1.6em + 9ch); text-indent: -9ch; }
+.term__body .tk-str { white-space: nowrap; }
 
 .tk-com { color: #8890b5; }
 .tk-key { color: #d08bff; }
@@ -290,18 +264,6 @@
 }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-.term__foot {
-	padding: 11px 18px;
-	border-top: 1px solid rgba(255, 255, 255, .08);
-	background: rgba(255, 255, 255, .04);
-	display: flex;
-	align-items: center;
-	gap: 9px;
-	font-family: var(--font-mono);
-	font-size: .7rem;
-	color: #7fa3ff;
-}
-
 // ---------------------------------------------- franja de stack
 
 .stack-strip {
@@ -309,7 +271,25 @@
 	z-index: 1;
 	background: var(--strip-bg);
 	border-top: 1px solid var(--accent-border);
-	padding: 15px 0;
+	border-bottom: 1px solid var(--accent-border);
+	padding: 18px 0 15px;
+}
+
+.stack-strip__rotulo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 9px;
+	padding: 0 var(--gutter);
+	margin-bottom: 12px;
+	font-family: var(--font-mono);
+	font-size: .75rem;
+	color: var(--muted);
+	text-align: center;
+}
+.stack-strip__rotulo svg { color: var(--accent-on); flex-shrink: 0; }
+
+.stack-strip__marquesina {
 	overflow: hidden;
 	-webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 	mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -352,22 +332,7 @@
 .about__text { display: flex; flex-direction: column; gap: 18px; }
 .about__text p { font-size: 1rem; line-height: 1.78; color: var(--muted); }
 
-.about__social { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
-
-.social-btn {
-	display: inline-flex;
-	align-items: center;
-	gap: 9px;
-	border: 1px solid var(--accent-border);
-	background: var(--accent-soft);
-	color: var(--accent-on);
-	font-size: .8125rem;
-	font-weight: 600;
-	padding: 11px 18px;
-	border-radius: 9px;
-	transition: transform .18s ease, background-color .18s ease;
-}
-.social-btn:hover { color: var(--accent-on); transform: translateY(-2px); background: var(--accent-soft-strong); }
+.about__more { margin-top: 28px; }
 
 .profile-card {
 	background: var(--glass);
@@ -522,6 +487,20 @@
 }
 .study-card p { font-size: .85rem; line-height: 1.62; color: var(--muted); }
 
+// Estudios de antes de 2011, plegados.
+.studies__antes { display: flex; flex-direction: column; gap: 14px; }
+.studies__antes > summary {
+	cursor: pointer;
+	font-family: var(--font-mono);
+	font-size: .75rem;
+	font-weight: 600;
+	color: var(--accent-on);
+	padding: 4px 0;
+	width: max-content;
+}
+.studies__antes[open] > summary { margin-bottom: 14px; }
+.studies__antes .study-card + .study-card { margin-top: 14px; }
+
 // ---------------------------------------------- proyectos
 
 .cards {
@@ -564,6 +543,14 @@
 .card__title { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
 .card__desc { font-size: .9rem; line-height: 1.68; color: var(--muted); margin-bottom: 20px; }
 .card .chips { margin-top: auto; }
+
+// Tarjetas de «Así se ve el criterio»: solo texto, la frase manda.
+.card--criterio .card__desc {
+	font-size: 1rem;
+	line-height: 1.7;
+	color: var(--text);
+	margin-bottom: 0;
+}
 
 // Tarjeta con imagen: la imagen llega a los bordes de la tarjeta, arriba.
 // Los márgenes negativos son el mismo relleno de la tarjeta, por eso va en variables.
@@ -685,6 +672,18 @@
 }
 .post-card--all svg { color: var(--accent-on); }
 
+// Rótulo pequeño dentro de una sección (p. ej. «Archivo: notas técnicas»).
+.subhead {
+	font-family: var(--font-mono);
+	font-size: .75rem;
+	font-weight: 600;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: var(--subtle);
+	margin: 0 0 18px;
+}
+.cards + .subhead { margin-top: 46px; }
+
 .empty-note {
 	text-align: center;
 	color: var(--muted);
@@ -741,6 +740,35 @@
 }
 .cta__btn:hover { color: var(--brand-navy); transform: translateY(-2px); }
 
+.cta__redes {
+	list-style: none;
+	margin: 18px 0 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 12px;
+}
+.cta__red {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	border: 1px solid rgba(255, 255, 255, .32);
+	background: rgba(255, 255, 255, .06);
+	color: #fff;
+	font-size: .875rem;
+	font-weight: 600;
+	padding: 11px 20px;
+	border-radius: 10px;
+	transition: transform .18s ease, background-color .18s ease, border-color .18s ease;
+}
+.cta__red:hover {
+	color: #fff;
+	background: rgba(255, 255, 255, .14);
+	border-color: rgba(255, 255, 255, .55);
+	transform: translateY(-2px);
+}
+
 // ---------------------------------------------- pie
 
 .site-footer {
@@ -760,6 +788,23 @@
 }
 .site-footer__link { color: var(--subtle); text-decoration: underline; text-underline-offset: 3px; }
 .site-footer__link:hover { color: var(--accent-on); }
+
+.site-footer__redes {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px 18px;
+}
+.site-footer__red {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--subtle);
+}
+.site-footer__red:hover { color: var(--accent-on); }
 
 // ---------------------------------------------- volver arriba
 

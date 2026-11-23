@@ -13,14 +13,18 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Javier Cañadilla Casco
+title: Javier Cañadilla · Backend de día, puzles de noche
 email: jcanadillacasco@outlook.com
 description: > # this means to ignore newlines until "baseurl:"
-  Ingeniero de Software apasionado por la programación y enamorado de la tecnología. Arquitecto de software.
+  Ingeniero backend que hace puzles para móvil con IA. La IA lo construye todo; la idea, el sentido y las decisiones son míos.
+locale: es_ES  # og:locale por defecto; las páginas en inglés declaran el suyo (en_US)
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.javiercanadilla.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  jcanadilla
 linkedin_username: jcanadillacasco
+youtube_url: https://www.youtube.com/@javiercanadilla
+tiktok_url: https://www.tiktok.com/@javiercanadilla
+google_play_url: https://play.google.com/store/apps/dev?id=8351221985057785284  # página de desarrollador
 repository: jcanadilla/jcanadilla.github.io
 logo: /assets/images/brand/icon-512.png  # jekyll-seo-tag: logo en los datos estructurados
 

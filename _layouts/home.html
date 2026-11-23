@@ -3,41 +3,34 @@ layout: default
 ---
 
 <!-- ============================ Sobre mí ============================ -->
+{% assign stack = "Node.js,TypeScript,NestJS,Hapi.js,AWS,Kubernetes,Terraform,Helm,Jenkins,MQTT,Microservicios" | split: "," %}
 <section class="section section--alt" id="sobre-mi">
 	<div class="container about reveal">
 
 		<div>
 			<span class="eyebrow">// Sobre mí</span>
-			<h2>Me gusta trastear, desmontar sistemas y reconstruirlos mejor.</h2>
+			<h2>Backend de día, puzles de noche.</h2>
 
 			<div class="about__text" style="margin-top: 24px;">
 				<p>
-					Soy Ingeniero de Software y tengo un Máster Universitario en Informática Gráfica,
-					Juegos y Realidad Virtual, ambos por la Universidad Rey Juan Carlos de Madrid.
+					Estudié un máster en videojuegos y mi primer trabajo fue programar en Unity. Luego me
+					atrapó el backend: más de 10 años de APIs, microservicios y AWS. Hoy lidero el backend
+					de Gibobs, y ahí sigo, muy a gusto.
 				</p>
 				<p>
-					Me encanta programar y construir herramientas que faciliten la vida de las personas.
-					Paso el día entre APIs, contenedores y pipelines &mdash; y la noche probando lo
-					siguiente que quiero aprender.
+					Esos años me enseñaron sobre todo a decidir: qué se construye, cómo y qué se queda
+					fuera. Es justo lo que hago ahora en mis juegos. La IA ejecuta; yo pongo la idea, le
+					doy forma y digo que no muchas más veces que sí.
 				</p>
 			</div>
 
-			<div class="about__social">
-				<a class="social-btn" href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank"
-					rel="noreferrer noopener">
-					<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-						<path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z" />
-					</svg>
-					LinkedIn
-				</a>
-				<a class="social-btn" href="https://github.com/{{ site.github_username }}" target="_blank"
-					rel="noreferrer noopener">
-					<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-						<path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.5 0-.24-.01-.9-.01-1.76-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .28.18.6.69.5A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2z" />
-					</svg>
-					GitHub
-				</a>
-			</div>
+			<a class="link-arrow about__more" href="#trayectoria">
+				Mi trayectoria
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M12 5v14" /><path d="m19 12-7 7-7-7" />
+				</svg>
+			</a>
 		</div>
 
 		<div>
@@ -50,7 +43,7 @@ layout: default
 					</div>
 					<div class="profile-card__row">
 						<dt>rol</dt>
-						<dd>Backend Lead &amp; DevOps</dd>
+						<dd>Backend Lead en Gibobs &middot; juegos de noche</dd>
 					</div>
 					<div class="profile-card__row">
 						<dt>empresa</dt>
@@ -60,10 +53,6 @@ layout: default
 						<dt>ubicación</dt>
 						<dd>Madrid, España</dd>
 					</div>
-					<div class="profile-card__row">
-						<dt>email</dt>
-						<dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
-					</div>
 				</dl>
 			</div>
 		</div>
@@ -71,13 +60,165 @@ layout: default
 	</div>
 </section>
 
+<!-- El stack de backend: antes iba bajo la portada, ahora cierra «Sobre mí». -->
+<div class="stack-strip stack-strip--rotulo">
+	<p class="stack-strip__rotulo">
+		<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+			stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" />
+		</svg>
+		Más de 10 años construyendo backend en producción
+	</p>
+	<div class="stack-strip__marquesina" aria-hidden="true">
+		<div class="stack-strip__track">
+			{% for t in stack %}<span class="stack-strip__item">{{ t }}</span>{% endfor %}
+			{% for t in stack %}<span class="stack-strip__item">{{ t }}</span>{% endfor %}
+		</div>
+	</div>
+</div>
+
+<!-- ============================ Criterio ============================ -->
+{% comment %}
+	Una decisión por juego, sacada del post de decisiones del devlog; cada
+	tarjeta lleva a su apartado del post, no a la página del juego.
+{% endcomment %}
+{% capture decisiones %}{% post_url devlog/2026-11-23-decisiones-nubo-mewline-shadow-maze %}{% endcapture %}
+{% assign decisiones = decisiones | relative_url %}
+<section class="section" id="criterio">
+	<div class="container">
+
+		<div class="section__head section__head--split reveal">
+			<div>
+				<span class="eyebrow">// Criterio</span>
+				<h2>Así se ve el criterio.</h2>
+				<p>Una decisión de cada juego. El resto, con su porqué, en el devlog.</p>
+			</div>
+			<a class="link-arrow" href="{{ decisiones }}">
+				Todas las decisiones
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+				</svg>
+			</a>
+		</div>
+
+		<div class="cards cards--3 reveal">
+			<a class="card card--criterio" href="{{ decisiones }}#shadow-maze">
+				<div class="card__head">
+					<span class="card__num">Shadow Maze</span>
+					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M7 17 17 7" /><path d="M8 7h9v9" />
+					</svg>
+				</div>
+				<h3 class="card__title">La luz baja con el reloj, no con los pasos</h3>
+				<p class="card__desc">Pararte a mirar el laberinto cuesta lo mismo que recorrerlo. La luz no es una barra de vida: es el precio de cada segundo dentro.</p>
+			</a>
+			<a class="card card--criterio" href="{{ decisiones }}#nubo">
+				<div class="card__head">
+					<span class="card__num">NUBO</span>
+					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M7 17 17 7" /><path d="M8 7h9v9" />
+					</svg>
+				</div>
+				<h3 class="card__title">De 5.000 niveles a 72</h3>
+				<p class="card__desc">La máquina generó 5.000 niveles. Yo elegí los 72 que entraron y el orden en que la dificultad sube y da respiros.</p>
+			</a>
+			<a class="card card--criterio" href="{{ decisiones }}#mewline">
+				<div class="card__head">
+					<span class="card__num">Mewline</span>
+					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M7 17 17 7" /><path d="M8 7h9v9" />
+					</svg>
+				</div>
+				<h3 class="card__title">Ninguna forma de perder</h3>
+				<p class="card__desc">Si te equivocas, recoges el hilo y sigues. La tensión la ponen el reloj y las estrellas, nunca un castigo.</p>
+			</a>
+		</div>
+	</div>
+</section>
+
+<!-- ============================= Juegos ============================= -->
+<section class="section section--alt" id="proyectos">
+	<div class="container">
+
+		<div class="section__head section__head--split reveal">
+			<div>
+				<span class="eyebrow">// Proyectos</span>
+				<h2>Juegos</h2>
+				<p>Puzles para móvil, hechos con IA y con criterio.</p>
+			</div>
+			<a class="link-arrow" href="{{ '/projects' | relative_url }}">
+				Ver todos
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+				</svg>
+			</a>
+		</div>
+
+		<div class="cards reveal">
+			{% assign proyectos = site.projects | sort: 'inicio' | reverse %}
+			{% for project in proyectos limit: 4 %}
+			{% include tarjeta-proyecto.html proyecto=project num=forloop.index %}
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<!-- ============================= Devlog ============================= -->
+{% comment %}
+	Las entradas con «archivo: notas-tecnicas» son los posts técnicos de antes
+	del devlog: se muestran aparte para que no pasen por entradas del devlog.
+{% endcomment %}
+{% assign devlog = site.posts | where_exp: "p", "p.archivo != 'notas-tecnicas'" %}
+{% assign notas = site.posts | where_exp: "p", "p.archivo == 'notas-tecnicas'" %}
+<section class="section" id="posts">
+	<div class="container">
+
+		<div class="section__head reveal">
+			<span class="eyebrow">// Devlog</span>
+			<h2>Devlog: hecho con IA, decidido por mí</h2>
+			<p>Cómo hago mis juegos: las ideas, las decisiones y lo que descarto.</p>
+		</div>
+
+		{% if devlog.size > 0 %}
+		<div class="cards cards--3 reveal">
+			{% for post in devlog limit: 5 %}
+			{% include tarjeta-post.html post=post num=forloop.index0 %}
+			{% endfor %}
+		</div>
+		{% endif %}
+
+		{% if notas.size > 0 %}
+		<h3 class="subhead reveal">Archivo: notas técnicas</h3>
+		<div class="cards cards--3 reveal">
+			{% for post in notas limit: 2 %}
+			{% include tarjeta-post.html post=post num=forloop.index0 %}
+			{% endfor %}
+
+			<a class="post-card post-card--all" href="{{ '/blog' | relative_url }}">
+				<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+					<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
+				</svg>
+				Ver todo el devlog
+			</a>
+		</div>
+		{% endif %}
+	</div>
+</section>
+
 <!-- ========================== Trayectoria =========================== -->
-<section class="section section--line" id="trayectoria">
+<section class="section section--alt" id="trayectoria">
 	<div class="container">
 
 		<div class="section__head reveal">
 			<span class="eyebrow">// Trayectoria</span>
-			<h2>De Unity 3D a arquitecturas cloud.</h2>
+			<h2>De Unity 3D a la nube… y de vuelta</h2>
 		</div>
 
 		<div class="cv">
@@ -121,17 +262,34 @@ layout: default
 					Estudios
 				</div>
 
+				{% comment %}
+					Los estudios sin fechas (los de antes de 2011) van plegados,
+					para que la trayectoria no se alargue con lo menos relevante.
+				{% endcomment %}
+				{% assign estudios_fechados = site.data.studies | where_exp: "s", "s.initialDate" %}
+				{% assign estudios_antiguos = site.data.studies | where_exp: "s", "s.initialDate == nil" %}
 				<div class="studies">
-					{% for study in site.data.studies %}
+					{% for study in estudios_fechados %}
 					<article class="study-card">
-						{% if study.initialDate and study.finalDate %}
 						<div class="study-card__date">{{ study.initialDate }} &mdash; {{ study.finalDate }}</div>
-						{% endif %}
 						<h3>{{ study.title }}</h3>
 						<div class="study-card__org">{{ study.school }}</div>
 						{% if study.description %}<p>{{ study.description }}</p>{% endif %}
 					</article>
 					{% endfor %}
+
+					{% if estudios_antiguos.size > 0 %}
+					<details class="studies__antes">
+						<summary>Antes de 2011</summary>
+						{% for study in estudios_antiguos %}
+						<article class="study-card">
+							<h3>{{ study.title }}</h3>
+							<div class="study-card__org">{{ study.school }}</div>
+							{% if study.description %}<p>{{ study.description }}</p>{% endif %}
+						</article>
+						{% endfor %}
+					</details>
+					{% endif %}
 				</div>
 			</div>
 
@@ -139,80 +297,8 @@ layout: default
 	</div>
 </section>
 
-<!-- =========================== Proyectos ============================ -->
-<section class="section section--alt" id="proyectos">
-	<div class="container">
-
-		<div class="section__head section__head--split reveal">
-			<div>
-				<span class="eyebrow">// Proyectos</span>
-				<h2>Productos que he construido.</h2>
-			</div>
-			<a class="link-arrow" href="{{ '/projects' | relative_url }}">
-				Ver todos
-				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-				</svg>
-			</a>
-		</div>
-
-		<div class="cards reveal">
-			{% assign proyectos = site.projects | sort: 'inicio' | reverse %}
-			{% for project in proyectos limit: 4 %}
-			{% include tarjeta-proyecto.html proyecto=project num=forloop.index %}
-			{% endfor %}
-		</div>
-	</div>
-</section>
-
-<!-- ============================= Posts ============================== -->
-<section class="section" id="posts">
-	<div class="container">
-
-		<div class="section__head reveal">
-			<span class="eyebrow">// Blog</span>
-			<h2>Notas sobre lo que voy probando.</h2>
-			<p>Tecnologías nuevas, tutoriales y curiosidades. Adelante, como si estuvieras en tu casa.</p>
-		</div>
-
-		<div class="cards cards--3 reveal">
-			{% for post in site.posts limit: 5 %}
-			{% assign par = forloop.index0 | modulo: 2 %}
-			<a class="post-card" href="{{ post.url | relative_url }}">
-				<div class="post-card__thumb" aria-hidden="true">{% if par == 0 %}{ }{% else %}&lt;/&gt;{% endif %}</div>
-				<div class="post-card__body">
-					<span class="post-card__date">{{ post.date | date: "%d &middot; %m &middot; %Y" }}</span>
-					<h3 class="post-card__title">{{ post.title }}</h3>
-					<p class="post-card__excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 120 }}</p>
-					<span class="post-card__more">
-						Leer más
-						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-							stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-						</svg>
-					</span>
-				</div>
-			</a>
-			{% else %}
-			<p class="empty-note">Aún no he publicado ningún post. Pásate más adelante, que seguro que los publicaré.</p>
-			{% endfor %}
-
-			{% if site.posts.size > 0 %}
-			<a class="post-card post-card--all" href="{{ '/blog' | relative_url }}">
-				<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-					<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
-				</svg>
-				Ver todos los posts
-			</a>
-			{% endif %}
-		</div>
-	</div>
-</section>
-
-<!-- ============================ Contacto ============================ -->
+<!-- ============================= Cierre ============================= -->
+{% comment %}Se queda con id="contacto" para que sigan valiendo los enlaces antiguos.{% endcomment %}
 <section class="cta" id="contacto">
 	<svg class="cta__dots" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
 		<defs>
@@ -225,14 +311,34 @@ layout: default
 
 	<div class="container cta__inner">
 		<span class="eyebrow">// Contacto</span>
-		<h2>¿Hablamos de tu backend?</h2>
-		<p>Por si lo necesitas o lo estás buscando. Escríbeme y te contesto.</p>
-		<a class="cta__btn" href="mailto:{{ site.email }}?subject=%C2%A1Hola%20Javier!">
+		<h2>¿Juegas, escribes sobre juegos o haces los tuyos?</h2>
+		<p>Escríbeme o sígueme el desarrollo en YouTube y TikTok. Todos mis juegos, en Google Play.</p>
+		<a class="cta__btn" href="mailto:{{ site.email }}">
 			<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
 				stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 				<rect x="2" y="4" width="20" height="16" rx="2" /><path d="m2 7 10 6 10-6" />
 			</svg>
 			{{ site.email }}
 		</a>
+		<ul class="cta__redes" aria-label="Redes y tienda">
+			<li>
+				<a class="cta__red" href="{{ site.youtube_url }}" target="_blank" rel="noopener noreferrer">
+					{% include icono.html nombre="youtube" %}
+					YouTube
+				</a>
+			</li>
+			<li>
+				<a class="cta__red" href="{{ site.tiktok_url }}" target="_blank" rel="noopener noreferrer">
+					{% include icono.html nombre="tiktok" %}
+					TikTok
+				</a>
+			</li>
+			<li>
+				<a class="cta__red" href="{{ site.google_play_url }}" target="_blank" rel="noopener noreferrer">
+					{% include icono.html nombre="google-play" %}
+					Google Play
+				</a>
+			</li>
+		</ul>
 	</div>
 </section>

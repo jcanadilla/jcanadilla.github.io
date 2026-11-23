@@ -1,5 +1,3 @@
-{% assign stack = "Node.js,TypeScript,NestJS,Hapi.js,AWS,Kubernetes,Terraform,Helm,Jenkins,MQTT,Microservicios" | split: "," %}
-
 <header class="hero">
 
 	<svg class="hero__dots" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -15,36 +13,33 @@
 	<div class="container hero__grid">
 
 		<div class="hero__copy">
-			<span class="eyebrow">// Backend &middot; DevOps &middot; Madrid</span>
+			<span class="eyebrow">// Backend de día &middot; juegos de noche</span>
 
-			<h1 class="hero__title">Diseño el <em>backend</em> que sostiene el producto.</h1>
+			<h1 class="hero__title">La IA hace mis juegos. <em>Yo decido cuáles.</em></h1>
 
 			<p class="hero__lead">
-				Ingeniero de Software especializado en APIs REST, microservicios e infraestructura
-				sobre AWS. Ahora mismo lidero el backend de Gibobs allbanks.
+				Soy Javier, Backend Lead en Gibobs. Por las noches hago puzles tranquilos para móvil con IA:
+				arte, código, música, textos, todo. Lo que no delego es lo difícil: encontrar la idea, darle
+				forma, darle sentido y decidir. Aquí cuento cómo.
 			</p>
 
 			<div class="hero__actions">
-				<a class="btn btn--primary" href="{{ '/projects' | relative_url }}">
-					Ver proyectos
+				<a class="btn btn--primary" href="{{ '/projects/7-mewline' | relative_url }}#demo">
+					Prueba Mewline
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
 						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
 					</svg>
 				</a>
-				<a class="btn btn--ghost" href="mailto:{{ site.email }}?subject=%C2%A1Hola%20Javier!">
+				<a class="btn btn--ghost" href="{{ '/blog' | relative_url }}">
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
 						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<rect x="2" y="4" width="20" height="16" rx="2" /><path d="m2 7 10 6 10-6" />
+						<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+						<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
 					</svg>
-					Escríbeme
+					Lee el devlog
 				</a>
 			</div>
-
-			<p class="hero__status">
-				<span class="status-dot" aria-hidden="true"></span>
-				Backend Lead en Gibobs allbanks &mdash; Madrid, España
-			</p>
 		</div>
 
 		<div class="term">
@@ -58,40 +53,23 @@
 					<span class="term__lang">TypeScript</span>
 				</div>
 
+				{% comment %}
+					Los espacios de alineación van como &nbsp; para que no se colapsen.
+				{% endcomment %}
 				<div class="term__body">
-					<div><span class="tk-com">// perfil profesional</span></div>
 					<div><span class="tk-key">export const</span> javier = {</div>
-					<div class="i1"><span class="tk-prop">rol:</span> <span class="tk-str">"Ingeniero de Software"</span>,</div>
-					<div class="i1"><span class="tk-prop">base:</span> <span class="tk-str">"Madrid, España"</span>,</div>
-					<div class="i1"><span class="tk-prop">foco:</span> [<span class="tk-str">"APIs REST"</span>, <span class="tk-str">"microservicios"</span>],</div>
-					<div class="i1"><span class="tk-prop">stack:</span> {</div>
-					<div class="i2"><span class="tk-prop">core:</span> [<span class="tk-str">"Node.js"</span>, <span class="tk-str">"TypeScript"</span>],</div>
-					<div class="i2"><span class="tk-prop">cloud:</span> [<span class="tk-str">"AWS"</span>, <span class="tk-str">"Kubernetes"</span>, <span class="tk-str">"Terraform"</span>],</div>
-					<div class="i1">},</div>
-					<div class="i1"><span class="tk-prop">desde:</span> <span class="tk-num">2014</span>,</div>
+					<div class="i1 cuelga"><span class="tk-prop">deDia:</span>&nbsp;&nbsp; <span class="tk-str">"Backend Lead en Gibobs"</span>,</div>
+					<div class="i1 cuelga"><span class="tk-prop">deNoche:</span> <span class="tk-str">"puzles para móvil"</span>,</div>
+					<div class="i1 cuelga"><span class="tk-prop">laIA:</span>&nbsp;&nbsp;&nbsp; [<span class="tk-str">"arte"</span>, <span class="tk-str">"código"</span>, <span class="tk-str">"música"</span>, <span class="tk-str">"textos"</span>],</div>
+					<div class="i1 cuelga"><span class="tk-prop">yo:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<span class="tk-str">"la idea"</span>, <span class="tk-str">"la forma"</span>, <span class="tk-str">"el sentido"</span>, <span class="tk-str">"las decisiones"</span>],</div>
 					<div>} <span class="tk-key">satisfies</span> <span class="tk-type">Perfil</span>;</div>
 					<div>&nbsp;</div>
 					<div><span class="tk-ok">javier@madrid</span> ~ % <span class="term__caret" aria-hidden="true"></span></div>
 				</div>
 
-				<div class="term__foot">
-					<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2"
-						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" />
-					</svg>
-					<span>Más de 10 años construyendo backend en producción</span>
-				</div>
-
 			</div>
 		</div>
 
-	</div>
-
-	<div class="stack-strip" aria-hidden="true">
-		<div class="stack-strip__track">
-			{% for t in stack %}<span class="stack-strip__item">{{ t }}</span>{% endfor %}
-			{% for t in stack %}<span class="stack-strip__item">{{ t }}</span>{% endfor %}
-		</div>
 	</div>
 
 </header>

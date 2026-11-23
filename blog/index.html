@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Blog
-description: Notas sobre backend, infraestructura y tecnologías que voy probando.
+title: Devlog
+description: "Cómo hago mis juegos: las ideas, las decisiones y lo que descarto."
 ---
 
 <div class="page-head">
 	<div class="container page-head__inner">
-		<span class="eyebrow">// Blog</span>
-		<h1>Notas sobre lo que voy probando.</h1>
+		<span class="eyebrow">// Devlog</span>
+		<h1>Devlog: hecho con IA, decidido por mí</h1>
 		<p class="page-head__lead">
-			Tecnologías nuevas, tutoriales y curiosidades. Adelante, como si estuvieras en tu casa.
+			Cómo hago mis juegos: las ideas, las decisiones y lo que descarto.
 		</p>
 	</div>
 </div>
@@ -17,8 +17,16 @@ description: Notas sobre backend, infraestructura y tecnologías que voy proband
 <div class="section">
 	<div class="container article__inner">
 
+		{% comment %}
+			Las entradas con «archivo: notas-tecnicas» son los posts técnicos de antes
+			del devlog: van debajo, con su propio rótulo.
+		{% endcomment %}
+		{% assign devlog = paginator.posts | where_exp: "p", "p.archivo != 'notas-tecnicas'" %}
+		{% assign notas = paginator.posts | where_exp: "p", "p.archivo == 'notas-tecnicas'" %}
+
+		{% if devlog.size > 0 %}
 		<div class="post-list">
-			{% for post in paginator.posts %}
+			{% for post in devlog %}
 			<article class="post-row">
 				<div class="post-row__date">{{ post.date | date: "%d.%m.%Y" }}</div>
 				<div>
@@ -35,10 +43,37 @@ description: Notas sobre backend, infraestructura y tecnologías que voy proband
 					</a>
 				</div>
 			</article>
-			{% else %}
-			<p class="empty-note">Aún no he publicado ningún post. Pásate más adelante, que seguro que los publicaré.</p>
 			{% endfor %}
 		</div>
+		{% endif %}
+
+		{% if notas.size > 0 %}
+		<h2 class="subhead">Archivo: notas técnicas</h2>
+		<div class="post-list">
+			{% for post in notas %}
+			<article class="post-row">
+				<div class="post-row__date">{{ post.date | date: "%d.%m.%Y" }}</div>
+				<div>
+					<h2 class="post-row__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+					<p class="post-row__excerpt">
+						{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 220 }}
+					</p>
+					<a class="link-arrow" href="{{ post.url | relative_url }}">
+						Leer más
+						<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+							stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+						</svg>
+					</a>
+				</div>
+			</article>
+			{% endfor %}
+		</div>
+		{% endif %}
+
+		{% if paginator.posts.size == 0 %}
+		<p class="empty-note">Aún no he publicado ningún post. Pásate más adelante, que seguro que los publicaré.</p>
+		{% endif %}
 
 		{% if paginator.total_pages > 1 %}
 		<nav class="pager" aria-label="Paginación">

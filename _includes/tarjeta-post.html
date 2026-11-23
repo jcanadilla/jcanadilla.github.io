@@ -1,0 +1,20 @@
+{% comment %}
+	Tarjeta de un post en la portada. Parámetros: post y num (su posición,
+	que alterna el dibujo de la cabecera).
+{% endcomment %}
+{% assign par = include.num | modulo: 2 %}
+<a class="post-card" href="{{ include.post.url | relative_url }}">
+	<div class="post-card__thumb" aria-hidden="true">{% if par == 0 %}{ }{% else %}&lt;/&gt;{% endif %}</div>
+	<div class="post-card__body">
+		<span class="post-card__date">{{ include.post.date | date: "%d &middot; %m &middot; %Y" }}</span>
+		<h3 class="post-card__title">{{ include.post.title }}</h3>
+		<p class="post-card__excerpt">{{ include.post.excerpt | strip_html | strip_newlines | truncate: 120 }}</p>
+		<span class="post-card__more">
+			Leer más
+			<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+				stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+			</svg>
+		</span>
+	</div>
+</a>

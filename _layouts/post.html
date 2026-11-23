@@ -4,7 +4,7 @@ layout: default
 
 <div class="page-head page-head--center">
 	<div class="container page-head__inner">
-		<span class="eyebrow">// Blog</span>
+		<span class="eyebrow">{% if page.archivo == "notas-tecnicas" %}// Archivo &middot; Notas técnicas{% else %}// Devlog{% endif %}</span>
 		<h1>{{ page.title }}</h1>
 		{% if page.description %}<p class="page-head__lead">{{ page.description }}</p>{% endif %}
 		<div class="page-head__meta">
