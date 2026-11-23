@@ -78,48 +78,63 @@ layout: default
 </div>
 
 <!-- ============================ Criterio ============================ -->
+{% comment %}
+	Una decisión por juego, sacada del post de decisiones del devlog; cada
+	tarjeta lleva a su apartado del post, no a la página del juego.
+{% endcomment %}
+{% capture decisiones %}{% post_url devlog/2026-11-23-decisiones-nubo-mewline-shadow-maze %}{% endcapture %}
+{% assign decisiones = decisiones | relative_url %}
 <section class="section" id="criterio">
 	<div class="container">
 
-		<div class="section__head reveal">
-			<span class="eyebrow">// Criterio</span>
-			<h2>Así se ve el criterio.</h2>
+		<div class="section__head section__head--split reveal">
+			<div>
+				<span class="eyebrow">// Criterio</span>
+				<h2>Así se ve el criterio.</h2>
+				<p>Una decisión de cada juego. El resto, con su porqué, en el devlog.</p>
+			</div>
+			<a class="link-arrow" href="{{ decisiones }}">
+				Todas las decisiones
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+					stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+				</svg>
+			</a>
 		</div>
 
-		{% comment %}Tres decisiones, una por juego. Cada tarjeta lleva a su página.{% endcomment %}
 		<div class="cards cards--3 reveal">
-			<a class="card card--criterio" href="{{ '/projects/6-nubo' | relative_url }}">
+			<a class="card card--criterio" href="{{ decisiones }}#shadow-maze">
 				<div class="card__head">
-					<span class="card__num">01</span>
+					<span class="card__num">Shadow Maze</span>
 					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
 						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<path d="M7 17 17 7" /><path d="M8 7h9v9" />
 					</svg>
 				</div>
-				<h3 class="card__title">NUBO</h3>
-				<p class="card__desc">La máquina generó 5.000 niveles. Yo elegí los 72 que entraron, el orden en que la dificultad sube y da respiros, y muchas otras cosas que tuve que decidir.</p>
+				<h3 class="card__title">La luz baja con el reloj, no con los pasos</h3>
+				<p class="card__desc">Pararte a mirar el laberinto cuesta lo mismo que recorrerlo. La luz no es una barra de vida: es el precio de cada segundo dentro.</p>
 			</a>
-			<a class="card card--criterio" href="{{ '/projects/7-mewline' | relative_url }}">
+			<a class="card card--criterio" href="{{ decisiones }}#nubo">
 				<div class="card__head">
-					<span class="card__num">02</span>
+					<span class="card__num">NUBO</span>
 					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
 						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<path d="M7 17 17 7" /><path d="M8 7h9v9" />
 					</svg>
 				</div>
-				<h3 class="card__title">Mewline</h3>
-				<p class="card__desc">Un hilo de lana, una gata torpe y ninguna forma de perder. Cada una de esas cosas fue una decisión.</p>
+				<h3 class="card__title">De 5.000 niveles a 72</h3>
+				<p class="card__desc">La máquina generó 5.000 niveles. Yo elegí los 72 que entraron y el orden en que la dificultad sube y da respiros.</p>
 			</a>
-			<a class="card card--criterio" href="{{ '/projects/8-cuerda' | relative_url }}">
+			<a class="card card--criterio" href="{{ decisiones }}#mewline">
 				<div class="card__head">
-					<span class="card__num">03</span>
+					<span class="card__num">Mewline</span>
 					<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
 						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<path d="M7 17 17 7" /><path d="M8 7h9v9" />
 					</svg>
 				</div>
-				<h3 class="card__title">Cuerda</h3>
-				<p class="card__desc">Después de dos puzles tranquilos, otro ritmo. Cambiar también es decidir.</p>
+				<h3 class="card__title">Ninguna forma de perder</h3>
+				<p class="card__desc">Si te equivocas, recoges el hilo y sigues. La tensión la ponen el reloj y las estrellas, nunca un castigo.</p>
 			</a>
 		</div>
 	</div>
