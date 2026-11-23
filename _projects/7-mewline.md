@@ -33,8 +33,16 @@ Como NUBO, está hecho con **Godot 4.7** y GDScript, en vertical y para Android.
 
 <div class="game-download mw-lanzamiento">
 	<img class="mw-lanzamiento__mascota" src="{{ mw }}mango-ovillo.webp" alt="" width="180" height="224" loading="lazy">
-	<span class="eyebrow">// Android</span>
-	<h2>Próximamente en Google Play</h2>
+	<span class="eyebrow">// Disponible en Android</span>
+	<h2>Mewline ya está en Google Play</h2>
+	<div class="game-download__actions">
+		<a class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.javiercanadilla.mewline" target="_blank" rel="noopener noreferrer">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4" />
+			</svg>
+			Descargar en Google Play
+		</a>
+	</div>
 	<p class="game-download__note">Gratis · Sin anuncios forzados · Sin conexión · Español e inglés</p>
 </div>
 
@@ -135,7 +143,7 @@ En la cocina hay un nivel que me gusta especialmente. Es un 5×5 con solo **cinc
 
 Aquí lo tienes, con las reglas, los mensajes y el arte del juego:
 
-<div class="demo mw-demo js-demo-mewline" data-arte="{{ mw }}demo/">
+<div class="demo mw-demo js-demo-mewline" id="demo" data-arte="{{ mw }}demo/">
 	<div class="demo__cabecera">
 		<span class="eyebrow">// Demo jugable</span>
 		<h3 class="demo__titulo">Nivel 44 · La cocina</h3>
@@ -320,8 +328,8 @@ Treinta segundos para verlo en movimiento. Lo graba el propio juego: el Movie Ma
 </div>
 
 <div class="game-download nubo-cierre">
-	<span class="eyebrow">// Muy pronto</span>
+	<span class="eyebrow">// Disponible en Android</span>
 	<h2>Mango ya tiene el ovillo preparado</h2>
-	<p>Mewline llegará muy pronto a Google Play.</p>
+	<p>Ya puedes <a href="https://play.google.com/store/apps/details?id=com.javiercanadilla.mewline" target="_blank" rel="noopener noreferrer">descargar Mewline en Google Play</a>.</p>
 	<p class="game-download__note">¿Dudas sobre tus datos, los anuncios o las compras? Están explicadas en la <a href="{{ '/privacidad/' | relative_url }}">política de privacidad</a>.</p>
 </div>
